@@ -1,0 +1,74 @@
+C:\College Project\siKecil\obj\Debug\siKecil.csproj.AssemblyReference.cache
+C:\College Project\siKecil\obj\Debug\LoginView.g.cs
+C:\College Project\siKecil\obj\Debug\MainWindow.g.cs
+C:\College Project\siKecil\obj\Debug\ProfileView.g.cs
+C:\College Project\siKecil\obj\Debug\SignupView.g.cs
+C:\College Project\siKecil\obj\Debug\App.g.cs
+C:\College Project\siKecil\obj\Debug\siKecil_MarkupCompile.cache
+C:\College Project\siKecil\obj\Debug\siKecil_MarkupCompile.lref
+C:\College Project\siKecil\bin\Debug\siKecil.exe.config
+C:\College Project\siKecil\bin\Debug\siKecil.exe
+C:\College Project\siKecil\bin\Debug\siKecil.pdb
+C:\College Project\siKecil\bin\Debug\Newtonsoft.Json.dll
+C:\College Project\siKecil\bin\Debug\Newtonsoft.Json.xml
+C:\College Project\siKecil\obj\Debug\LoginView.baml
+C:\College Project\siKecil\obj\Debug\MainWindow.baml
+C:\College Project\siKecil\obj\Debug\ProfileView.baml
+C:\College Project\siKecil\obj\Debug\SignupView.baml
+C:\College Project\siKecil\obj\Debug\siKecil.g.resources
+C:\College Project\siKecil\obj\Debug\siKecil.Properties.Resources.resources
+C:\College Project\siKecil\obj\Debug\siKecil.csproj.GenerateResource.cache
+C:\College Project\siKecil\obj\Debug\siKecil.csproj.CoreCompileInputs.cache
+C:\College Project\siKecil\obj\Debug\siKecil.csproj.CopyComplete
+C:\College Project\siKecil\obj\Debug\siKecil.exe
+C:\College Project\siKecil\obj\Debug\siKecil.pdb
+C:\Users\Ekadukasi\Downloads\siKecil-main\siKecil-main\bin\Debug\siKecil.exe.config
+C:\Users\Ekadukasi\Downloads\siKecil-main\siKecil-main\bin\Debug\siKecil.exe
+C:\Users\Ekadukasi\Downloads\siKecil-main\siKecil-main\bin\Debug\siKecil.pdb
+C:\Users\Ekadukasi\Downloads\siKecil-main\siKecil-main\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Ekadukasi\Downloads\siKecil-main\siKecil-main\bin\Debug\Newtonsoft.Json.xml
+C:\Users\Ekadukasi\Downloads\siKecil-main\siKecil-main\obj\Debug\siKecil.csproj.AssemblyReference.cache
+C:\Users\Ekadukasi\Downloads\siKecil-main\siKecil-main\obj\Debug\LoginView.g.cs
+C:\Users\Ekadukasi\Downloads\siKecil-main\siKecil-main\obj\Debug\MainWindow.g.cs
+C:\Users\Ekadukasi\Downloads\siKecil-main\siKecil-main\obj\Debug\ProfileView.g.cs
+C:\Users\Ekadukasi\Downloads\siKecil-main\siKecil-main\obj\Debug\SignupView.g.cs
+C:\Users\Ekadukasi\Downloads\siKecil-main\siKecil-main\obj\Debug\App.g.cs
+C:\Users\Ekadukasi\Downloads\siKecil-main\siKecil-main\obj\Debug\siKecil_MarkupCompile.cache
+C:\Users\Ekadukasi\Downloads\siKecil-main\siKecil-main\obj\Debug\siKecil_MarkupCompile.lref
+C:\Users\Ekadukasi\Downloads\siKecil-main\siKecil-main\obj\Debug\LoginView.baml
+C:\Users\Ekadukasi\Downloads\siKecil-main\siKecil-main\obj\Debug\MainWindow.baml
+C:\Users\Ekadukasi\Downloads\siKecil-main\siKecil-main\obj\Debug\ProfileView.baml
+C:\Users\Ekadukasi\Downloads\siKecil-main\siKecil-main\obj\Debug\SignupView.baml
+C:\Users\Ekadukasi\Downloads\siKecil-main\siKecil-main\obj\Debug\siKecil.g.resources
+C:\Users\Ekadukasi\Downloads\siKecil-main\siKecil-main\obj\Debug\siKecil.Properties.Resources.resources
+C:\Users\Ekadukasi\Downloads\siKecil-main\siKecil-main\obj\Debug\siKecil.csproj.GenerateResource.cache
+C:\Users\Ekadukasi\Downloads\siKecil-main\siKecil-main\obj\Debug\siKecil.csproj.CoreCompileInputs.cache
+C:\Users\Ekadukasi\Downloads\siKecil-main\siKecil-main\obj\Debug\siKecil.csproj.CopyComplete
+C:\Users\Ekadukasi\Downloads\siKecil-main\siKecil-main\obj\Debug\siKecil.exe
+C:\Users\Ekadukasi\Downloads\siKecil-main\siKecil-main\obj\Debug\siKecil.pdb
+C:\Users\MSI Modern 14\Downloads\siKecil-main\siKecil-main\bin\Debug\siKecil.exe.config
+C:\Users\MSI Modern 14\Downloads\siKecil-main\siKecil-main\bin\Debug\siKecil.exe
+C:\Users\MSI Modern 14\Downloads\siKecil-main\siKecil-main\bin\Debug\siKecil.pdb
+C:\Users\MSI Modern 14\Downloads\siKecil-main\siKecil-main\bin\Debug\Newtonsoft.Json.dll
+C:\Users\MSI Modern 14\Downloads\siKecil-main\siKecil-main\bin\Debug\Newtonsoft.Json.xml
+C:\Users\MSI Modern 14\Downloads\siKecil-main\siKecil-main\obj\Debug\siKecil.csproj.AssemblyReference.cache
+C:\Users\MSI Modern 14\Downloads\siKecil-main\siKecil-main\obj\Debug\LoginView.g.cs
+C:\Users\MSI Modern 14\Downloads\siKecil-main\siKecil-main\obj\Debug\MainWindow.g.cs
+C:\Users\MSI Modern 14\Downloads\siKecil-main\siKecil-main\obj\Debug\ProfileView.g.cs
+C:\Users\MSI Modern 14\Downloads\siKecil-main\siKecil-main\obj\Debug\SignupView.g.cs
+C:\Users\MSI Modern 14\Downloads\siKecil-main\siKecil-main\obj\Debug\App.g.cs
+C:\Users\MSI Modern 14\Downloads\siKecil-main\siKecil-main\obj\Debug\siKecil_MarkupCompile.cache
+C:\Users\MSI Modern 14\Downloads\siKecil-main\siKecil-main\obj\Debug\siKecil_MarkupCompile.lref
+C:\Users\MSI Modern 14\Downloads\siKecil-main\siKecil-main\obj\Debug\LoginView.baml
+C:\Users\MSI Modern 14\Downloads\siKecil-main\siKecil-main\obj\Debug\MainWindow.baml
+C:\Users\MSI Modern 14\Downloads\siKecil-main\siKecil-main\obj\Debug\ProfileView.baml
+C:\Users\MSI Modern 14\Downloads\siKecil-main\siKecil-main\obj\Debug\SignupView.baml
+C:\Users\MSI Modern 14\Downloads\siKecil-main\siKecil-main\obj\Debug\siKecil.g.resources
+C:\Users\MSI Modern 14\Downloads\siKecil-main\siKecil-main\obj\Debug\siKecil.Properties.Resources.resources
+C:\Users\MSI Modern 14\Downloads\siKecil-main\siKecil-main\obj\Debug\siKecil.csproj.GenerateResource.cache
+C:\Users\MSI Modern 14\Downloads\siKecil-main\siKecil-main\obj\Debug\siKecil.csproj.CoreCompileInputs.cache
+C:\Users\MSI Modern 14\Downloads\siKecil-main\siKecil-main\obj\Debug\siKecil.csproj.CopyComplete
+C:\Users\MSI Modern 14\Downloads\siKecil-main\siKecil-main\obj\Debug\siKecil.exe
+C:\Users\MSI Modern 14\Downloads\siKecil-main\siKecil-main\obj\Debug\siKecil.pdb
+C:\Users\MSI Modern 14\Downloads\siKecil-main\siKecil-main\obj\Debug\RiwayatMedisView.baml
+C:\Users\MSI Modern 14\Downloads\siKecil-main\siKecil-main\obj\Debug\RiwayatMedisView.g.cs
