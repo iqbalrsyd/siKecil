@@ -1,0 +1,19 @@
+﻿<Window x:Class="siKecil.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:siKecil"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="700" Width="1200"
+        WindowStyle="None" WindowState="Maximized">
+    <Grid>
+        <StackPanel>
+            <TextBlock x:Name="greetingText" HorizontalAlignment="Center" Margin="0,200,0,0" VerticalAlignment="Top" FontSize="30"/>
+            <Button x:Name="ButtonProfile" Content="Profil" HorizontalAlignment="Left" Margin="40,100,0,0" VerticalAlignment="Top" Click="ToProfileView" Height="75" Width="115"/>
+            <Button x:Name="ButtonRiwayat" Content="Riwayat" HorizontalAlignment="Left" Margin="40,30,0,0" VerticalAlignment="Top" Click="ToRiwayatMedisView" Height="75" Width="115"/>
+        </StackPanel>
+    </Grid>
+</Window>
+    
+
