@@ -1,5 +1,6 @@
 ﻿using System.Data.SqlClient;
 using System.Windows;
+using System.Windows.Navigation;
 
 namespace siKecil
 {
@@ -58,6 +59,13 @@ namespace siKecil
         {
             ChatView chat = new ChatView();
             chat.Show();
+            this.Close();
+        }
+
+        private void ToCatatanTumbuhAnak(object sender, RoutedEventArgs e)
+        {
+            CatatTumbuhAnak Catatan = new CatatTumbuhAnak(User_ID);
+            Catatan.Show();
             this.Close();
         }
     }
