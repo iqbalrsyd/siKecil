@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-C:\Users\MSI Modern 14\Downloads\siKecil-main\siKecil-main\obj\Debug\
+C:\Users\Ekadukasi\source\repos\siKecil\obj\Debug\
 siKecil
 none
 false
 DEBUG;TRACE
-C:\Users\MSI Modern 14\Downloads\siKecil-main\siKecil-main\App.xaml
-51225627400
+C:\Users\Ekadukasi\source\repos\siKecil\App.xaml
+7-271271871
 
-131839122915
-14375385367
-LoginView.xaml;MainWindow.xaml;ProfileView.xaml;RiwayatMedisView.xaml;SignupView.xaml;
+151512105286
+14872210519
+CatatanTumbuhAnak.xaml;CatatTumbuhAnak.xaml;LoginView.xaml;MainWindow.xaml;ProfileView.xaml;RiwayatMedisView.xaml;SignupView.xaml;
 
-False
+True
 

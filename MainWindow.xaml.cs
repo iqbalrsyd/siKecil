@@ -1,5 +1,6 @@
 ﻿using System.Data.SqlClient;
 using System.Windows;
+using System.Windows.Navigation;
 
 namespace siKecil
 {
@@ -51,6 +52,13 @@ namespace siKecil
         {
             RiwayatMedisView Riwayat= new RiwayatMedisView(User_ID);
             Riwayat.Show();
+            this.Close();
+        }
+
+        private void ToCatatanTumbuhAnak(object sender, RoutedEventArgs e)
+        {
+            CatatTumbuhAnak Catatan = new CatatTumbuhAnak(User_ID);
+            Catatan.Show();
             this.Close();
         }
     }
