@@ -12,10 +12,9 @@ namespace siKecil
     public partial class LoginView : Window
     {
         private string User_ID;
-        public LoginView(string User_ID)
+        public LoginView()
         {
             InitializeComponent();
-            this.User_ID = User_ID;
         }
 
         private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
@@ -79,7 +78,7 @@ namespace siKecil
 
         private void Signup_Click(object sender, RoutedEventArgs e)
         {
-            SignupView form = new SignupView();
+            SignupView form = new SignupView(User_ID);
             form.Show();
             this.Close();
         }

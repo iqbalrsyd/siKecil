@@ -74,3 +74,5 @@ C:\Users\MSI Modern 14\Downloads\siKecil-main\siKecil-main\obj\Debug\RiwayatMedi
 C:\Users\MSI Modern 14\Downloads\siKecil-main\siKecil-main\obj\Debug\RiwayatMedisView.g.cs
 C:\College Project\siKecil\obj\Debug\RiwayatMedisView.baml
 C:\College Project\siKecil\obj\Debug\RiwayatMedisView.g.cs
+C:\College Project\siKecil\obj\Debug\ChatView.g.cs
+C:\College Project\siKecil\obj\Debug\ChatView.baml

@@ -53,5 +53,12 @@ namespace siKecil
             Riwayat.Show();
             this.Close();
         }
+
+        private void ToChatView(object sender, RoutedEventArgs e)
+        {
+            ChatView chat = new ChatView();
+            chat.Show();
+            this.Close();
+        }
     }
 }

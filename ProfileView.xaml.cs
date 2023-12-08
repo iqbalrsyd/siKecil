@@ -17,7 +17,7 @@ namespace siKecil
     public partial class ProfileView : Window
     {
         private readonly string User_ID;
-        Connection connectionHelper = new Connection();
+        private LocationData selectedLocation = new LocationData();
 
         public ProfileView(string User_ID)
         {
@@ -26,13 +26,9 @@ namespace siKecil
             LoadProvincesAsync();
         }
 
-        private void NamaTextBox_TextChanged(object sender, TextChangedEventArgs e)
-        {
-
-        }
-
         private void EditProfileButton(object sender, RoutedEventArgs e)
         {
+            Connection connectionHelper = new Connection();
             using (SqlConnection sqlCon = connectionHelper.GetConn())
             {
                 sqlCon.Open();
@@ -44,8 +40,8 @@ namespace siKecil
                         string updateQuery = "UPDATE Users SET EmailAddress = @EmailAddress, Password = @Password, FirstName=@FirstName, LastName=@LastName WHERE User_ID = @User_ID";
                         using (SqlCommand cmd1 = new SqlCommand(updateQuery, sqlCon, transaction))
                         {
-                            cmd1.Parameters.AddWithValue("@EmailAddress", txtEditEmailAddress.Text);
-                            cmd1.Parameters.AddWithValue("@Password", txtEditPassword.Password);
+                            cmd1.Parameters.AddWithValue("@EmailAddress", string.IsNullOrEmpty(txtEditEmailAddress.Text) ? null : txtEditEmailAddress.Text);
+                            cmd1.Parameters.AddWithValue("@Password", string.IsNullOrEmpty(txtEditPassword.Password) ? null : txtEditPassword.Password);
                             cmd1.Parameters.AddWithValue("@FirstName", txtEditFirstName.Text);
                             cmd1.Parameters.AddWithValue("@LastName", txtEditLastName.Text);
                             cmd1.Parameters.AddWithValue("@User_ID", User_ID);
@@ -351,10 +347,27 @@ namespace siKecil
                             string jsonContent = await response.Content.ReadAsStringAsync();
                             var villages = JsonConvert.DeserializeObject<List<Village>>(jsonContent);
                             KelurahanComboBox.ItemsSource = villages;
+                            selectedLocation.Village = selectedVillage.Name;
                         }
                         else
                         {
                             MessageBox.Show($"Failed to retrieve villages. Status code: {response.StatusCode}");
+                        }
+
+                        if (selectedVillage != null)
+                        {
+                            // Mendapatkan data yang dipilih dari ComboBox
+                            selectedLocation.Province = ProvinsiComboBox.SelectedValue.ToString();
+                            selectedLocation.Regency = KabKotaComboBox.SelectedValue.ToString();
+                            selectedLocation.District = KecamatanComboBox.SelectedValue.ToString();
+                            selectedLocation.Village = selectedVillage.Name;
+
+                            // Memanggil metode untuk mengganti isi txtEditAlamat.Text
+                            UpdateAddressText();
+                        }
+                        else
+                        {
+                            MessageBox.Show("Please select a village first.");
                         }
                     }
                 }
@@ -368,9 +381,15 @@ namespace siKecil
                 MessageBox.Show($"An error occurred: {ex.Message}");
             }
         }
+        private void UpdateAddressText()
+        {
+            // Anda dapat mengganti logika ini sesuai kebutuhan
+            txtEditAlamat.Text = $"{selectedLocation.Village}, {selectedLocation.District}, {selectedLocation.Regency}, {selectedLocation.Province}";
+        }
 
         private BitmapImage GetImageFromDatabase()
         {
+            Connection connectionHelper = new Connection();
             using (SqlConnection sqlCon = connectionHelper.GetConn())
             {
                 sqlCon.Open();
@@ -414,6 +433,7 @@ namespace siKecil
 
         private void SaveImageToDatabase(byte[] imageData)
         {
+            Connection connectionHelper = new Connection();
             using (SqlConnection sqlCon = connectionHelper.GetConn())
             {
                 sqlCon.Open();
@@ -441,7 +461,13 @@ namespace siKecil
         }
     }
 }
-
+public class LocationData
+{
+    public string Province { get; set; }
+    public string Regency { get; set; }
+    public string District { get; set; }
+    public string Village { get; set; }
+}
 public class Province
 {
     public string Id { get; set; }

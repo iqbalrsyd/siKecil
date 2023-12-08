@@ -13,7 +13,7 @@
         <Rectangle HorizontalAlignment="Left" Height="275" Margin="669,289,0,0" Stroke="Black" VerticalAlignment="Top" Width="476" RadiusX="10" RadiusY="10" StrokeThickness="0.5" Grid.ColumnSpan="2"/>
 
         <Image x:Name="ProfileImage" HorizontalAlignment="Left" Height="100" Margin="255,152,0,0" VerticalAlignment="Top" Width="100"/>
-        <Label Content="Namabinding" HorizontalAlignment="Left" Margin="433,165,0,0" VerticalAlignment="Top" Width="97"/>
+        <Label Content="Nama" HorizontalAlignment="Left" Margin="433,165,0,0" VerticalAlignment="Top" Width="97"/>
         <Label Content="Email" HorizontalAlignment="Left" Margin="433,196,0,0" VerticalAlignment="Top" Width="72"/>
         <Label Content="Password" HorizontalAlignment="Left" Margin="433,229,0,0" VerticalAlignment="Top" Width="72"/>
         <Label Content="Profil Orang Tua" HorizontalAlignment="Left" Margin="223,302,0,0" VerticalAlignment="Top" Width="388" HorizontalContentAlignment="Center" FontSize="22" FontFamily="Sitka Small"/>
@@ -25,10 +25,10 @@
         <Label Content="Alamat" HorizontalAlignment="Left" Margin="195,448,0,0" VerticalAlignment="Top" Width="56"/>
         <Label Content="Nomor Telepon" HorizontalAlignment="Left" Margin="195,477,0,0" VerticalAlignment="Top" Width="95"/>
         <Label Content="Hubungan Dengan Anak" HorizontalAlignment="Left" Margin="195,508,0,0" VerticalAlignment="Top" Width="161"/>
-        <Label Content="Nama" HorizontalAlignment="Left" Margin="685,364,0,0" VerticalAlignment="Top" Width="56" Grid.ColumnSpan="2"/>
+        <Label Content="Nama Anak" HorizontalAlignment="Left" Margin="685,364,0,0" VerticalAlignment="Top" Width="80"/>
         <Label Content="Tanggal Lahir" HorizontalAlignment="Left" Margin="685,435,0,0" VerticalAlignment="Top" Width="80" Grid.ColumnSpan="2"/>
         <Label Content="Jenis Kelamin" HorizontalAlignment="Left" Margin="685,469,0,0" VerticalAlignment="Top" Width="80" Grid.ColumnSpan="2"/>
-        <Label Content="Nama" HorizontalAlignment="Left" Margin="685,399,0,0" VerticalAlignment="Top" Width="56" Grid.ColumnSpan="2"/>
+        <Label Content="Nama Panggilan" HorizontalAlignment="Left" Margin="685,401,0,0" VerticalAlignment="Top" Width="98"/>
         <Button Content="Dashboard" HorizontalAlignment="Left" Margin="45,38,0,0" VerticalAlignment="Top" Height="61" Width="85" Click="ToDashboard_Click"/>
 
         <TextBox x:Name="txtEditEmailAddress" HorizontalAlignment="Left" Margin="526,200,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="299" Height="23" Grid.ColumnSpan="2"/>

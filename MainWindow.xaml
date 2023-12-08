@@ -8,10 +8,11 @@
         Title="MainWindow" Height="700" Width="1200"
         WindowStyle="None" WindowState="Maximized">
     <Grid>
-        <StackPanel>
+        <StackPanel Margin="0,0,1085,0">
             <TextBlock x:Name="greetingText" HorizontalAlignment="Center" Margin="0,200,0,0" VerticalAlignment="Top" FontSize="30"/>
-            <Button x:Name="ButtonProfile" Content="Profil" HorizontalAlignment="Left" Margin="40,100,0,0" VerticalAlignment="Top" Click="ToProfileView" Height="75" Width="115"/>
-            <Button x:Name="ButtonRiwayat" Content="Riwayat" HorizontalAlignment="Left" Margin="40,30,0,0" VerticalAlignment="Top" Click="ToRiwayatMedisView" Height="75" Width="115"/>
+            <Button x:Name="ButtonChat" Content="Chat" Click="ToChatView" Height="75" Width="116"/>
+            <Button x:Name="ButtonRiwayat" Content="Riwayat" Click="ToRiwayatMedisView" Height="75" Width="115"/>
+            <Button x:Name="ButtonProfile" Content="Profil" Click="ToProfileView" Height="75" Width="115"/>
         </StackPanel>
     </Grid>
 </Window>

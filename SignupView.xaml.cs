@@ -14,9 +14,10 @@ namespace siKecil
         string randomCodeOTP;
         public static string to;
 
-        public SignupView()
+        public SignupView(string User_ID)
         {
             InitializeComponent();
+            this.User_ID = User_ID;
         }
         private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
@@ -64,9 +65,8 @@ namespace siKecil
             {
                 MessageBox.Show(ex.Message);
             }
-
-
         }
+
         private void SubmitOtp_Click(object sender, RoutedEventArgs e)
         {
             if (randomCodeOTP == (txtOtp.Text).ToString())
@@ -100,7 +100,7 @@ namespace siKecil
                         sqlcmd.ExecuteNonQuery();
 
                         MessageBox.Show("Sign Up Successful");
-                        LoginView login = new LoginView(User_ID);
+                        LoginView login = new LoginView();
                         login.Show();
                         this.Close();
                     }
@@ -117,7 +117,7 @@ namespace siKecil
         }
         private void ToLoginViewLabel(object sender, RoutedEventArgs e)
         {
-            LoginView login = new LoginView(User_ID);
+            LoginView login = new LoginView();
             login.Show();
             this.Close();
         }
