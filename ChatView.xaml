@@ -5,32 +5,42 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:siKecil"
         mc:Ignorable="d"
-        WindowStyle="None" WindowState="Maximized"
-        Title="ChatView2" Height="450" Width="800">
+        Title="ChatView" Height="700" Width="1200">
+
     <Grid>
-        <ItemsControl Name="chatItemsControl" Margin="270,0,0,0" HorizontalAlignment="Left" Width="390">
-            <ItemsControl.ItemTemplate>
-                <DataTemplate>
-                    <Grid Margin="5">
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="Auto"/>
-                            <ColumnDefinition Width="Auto"/>
-                        </Grid.ColumnDefinitions>
-
-                        <!-- Pengirim -->
-                        <TextBlock Text="{Binding SenderName}" FontWeight="Bold" Foreground="Blue" HorizontalAlignment="Left" VerticalAlignment="Bottom"/>
-
-                        <!-- StackPanel untuk pesan -->
-                        <StackPanel Grid.Column="1" Background="{Binding MessageBackground}" Margin="5" MaxWidth="400">
-                            <TextBlock Text="{Binding Message}" TextWrapping="Wrap" Margin="5"/>
-                            <TextBlock Text="{Binding Timestamp}" FontSize="10" HorizontalAlignment="Right" Margin="0,5,0,0"/>
+        <TextBox x:Name="pesanTextBox" HorizontalAlignment="Left" Margin="295,634,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="821" Height="40" TextChanged="TextBox_TextChanged" Grid.ColumnSpan="2"/>
+        <Button x:Name="ButtonSend" HorizontalAlignment="Left" Margin="1124,634,0,0" VerticalAlignment="Top" Height="40" Click="KirimButton_Click" Width="66"/>
+        <Rectangle Height="684" Stroke="Black" VerticalAlignment="Center" Fill="#FFBCB2B2" Margin="0,0,1120,0"/>
+        <Rectangle HorizontalAlignment="Left" Height="60" Stroke="Black" VerticalAlignment="Top" Width="918" Fill="#FFBCB2B2" Margin="282,0,0,0" Grid.ColumnSpan="2"/>
+        <!--Kontak-->
+        <ListView x:Name="kontakItemsControl" Height="684" Margin="80,0,918,0" SelectionChanged="KontakItemsControl_SelectionChanged" ItemsSource="{Binding}">
+            <ListView.View>
+                <GridView>
+                        <GridViewColumn Header="Kontak">
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock Text="{Binding UserNameKontak}" />
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
+                    </GridView>
+            </ListView.View>
+        </ListView>
+        <!--Chatnya-->
+        <ScrollViewer Margin="282,65,0,55" VerticalScrollBarVisibility="Auto">
+            <ItemsControl x:Name="chatItemsControl" RenderTransformOrigin="0.5,0.5" Height="564" Width="893">
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel Orientation="Vertical" Margin="5">
+                            <TextBlock Text="{Binding SenderName}" FontWeight="Bold" Foreground="Blue" HorizontalAlignment="{Binding MessageAlignment}" VerticalAlignment="Bottom"/>
+                            <StackPanel Background="{Binding MessageBackground}" HorizontalAlignment="{Binding MessageAlignment}" Margin="5" MaxWidth="400">
+                                <TextBlock Text="{Binding Message}" TextWrapping="Wrap" Margin="5"/>
+                                <TextBlock Text="{Binding Timestamp}" HorizontalAlignment="{Binding MessageAlignment}" FontSize="10" Margin="0,5,0,0"/>
+                            </StackPanel>
                         </StackPanel>
-                    </Grid>
-                </DataTemplate>
-            </ItemsControl.ItemTemplate>
-        </ItemsControl>
-        <TextBox Name="pesanTextBox" Grid.Row="1" HorizontalAlignment="Left" VerticalAlignment="Bottom" Width="600"/>
-        <Button Name="kirimButton" Content="Kirim" Grid.Row="1" HorizontalAlignment="Right" VerticalAlignment="Bottom" Width="75"
-                Click="KirimButton_Click"/>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
+        </ScrollViewer>
     </Grid>
 </Window>

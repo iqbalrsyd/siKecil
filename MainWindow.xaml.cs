@@ -57,7 +57,7 @@ namespace siKecil
 
         private void ToChatView(object sender, RoutedEventArgs e)
         {
-            ChatView chat = new ChatView();
+            ChatView chat = new ChatView(User_ID);
             chat.Show();
             this.Close();
         }
