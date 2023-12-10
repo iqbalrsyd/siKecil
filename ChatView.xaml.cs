@@ -5,9 +5,6 @@ using System.Data.SqlClient;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
-using System.Data.Entity;
-using System.Linq;
-using System.Data;
 
 namespace siKecil
 {
@@ -23,19 +20,18 @@ namespace siKecil
         {
             InitializeComponent();
             this.User_ID = User_ID;
+            SetYourUserId(User_ID);
             KontakList = LoadKontakData(User_ID);
             chatMessages = new ObservableCollection<ChatMessage>();
             chatItemsControl.ItemsSource = chatMessages;
             kontakItemsControl.DataContext = KontakList;
-            SetYourUserId();
         }
 
-        private void SetYourUserId()
+        private void SetYourUserId(string User_ID)
         {
             using (SqlConnection sqlCon = connectionHelper.GetConn())
             {
                 sqlCon.Open();
-
                 string query = "SELECT User_ID FROM Users WHERE User_ID = @User_ID";
                 using (SqlCommand cmd = new SqlCommand(query, sqlCon))
                 {
@@ -108,7 +104,6 @@ namespace siKecil
                         {
                             Message message = new Message
                             {
-                                MessageId = reader.GetString(reader.GetOrdinal("User_ID")),
                                 SenderId = reader.GetString(reader.GetOrdinal("Pengirim_ID")),
                                 ReceiverId = reader.GetString(reader.GetOrdinal("Penerima_ID")),
                                 Timestamp = reader.GetDateTime(reader.GetOrdinal("Timestamp")),
@@ -149,7 +144,7 @@ namespace siKecil
             {
                 sqlCon.Open();
 
-                string query = $"SELECT User_ID, Username FROM Users WHERE User_ID = @User_ID";
+                string query = $"SELECT User_ID, Username FROM Users WHERE User_ID = {userId}";
                 using (SqlCommand cmd = new SqlCommand(query, sqlCon))
                 {
                     cmd.Parameters.AddWithValue("@User_ID", userId);
@@ -176,57 +171,18 @@ namespace siKecil
             
             foreach (Message message in messages)
             {
-
                 User pengirim = LoadUserById(message.SenderId);
-                string usernamePengirim= pengirim.UserNameKontak;
-                string userIDpengirim = pengirim.UserIdKontak;
-                User penerima = LoadUserById(message.ReceiverId);
-                string usernamePenerima = penerima.UserNameKontak;
-                string userIDpenerima = penerima.UserIdKontak;
 
-                HorizontalAlignment alignment;
+                HorizontalAlignment alignment = (yourUserID == message.SenderId) ? HorizontalAlignment.Right : HorizontalAlignment.Left;
 
-                if (yourUserID == userIDpenerima)
-                {
-                    alignment = HorizontalAlignment.Left;
-                }
-                else if (yourUserID == userIDpengirim)
-                {
-                    alignment = HorizontalAlignment.Right;
-                }
-                else
-                {
-                    alignment = HorizontalAlignment.Center;
-                }
-
-                ChatMessage chatMessage = new ChatMessage
+                chatMessages.Add(new ChatMessage
                 {
                     Message = message.Content,
                     Timestamp = message.Timestamp.ToString("HH:mm"),
-                    MessageAlignment = alignment
-                };
-
-                if (alignment == HorizontalAlignment.Right)
-                {
-                    chatMessage.SenderName = usernamePengirim;
-                    chatMessage.MessageBackground = "LightGreen";
-                    chatMessage.MessageMargin = new Thickness(0, 0, 0, 20);
-                }
-                else if (alignment == HorizontalAlignment.Left)
-                {
-                    chatMessage.SenderName = usernamePenerima;
-                    chatMessage.MessageBackground = "LightGray";
-                    chatMessage.MessageMargin = new Thickness(20, 0, 0, 0);
-                }
-                else
-                {
-                    chatMessage.SenderName = "DefaultUserName";
-                    chatMessage.MessageBackground = "DefaultBackground";
-                    chatMessage.MessageMargin = new Thickness(0);
-                }
-
-                chatMessages.Add(chatMessage);
-                chatItemsControl.ItemsSource = chatMessages;
+                    MessageAlignment = alignment,
+                    SenderName =  pengirim.UserNameKontak,
+                    MessageBackground = (alignment == HorizontalAlignment.Right) ? "LightGreen" : "LightGray",
+                });
             }
             pesanTextBox.Text = "";
         }
@@ -274,32 +230,6 @@ namespace siKecil
 
             UpdateChatView(selectedUser);
         }
-
-
-         public class ChatManager
-         {
-             private ChatDbContext dbContext;
-             private string yourUserID;
-
-             public ChatManager()
-             {
-                 dbContext = new ChatDbContext();
-             }
-
-             public ObservableCollection<User> LoadKontakData()
-             {
-                 return new ObservableCollection<User>(dbContext.Users.ToList());
-             }
-
-             public List<Message> LoadMessages(User selectedUser)
-             {
-                 return dbContext.Messages
-                     .Where(m => (m.SenderId == yourUserID || m.ReceiverId == yourUserID) &&
-                                 (m.SenderId == selectedUser.UserIdKontak || m.ReceiverId == selectedUser.UserIdKontak))
-                     .OrderBy(m => m.Timestamp)
-                     .ToList();
-             }
-         }
     }
 }
 
@@ -311,7 +241,6 @@ public class User
 
 public class Message
 {
-    public string MessageId { get; set; }
     public string SenderId { get; set; }
     public string ReceiverId { get; set; }
     public string Content { get; set; }
@@ -326,10 +255,4 @@ public class ChatMessage
     public HorizontalAlignment MessageAlignment { get; set; }
     public string MessageBackground { get; set; }
     public Thickness MessageMargin { get; set; }
-}
-
-public class ChatDbContext : DbContext
-{
-    public DbSet<User> Users { get; set; }
-    public DbSet<Message> Messages { get; set; }
 }

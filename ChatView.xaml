@@ -16,22 +16,22 @@
         <ListView x:Name="kontakItemsControl" Height="684" Margin="80,0,918,0" SelectionChanged="KontakItemsControl_SelectionChanged" ItemsSource="{Binding}">
             <ListView.View>
                 <GridView>
-                        <GridViewColumn Header="Kontak">
-                            <GridViewColumn.CellTemplate>
-                                <DataTemplate>
-                                    <TextBlock Text="{Binding UserNameKontak}" />
-                                </DataTemplate>
-                            </GridViewColumn.CellTemplate>
-                        </GridViewColumn>
-                    </GridView>
+                    <GridViewColumn Header="Kontak">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding UserNameKontak}" />
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+                </GridView>
             </ListView.View>
         </ListView>
         <!--Chatnya-->
-        <ScrollViewer Margin="282,65,0,55" VerticalScrollBarVisibility="Auto"> 
-            <ItemsControl x:Name="chatItemsControl" Height="564" Width="863" Margin="0,0,0,0">
+        <ScrollViewer x:Name="ScrollChat" Margin="282,65,0,55" VerticalScrollBarVisibility="Auto">
+            <ItemsControl x:Name="chatItemsControl" Height="1104" Width="862" Margin="0,0,0,0">
                 <ItemsControl.ItemTemplate>
                     <DataTemplate>
-                        <StackPanel Orientation="Vertical" Margin="3">
+                        <StackPanel x:Name="chatItemsStackPanel" Orientation="Vertical" Margin="3">
                             <TextBlock Text="{Binding SenderName}" FontWeight="Bold" Foreground="Blue" HorizontalAlignment="{Binding MessageAlignment}" VerticalAlignment="Bottom"/>
                             <StackPanel Background="{Binding MessageBackground}" HorizontalAlignment="{Binding MessageAlignment}" Margin="5" MaxWidth="400">
                                 <TextBlock Text="{Binding Message}" TextWrapping="Wrap" Margin="5"/>
@@ -41,6 +41,6 @@
                     </DataTemplate>
                 </ItemsControl.ItemTemplate>
             </ItemsControl>
-        </ScrollViewer> 
+        </ScrollViewer>
     </Grid>
 </Window>
