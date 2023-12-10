@@ -7,6 +7,7 @@ using System.Windows.Controls;
 using System.Windows.Input;
 using System.Data.Entity;
 using System.Linq;
+using System.Data;
 
 namespace siKecil
 {
@@ -16,7 +17,8 @@ namespace siKecil
         private ObservableCollection<ChatMessage> chatMessages;
         private string User_ID;
         Connection connectionHelper = new Connection();
-        private int yourUserID;
+        private string yourUserID;
+
         public ChatView(string User_ID)
         {
             InitializeComponent();
@@ -28,6 +30,33 @@ namespace siKecil
             SetYourUserId();
         }
 
+        private void SetYourUserId()
+        {
+            using (SqlConnection sqlCon = connectionHelper.GetConn())
+            {
+                sqlCon.Open();
+
+                string query = "SELECT User_ID FROM Users WHERE User_ID = @User_ID";
+                using (SqlCommand cmd = new SqlCommand(query, sqlCon))
+                {
+                    cmd.Parameters.AddWithValue("@User_ID", User_ID);
+                    try
+                    {
+                        using (SqlDataReader reader = cmd.ExecuteReader())
+                        {
+                            if (reader.Read())
+                            {
+                                yourUserID = reader.GetString(reader.GetOrdinal("User_ID"));
+                            }
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        Console.WriteLine($"Error getting your user id: {ex.Message}");
+                    }
+                }
+            }
+        }
         private ObservableCollection<User> LoadKontakData(string User_ID)
         {
             List<User> users = new List<User>();
@@ -35,17 +64,18 @@ namespace siKecil
             using (SqlConnection sqlCon = connectionHelper.GetConn())
             {
                 sqlCon.Open();
-                string user_id = this.User_ID;
-                string query = $"SELECT User_ID, Username FROM Users WHERE User_ID != '{user_id}'";
+                string query = $"SELECT User_ID, Username FROM Users WHERE User_ID != @User_ID";
                 using (SqlCommand cmd = new SqlCommand(query, sqlCon))
                 {
+                    cmd.Parameters.AddWithValue("@User_ID", User_ID);
+
                     using (SqlDataReader reader = cmd.ExecuteReader())
                     {
                         while (reader.Read())
                         {
                             User user = new User
                             {
-                                UserIdKontak = reader.GetInt32(reader.GetOrdinal("user_id")),
+                                UserIdKontak = reader.GetString(reader.GetOrdinal("User_ID")),
                                 UserNameKontak = reader.GetString(reader.GetOrdinal("Username"))
                             };
 
@@ -66,10 +96,10 @@ namespace siKecil
             {
                 sqlCon.Open();
 
-                string queryMessage = "SELECT * FROM Chat WHERE (Penerima_ID = @UserId OR Pengirim_ID = @UserId) AND (Penerima_ID = @Penerima_ID OR Pengirim_ID = @Penerima_ID) ORDER BY Timestamp";
+                string queryMessage = "SELECT * FROM Chat WHERE (Penerima_ID = @User_ID OR Pengirim_ID = @User_ID) AND (Penerima_ID = @Penerima_ID OR Pengirim_ID = @Penerima_ID) ORDER BY Timestamp";
                 using (SqlCommand cmd = new SqlCommand(queryMessage, sqlCon))
                 {
-                    cmd.Parameters.AddWithValue("@UserId", User_ID);
+                    cmd.Parameters.AddWithValue("@User_ID", User_ID);
                     cmd.Parameters.AddWithValue("@Penerima_ID", selectedUser.UserIdKontak);
 
                     using (SqlDataReader reader = cmd.ExecuteReader())
@@ -78,10 +108,11 @@ namespace siKecil
                         {
                             Message message = new Message
                             {
-                                SenderId = reader.GetInt32(reader.GetOrdinal("Pengirim_ID")),
-                                ReceiverId = reader.GetInt32(reader.GetOrdinal("Penerima_ID")),
+                                MessageId = reader.GetString(reader.GetOrdinal("User_ID")),
+                                SenderId = reader.GetString(reader.GetOrdinal("Pengirim_ID")),
+                                ReceiverId = reader.GetString(reader.GetOrdinal("Penerima_ID")),
                                 Timestamp = reader.GetDateTime(reader.GetOrdinal("Timestamp")),
-                                Content = reader.GetString(reader.GetOrdinal("isiChat"))
+                                Content = reader.GetString(reader.GetOrdinal("IsiChat"))
                             };
 
                             messages.Add(message);
@@ -110,8 +141,33 @@ namespace siKecil
         {
             List<Message> messages = LoadMessages(selectedUser);
             DisplayMessages(messages);
-            chatItemsControl.ItemsSource = null;
-            chatItemsControl.ItemsSource = chatMessages;
+        }
+
+        private User LoadUserById(string userId)
+        {
+            using (SqlConnection sqlCon = connectionHelper.GetConn())
+            {
+                sqlCon.Open();
+
+                string query = $"SELECT User_ID, Username FROM Users WHERE User_ID = @User_ID";
+                using (SqlCommand cmd = new SqlCommand(query, sqlCon))
+                {
+                    cmd.Parameters.AddWithValue("@User_ID", userId);
+
+                    using (SqlDataReader reader = cmd.ExecuteReader())
+                    {
+                        if (reader.Read())
+                        {
+                            return new User
+                            {
+                                UserIdKontak = reader.GetString(reader.GetOrdinal("User_ID")),
+                                UserNameKontak = reader.GetString(reader.GetOrdinal("Username"))
+                            };
+                        }
+                    }
+                }
+            }
+            return null;
         }
 
         private void DisplayMessages(List<Message> messages)
@@ -120,16 +176,21 @@ namespace siKecil
             
             foreach (Message message in messages)
             {
+
                 User pengirim = LoadUserById(message.SenderId);
+                string usernamePengirim= pengirim.UserNameKontak;
+                string userIDpengirim = pengirim.UserIdKontak;
                 User penerima = LoadUserById(message.ReceiverId);
+                string usernamePenerima = penerima.UserNameKontak;
+                string userIDpenerima = penerima.UserIdKontak;
 
                 HorizontalAlignment alignment;
 
-                if (yourUserID == message.ReceiverId)
+                if (yourUserID == userIDpenerima)
                 {
                     alignment = HorizontalAlignment.Left;
                 }
-                else if (yourUserID == message.SenderId)
+                else if (yourUserID == userIDpengirim)
                 {
                     alignment = HorizontalAlignment.Right;
                 }
@@ -147,13 +208,13 @@ namespace siKecil
 
                 if (alignment == HorizontalAlignment.Right)
                 {
-                    chatMessage.SenderName = pengirim.UserNameKontak;
+                    chatMessage.SenderName = usernamePengirim;
                     chatMessage.MessageBackground = "LightGreen";
                     chatMessage.MessageMargin = new Thickness(0, 0, 0, 20);
                 }
                 else if (alignment == HorizontalAlignment.Left)
                 {
-                    chatMessage.SenderName = penerima.UserNameKontak;
+                    chatMessage.SenderName = usernamePenerima;
                     chatMessage.MessageBackground = "LightGray";
                     chatMessage.MessageMargin = new Thickness(20, 0, 0, 0);
                 }
@@ -165,64 +226,14 @@ namespace siKecil
                 }
 
                 chatMessages.Add(chatMessage);
+                chatItemsControl.ItemsSource = chatMessages;
             }
             pesanTextBox.Text = "";
         }
 
-        private void SetYourUserId()
+        private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
-            using (SqlConnection sqlCon = connectionHelper.GetConn())
-            {
-                sqlCon.Open();
 
-                string query = "SELECT User_ID FROM Users WHERE User_ID = @User_ID";
-                using (SqlCommand cmd = new SqlCommand(query, sqlCon))
-                {
-                    cmd.Parameters.AddWithValue("@User_ID", User_ID);
-                    try
-                    {
-                        using (SqlDataReader reader = cmd.ExecuteReader())
-                        {
-                            if (reader.Read())
-                            {
-                                yourUserID = reader.GetInt32(reader.GetOrdinal("User_ID"));
-                            }
-                        }
-                    }
-                    catch (Exception ex)
-                    {
-                        Console.WriteLine($"Error getting your user id: {ex.Message}");
-                    }
-                }
-            }
-        }
-
-        private User LoadUserById(int userId)
-        {
-            using (SqlConnection sqlCon = connectionHelper.GetConn())
-            {
-                sqlCon.Open();
-
-                string query = "SELECT User_ID, Username FROM Users WHERE User_ID = @User_ID";
-                using (SqlCommand cmd = new SqlCommand(query, sqlCon))
-                {
-                    cmd.Parameters.AddWithValue("@User_ID", userId);
-
-                    using (SqlDataReader reader = cmd.ExecuteReader())
-                    {
-                        if (reader.Read())
-                        {
-                            return new User
-                            {
-                                UserIdKontak = reader.GetInt32(reader.GetOrdinal("User_ID")),
-                                UserNameKontak = reader.GetString(reader.GetOrdinal("Username"))
-                            };
-                        }
-                    }
-                }
-            }
-
-            return null;
         }
 
         private void KirimButton_Click(object sender, RoutedEventArgs e)
@@ -240,14 +251,14 @@ namespace siKecil
             {
                 sqlCon.Open();
 
-                string query = "INSERT INTO Chat (User_ID, Pengirim_ID, Penerima_ID, isiChat, Timestamp) VALUES (@User_ID, @Pengirim_ID, @Penerima_ID, @isiChat, @Timestamp)";
+                string query = "INSERT INTO Chat (User_ID, Pengirim_ID, Penerima_ID, IsiChat, Timestamp) VALUES (@User_ID, @Pengirim_ID, @Penerima_ID, @IsiChat, @Timestamp)";
 
                 using (SqlCommand cmd = new SqlCommand(query, sqlCon))
                 {
                     cmd.Parameters.AddWithValue("@User_ID", User_ID);
                     cmd.Parameters.AddWithValue("@Pengirim_ID", User_ID);
                     cmd.Parameters.AddWithValue("@Penerima_ID", receiver.UserIdKontak);
-                    cmd.Parameters.AddWithValue("@isiChat", messageText);
+                    cmd.Parameters.AddWithValue("@IsiChat", messageText);
                     cmd.Parameters.AddWithValue("@Timestamp", DateTime.Now);
 
                     cmd.ExecuteNonQuery();
@@ -264,15 +275,11 @@ namespace siKecil
             UpdateChatView(selectedUser);
         }
 
-        private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
-        {
-
-        }
 
          public class ChatManager
          {
              private ChatDbContext dbContext;
-             private int yourUserId;
+             private string yourUserID;
 
              public ChatManager()
              {
@@ -287,7 +294,7 @@ namespace siKecil
              public List<Message> LoadMessages(User selectedUser)
              {
                  return dbContext.Messages
-                     .Where(m => (m.SenderId == yourUserId || m.ReceiverId == yourUserId) &&
+                     .Where(m => (m.SenderId == yourUserID || m.ReceiverId == yourUserID) &&
                                  (m.SenderId == selectedUser.UserIdKontak || m.ReceiverId == selectedUser.UserIdKontak))
                      .OrderBy(m => m.Timestamp)
                      .ToList();
@@ -298,15 +305,15 @@ namespace siKecil
 
 public class User
 {
-    public int UserIdKontak { get; set; }
+    public string UserIdKontak { get; set; }
     public string UserNameKontak { get; set; }
 }
 
 public class Message
 {
-    public int MessageId { get; set; }
-    public int SenderId { get; set; }
-    public int ReceiverId { get; set; }
+    public string MessageId { get; set; }
+    public string SenderId { get; set; }
+    public string ReceiverId { get; set; }
     public string Content { get; set; }
     public DateTime Timestamp { get; set; }
 }
