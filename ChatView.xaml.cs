@@ -41,7 +41,7 @@ namespace siKecil
                         {
                             if (reader.Read())
                             {
-                                yourUserID = reader.GetString(reader.GetOrdinal("User_ID"));
+                                yourUserID = reader.IsDBNull(reader.GetOrdinal("User_ID")) ? string.Empty : reader["User_ID"].ToString();
                             }
                         }
                     }
@@ -70,8 +70,8 @@ namespace siKecil
                         {
                             User user = new User
                             {
-                                UserIdKontak = reader.GetString(reader.GetOrdinal("User_ID")),
-                                UserNameKontak = reader.GetString(reader.GetOrdinal("Username"))
+                                UserIdKontak = reader.IsDBNull(reader.GetOrdinal("User_ID")) ? string.Empty : reader["User_ID"].ToString(),
+                                UserNameKontak = reader.IsDBNull(reader.GetOrdinal("Username")) ? string.Empty : reader["Username"].ToString()
                             };
 
                             users.Add(user);
@@ -103,10 +103,11 @@ namespace siKecil
                         {
                             Message message = new Message
                             {
-                                SenderId = reader.GetString(reader.GetOrdinal("Pengirim_ID")),
-                                ReceiverId = reader.GetString(reader.GetOrdinal("Penerima_ID")),
-                                Timestamp = reader.GetDateTime(reader.GetOrdinal("Timestamp")),
-                                Content = reader.GetString(reader.GetOrdinal("IsiChat"))
+                                SenderId = reader.IsDBNull(reader.GetOrdinal("Pengirim_ID")) ? string.Empty : reader["Pengirim_ID"].ToString(),
+                                ReceiverId = reader.IsDBNull(reader.GetOrdinal("Penerima_ID")) ? string.Empty : reader["Penerima_ID"].ToString(),
+                                Timestamp = reader.IsDBNull(reader.GetOrdinal("Timestamp")) ? DateTime.MinValue : reader.GetDateTime(reader.GetOrdinal("Timestamp")),
+                                Content = reader.IsDBNull(reader.GetOrdinal("IsiChat")) ? string.Empty : reader["IsiChat"].ToString()
+
                             };
 
                             messages.Add(message);
@@ -154,8 +155,9 @@ namespace siKecil
                         {
                             return new User
                             {
-                                UserIdKontak = reader.GetString(reader.GetOrdinal("User_ID")),
-                                UserNameKontak = reader.GetString(reader.GetOrdinal("Username"))
+
+                                UserIdKontak = reader.IsDBNull(reader.GetOrdinal("User_ID")) ? string.Empty : reader["User_ID"].ToString(),
+                                UserNameKontak = reader.IsDBNull(reader.GetOrdinal("Username")) ? string.Empty : reader["Username"].ToString()
                             };
                         }
                     }
@@ -167,7 +169,7 @@ namespace siKecil
         private void DisplayMessages(List<Message> messages)
         {
             chatMessages.Clear();
-            
+
             foreach (Message message in messages)
             {
                 User pengirim = LoadUserById(message.SenderId);
@@ -179,7 +181,7 @@ namespace siKecil
                     Message = message.Content,
                     Timestamp = message.Timestamp.ToString("HH:mm"),
                     MessageAlignment = alignment,
-                    SenderName =  pengirim.UserNameKontak,
+                    SenderName = pengirim.UserNameKontak,
                     MessageBackground = (alignment == HorizontalAlignment.Right) ? "LightGreen" : "LightGray",
                 });
             }

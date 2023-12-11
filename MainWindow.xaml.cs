@@ -33,12 +33,9 @@ namespace siKecil
                             greetingText.Text=$"Hallo {firstname}!";
                         }
                     }
-
                 }
             }
         }
-
-
 
         private void ToProfileView(object sender, RoutedEventArgs e)
         {
