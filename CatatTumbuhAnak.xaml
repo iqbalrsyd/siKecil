@@ -103,5 +103,49 @@ FontSize="24"/>
            FontFamily="Inter" 
            FontSize="25"
            />
-    </Grid>
+        <Button x:Name="tampilData" 
+                HorizontalAlignment="Left" 
+                Height="50" 
+                Margin="375,556,0,0" 
+                VerticalAlignment="Top" 
+                Width="120"
+                Click="tampilDataGrid" />
+        <Label Content="Tampilkan" 
+                HorizontalAlignment="Left" 
+                Height="55" 
+                Margin="385,565,0,0" 
+                VerticalAlignment="Top"  
+                FontFamily="Inter" 
+                FontSize="20"/>
+        <DataGrid Name="dataGrid"
+            HorizontalAlignment="Left" 
+            Height="250"
+            Width="480"
+            Margin="600,150,0,0" 
+            VerticalAlignment="Top"  
+            FontFamily="Inter" 
+            FontSize="20"
+            AutoGenerateColumns="True"
+            IsReadOnly="True" />
+        <Button Content="Dashboard" 
+            HorizontalAlignment="Left" 
+            Margin="45,38,0,0" 
+            VerticalAlignment="Top" 
+            Height="61" Width="85" 
+            Click="ToDashboard_Click"/>
+        <Button x:Name="editData" 
+            HorizontalAlignment="Left" 
+            Height="50" 
+            Margin="600,420,0,0" 
+            VerticalAlignment="Top" 
+            Width="100"
+            Click="editDataButton" />
+        <Label Content="Edit" 
+            HorizontalAlignment="Left" 
+            Height="55" 
+            Margin="630,430,0,0" 
+            VerticalAlignment="Top"  
+            FontFamily="Inter" 
+            FontSize="20"/>
+        </Grid>
 </Window>
