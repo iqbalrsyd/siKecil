@@ -72,5 +72,82 @@ namespace siKecil
                 }
             }
         }
+
+        private void tampilDataGrid(object sender, RoutedEventArgs e)
+        {
+            LoadDataGrid(User_ID);
+        }
+        private void LoadDataGrid(string User_ID)
+        {
+            try
+            {
+                using (SqlConnection sqlCon = connectionHelper.GetConn())
+                {
+                    sqlCon.Open();
+
+                    string showQuery = $"SELECT Tanggal, Berat, Tinggi, LingkarKepala FROM CatatTumbuhAnak WHERE User_Id = {User_ID}";
+                    using (SqlCommand cmd = new SqlCommand(showQuery, sqlCon))
+                    {
+                        using (SqlDataReader reader = cmd.ExecuteReader())
+                        {
+                            if (reader.HasRows)
+                            {
+                                DataSet dataSet = new DataSet();
+                                dataSet.Load(reader, LoadOption.OverwriteChanges, "CatatTumbuhAnak");
+                                dataGrid.AutoGeneratingColumn += (sender, e) =>
+                                {
+                                    if (e.PropertyName == "Tanggal")
+                                    {
+                                        var textColumn = e.Column as DataGridTextColumn;
+                                        if (textColumn != null)
+                                        {
+                                            textColumn.Binding.StringFormat = "dd/MM/yyyy";
+                                        }
+                                    }
+                                };
+                                dataGrid.ItemsSource = dataSet.Tables["CatatTumbuhAnak"].DefaultView;
+                                dataGrid.IsReadOnly = true;
+                            }
+                        }
+                    }
+                }
+            }    
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message);
+            }
+        }
+        private void ToDashboard_Click(object sender, RoutedEventArgs e)
+        {
+            MainWindow dashboard = new MainWindow(User_ID);
+            dashboard.Show();
+            this.Close();
+        }
+
+        private void editDataButton(object sender, RoutedEventArgs e)
+        {
+            if (dataGrid.SelectedItem != null)
+            {
+                DataRowView selectedRow = (DataRowView)dataGrid.SelectedItem;
+
+                string tanggalValue = selectedRow["Tanggal"].ToString();
+                string beratValue = selectedRow["Berat"].ToString();
+                string tinggiValue = selectedRow["Tinggi"].ToString();
+                string lingkarKepalaValue = selectedRow["LingkarKepala"].ToString();
+
+                datePicker.Text = tanggalValue;
+                txtBerat.Text = beratValue;
+                txtTinggi.Text = tinggiValue;
+                txtLingkarKepala.Text = lingkarKepalaValue;
+            }
+
+            else
+            {
+                datePicker.Text = "";
+                txtBerat.Text = "";
+                txtTinggi.Text = "";
+                txtLingkarKepala.Text = "";
+            }
+        }
     }
 }
