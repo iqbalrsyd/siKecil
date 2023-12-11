@@ -87,7 +87,7 @@ namespace siKecil
 
                         int randomNumber = random.Next(1000, 9999);
 
-                        User_ID = randomNumber.ToString().PadLeft(10, '0');
+                        string userID = randomNumber.ToString().PadLeft(10, '0');
 
                         SqlCommand sqlcmd = new SqlCommand(query, sqlCon);
                         sqlcmd.CommandType = CommandType.Text;

@@ -54,7 +54,7 @@ namespace siKecil
                                     sqlCmdUserId.Parameters.AddWithValue("@EmailAddress", txtUsername.Text);
                                     sqlCmdUserId.Parameters.AddWithValue("@Password", txtPassword.Password);
 
-                                    string User_ID = sqlCmdUserId.ExecuteScalar()?.ToString();
+                                    string User_ID = sqlCmdUserId.ExecuteScalar().ToString();
 
                                     MainWindow dashboard = new MainWindow(User_ID);
                                     dashboard.Show();

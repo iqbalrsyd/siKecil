@@ -26,7 +26,6 @@ namespace siKecil
             chatItemsControl.ItemsSource = chatMessages;
             kontakItemsControl.DataContext = KontakList;
         }
-
         private void SetYourUserId(string User_ID)
         {
             using (SqlConnection sqlCon = connectionHelper.GetConn())
@@ -184,6 +183,7 @@ namespace siKecil
                     MessageBackground = (alignment == HorizontalAlignment.Right) ? "LightGreen" : "LightGray",
                 });
             }
+            ScrollChat.ScrollToEnd();
             pesanTextBox.Text = "";
         }
 
@@ -255,4 +255,6 @@ public class ChatMessage
     public HorizontalAlignment MessageAlignment { get; set; }
     public string MessageBackground { get; set; }
     public Thickness MessageMargin { get; set; }
+    public string DateSeparat { get; set; }
+    public bool isDateSeparator { get; set; }
 }

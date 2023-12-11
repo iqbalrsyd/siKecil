@@ -24,6 +24,8 @@ namespace siKecil
             InitializeComponent();
             this.User_ID = User_ID;
             LoadProvincesAsync();
+            BitmapImage profileImage = GetImageFromDatabase();
+            ProfileImage.Source = profileImage;
         }
 
         private void EditProfileButton(object sender, RoutedEventArgs e)
@@ -389,18 +391,26 @@ namespace siKecil
 
         private BitmapImage GetImageFromDatabase()
         {
-            Connection connectionHelper = new Connection();
-            using (SqlConnection sqlCon = connectionHelper.GetConn())
+            try
             {
-                sqlCon.Open();
-
-                string selectQuery = "SELECT (*) FROM Users WHERE User_ID = @User_ID";
-                using (SqlCommand cmd = new SqlCommand(selectQuery, sqlCon))
+                Connection connectionHelper = new Connection();
+                using (SqlConnection sqlCon = connectionHelper.GetConn())
                 {
-                    cmd.Parameters.AddWithValue("@User_ID", User_ID);
-                    byte[] imageData = (byte[])cmd.ExecuteScalar();
-                    return ByteArrayToImage(imageData);
+                    sqlCon.Open();
+
+                    string selectQuery = "SELECT UserImage FROM Users WHERE User_ID = @User_ID";
+                    using (SqlCommand cmd = new SqlCommand(selectQuery, sqlCon))
+                    {
+                        cmd.Parameters.AddWithValue("@User_ID", User_ID);
+                        byte[] imageData = (byte[])cmd.ExecuteScalar();
+                        return ByteArrayToImage(imageData);
+                    }
                 }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error getting image from database: {ex.Message}");
+                return null;
             }
         }
 
