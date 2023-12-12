@@ -15,8 +15,12 @@ namespace siKecil
         public LoginView()
         {
             InitializeComponent();
+            Loaded += Login_Loaded;
         }
-
+        private void Login_Loaded(object sender, RoutedEventArgs e)
+        {
+            WindowState = WindowState.Maximized;
+        }
         private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
 

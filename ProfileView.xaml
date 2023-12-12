@@ -6,13 +6,13 @@
         xmlns:local="clr-namespace:siKecil"
         mc:Ignorable="d"
         Title="ProfileView" Height="700" Width="1200"
-        WindowStyle="None" WindowState="Maximized">
+        Loaded="Profile_Loaded">
     <Grid>
         <Rectangle HorizontalAlignment="Left" Height="275" Margin="179,289,0,0" Stroke="Black" VerticalAlignment="Top" Width="483" RadiusX="10" RadiusY="10" StrokeThickness="0.5"/>
         <Rectangle HorizontalAlignment="Left" Height="124" Margin="179,145,0,0" Stroke="Black" VerticalAlignment="Top" Width="966" RadiusX="10" RadiusY="10" StrokeThickness="0.5" Grid.ColumnSpan="2"/>
         <Rectangle HorizontalAlignment="Left" Height="275" Margin="669,289,0,0" Stroke="Black" VerticalAlignment="Top" Width="476" RadiusX="10" RadiusY="10" StrokeThickness="0.5" Grid.ColumnSpan="2"/>
 
-        <Image x:Name="ProfileImage" HorizontalAlignment="Left" Height="100" Margin="255,152,0,0" VerticalAlignment="Top" Width="100"/>
+        <Image x:Name="ProfileImage" HorizontalAlignment="Left" Height="100" Margin="255,152,0,0" VerticalAlignment="Top" Width="100" Source="{Binding ImageSource}"/>
         <Label Content="Nama" HorizontalAlignment="Left" Margin="433,165,0,0" VerticalAlignment="Top" Width="97"/>
         <Label Content="Email" HorizontalAlignment="Left" Margin="433,196,0,0" VerticalAlignment="Top" Width="72"/>
         <Label Content="Password" HorizontalAlignment="Left" Margin="433,229,0,0" VerticalAlignment="Top" Width="72"/>

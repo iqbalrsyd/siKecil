@@ -18,7 +18,14 @@ namespace siKecil
         {
             InitializeComponent();
             this.User_ID = User_ID;
+            Loaded += Signup_Loaded;
         }
+
+        private void Signup_Loaded(object sender, RoutedEventArgs e)
+        {
+            WindowState = WindowState.Maximized;
+        }
+
         private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
             TextBox textBox = sender as TextBox;

@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:siKecil"
         mc:Ignorable="d"
         Title="CatatTumbuhAnak" Height="700" Width="1200"
-        WindowStyle="None" WindowState="Maximized">
+        Loaded="CatatTumbuhAnak_Loaded">
     <Grid>
         <TextBlock x:Name="greetingText"
              HorizontalAlignment="Center" 

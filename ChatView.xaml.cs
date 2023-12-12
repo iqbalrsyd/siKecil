@@ -5,6 +5,7 @@ using System.Data.SqlClient;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
+using siKecil.Model;
 
 namespace siKecil
 {
@@ -26,6 +27,12 @@ namespace siKecil
             chatItemsControl.ItemsSource = chatMessages;
             kontakItemsControl.DataContext = KontakList;
         }
+
+        private void Chat_Loaded(object sender, RoutedEventArgs e)
+        {
+            WindowState = WindowState.Maximized;
+        }
+
         private void SetYourUserId(string User_ID)
         {
             using (SqlConnection sqlCon = connectionHelper.GetConn())
@@ -233,30 +240,4 @@ namespace siKecil
             UpdateChatView(selectedUser);
         }
     }
-}
-
-public class User
-{
-    public string UserIdKontak { get; set; }
-    public string UserNameKontak { get; set; }
-}
-
-public class Message
-{
-    public string SenderId { get; set; }
-    public string ReceiverId { get; set; }
-    public string Content { get; set; }
-    public DateTime Timestamp { get; set; }
-}
-
-public class ChatMessage
-{
-    public string SenderName { get; set; }
-    public string Message { get; set; }
-    public string Timestamp { get; set; }
-    public HorizontalAlignment MessageAlignment { get; set; }
-    public string MessageBackground { get; set; }
-    public Thickness MessageMargin { get; set; }
-    public string DateSeparat { get; set; }
-    public bool isDateSeparator { get; set; }
 }

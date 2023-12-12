@@ -8,12 +8,10 @@ using System.Net.Http;
 using Microsoft.Win32;
 using System.Windows.Media.Imaging;
 using System.IO;
+using siKecil.Model;
 
 namespace siKecil   
 {
-    /// <summary>
-    /// Interaction logic for ProfileView.xaml
-    /// </summary>
     public partial class ProfileView : Window
     {
         private readonly string User_ID;
@@ -24,8 +22,13 @@ namespace siKecil
             InitializeComponent();
             this.User_ID = User_ID;
             LoadProvincesAsync();
-            BitmapImage profileImage = GetImageFromDatabase();
-            ProfileImage.Source = profileImage;
+            Loaded += Profile_Loaded;
+        }
+
+        private void Profile_Loaded(object sender, RoutedEventArgs e)
+        {
+            WindowState = WindowState.Maximized;
+            DisplayImage();
         }
 
         private void EditProfileButton(object sender, RoutedEventArgs e)
@@ -358,13 +361,11 @@ namespace siKecil
 
                         if (selectedVillage != null)
                         {
-                            // Mendapatkan data yang dipilih dari ComboBox
                             selectedLocation.Province = ProvinsiComboBox.SelectedValue.ToString();
                             selectedLocation.Regency = KabKotaComboBox.SelectedValue.ToString();
                             selectedLocation.District = KecamatanComboBox.SelectedValue.ToString();
                             selectedLocation.Village = selectedVillage.Name;
 
-                            // Memanggil metode untuk mengganti isi txtEditAlamat.Text
                             UpdateAddressText();
                         }
                         else
@@ -385,7 +386,6 @@ namespace siKecil
         }
         private void UpdateAddressText()
         {
-            // Anda dapat mengganti logika ini sesuai kebutuhan
             txtEditAlamat.Text = $"{selectedLocation.Village}, {selectedLocation.District}, {selectedLocation.Regency}, {selectedLocation.Province}";
         }
 
@@ -403,7 +403,10 @@ namespace siKecil
                     {
                         cmd.Parameters.AddWithValue("@User_ID", User_ID);
                         byte[] imageData = (byte[])cmd.ExecuteScalar();
-                        return ByteArrayToImage(imageData);
+                        BitmapImage bitmapImage = ByteArrayToImage(imageData);
+                        bitmapImage.CreateOptions = BitmapCreateOptions.IgnoreImageCache;
+
+                        return bitmapImage;
                     }
                 }
             }
@@ -418,18 +421,27 @@ namespace siKecil
         {
             OpenFileDialog openFileDialog = new OpenFileDialog();
             openFileDialog.Filter = "Image files (*.jpg, *.jpeg, *.png) | *.jpg; *.jpeg; *.png";
-            if (openFileDialog.ShowDialog() == true) 
+            if (openFileDialog.ShowDialog() == true)
             {
-                BitmapImage bitmap = new BitmapImage(new Uri(openFileDialog.FileName));
+                using (FileStream fileStream = new FileStream(openFileDialog.FileName, FileMode.Open, FileAccess.Read))
+                {
+                    BitmapImage bitmap = new BitmapImage();
+                    bitmap.BeginInit();
+                    bitmap.CacheOption = BitmapCacheOption.OnLoad;
+                    bitmap.StreamSource = fileStream;
+                    bitmap.EndInit();
 
-                byte[] imageData = ImageToByteArray(bitmap);
+                    ProfileImage.Source = bitmap;
 
-                SaveImageToDatabase(imageData);
+                    byte[] imageData = ImageToByteArray(bitmap);
 
-                ProfileImage.Source = bitmap;
+                    // Menyimpan gambar ke database
+                    SaveImageToDatabase(imageData);
+                }
             }
         }
-        private byte[] ImageToByteArray (BitmapImage bitmap)
+
+        private byte[] ImageToByteArray(BitmapImage bitmap)
         {
             JpegBitmapEncoder encoder = new JpegBitmapEncoder();
             encoder.Frames.Add(BitmapFrame.Create(bitmap));
@@ -439,7 +451,7 @@ namespace siKecil
                 encoder.Save(memoryStream);
                 return memoryStream.ToArray();
             }
-        }   
+        }
 
         private void SaveImageToDatabase(byte[] imageData)
         {
@@ -457,6 +469,7 @@ namespace siKecil
                 }
             }
         }
+
         private BitmapImage ByteArrayToImage(byte[] imageData)
         {
             BitmapImage bitmap = new BitmapImage();
@@ -469,40 +482,14 @@ namespace siKecil
             }
             return bitmap;
         }
+
+        private void DisplayImage()
+        {
+            BitmapImage image = GetImageFromDatabase();
+            if (image != null)
+            {
+                ProfileImage.Source = image;
+            }
+        }
     }
-}
-public class LocationData
-{
-    public string Province { get; set; }
-    public string Regency { get; set; }
-    public string District { get; set; }
-    public string Village { get; set; }
-}
-public class Province
-{
-    public string Id { get; set; }
-    public string Name { get; set; }
-
-    public override string ToString() { return Name;}
-}
-
-public class Regency
-{
-    public string Id { get; set; }
-    public string Name { get; set; }
-    public override string ToString() { return Name; }
-}
-
-public class District
-{
-    public string Id { get; set; }
-    public string Name { get; set; }
-    public override string ToString() { return Name; }
-}
-
-public class Village
-{
-    public string Id { get; set; }
-    public string Name { get; set; }
-    public override string ToString() { return Name; }
 }

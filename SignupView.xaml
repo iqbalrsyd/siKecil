@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:siKecil"
         mc:Ignorable="d"
         Title="SignupView"  Height="700" Width="1200"
-        WindowStyle="None" WindowState="Maximized">
+        Loaded="Signup_Loaded">
     <Grid>
         <Label x:Name="SignUp" 
 			   Content="Sign Up" 
