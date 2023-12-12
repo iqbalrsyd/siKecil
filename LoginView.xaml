@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:siKecil"
         mc:Ignorable="d"
         Title="LoginView" Height="700" Width="1200"
-        Loaded="Login_Loaded">
+        WindowStyle="None" WindowState="Maximized">
     <Window.Style>
         <Style TargetType="Control">
             <Setter Property="FontFamily" Value="YourFontFamily" />

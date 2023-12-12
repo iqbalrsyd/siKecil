@@ -17,7 +17,6 @@ namespace siKecil
         {
             InitializeComponent();
             this.User_ID = user_ID;
-            Loaded += RiwayatMedis_Loaded;
 
             // Tambahkan tulisan "Dashboard" sebagai tautan kembali
             TextBlock ToDashboard_Click = new TextBlock();
@@ -27,11 +26,6 @@ namespace siKecil
             ToDashboard_Click.Cursor = Cursors.Hand;
             ToDashboard_Click.MouseLeftButtonDown += ToDashboard_Click_MouseLeftButtonDown; // Ganti nama event handler di sini
 
-        }
-
-        private void RiwayatMedis_Loaded(object sender, RoutedEventArgs e)
-        {
-            WindowState = WindowState.Maximized;
         }
 
         private void ToDashboard_Click_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)

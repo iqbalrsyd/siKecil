@@ -202,8 +202,6 @@
     <Compile Include="ChatView.xaml.cs">
       <DependentUpon>ChatView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Model\ChatModel.cs" />
-    <Compile Include="Model\ProfileModel.cs" />
     <Compile Include="ProfileView.xaml.cs">
       <DependentUpon>ProfileView.xaml</DependentUpon>
     </Compile>

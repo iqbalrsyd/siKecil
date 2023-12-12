@@ -9,12 +9,11 @@ namespace siKecil
     public partial class MainWindow : Window
     {
         private readonly string User_ID;
-
         public MainWindow(string User_ID)
         {
             InitializeComponent();
             this.User_ID = User_ID;
-            Loaded += MainWindow_Loaded;
+
             Connection connectionHelper = new Connection();
 
             using (SqlConnection sqlCon = connectionHelper.GetConn())
@@ -36,11 +35,6 @@ namespace siKecil
                     }
                 }
             }
-        }
-
-        private void MainWindow_Loaded(object sender, RoutedEventArgs e)
-        {
-            WindowState = WindowState.Maximized;
         }
 
         private void ToProfileView(object sender, RoutedEventArgs e)
