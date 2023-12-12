@@ -11,9 +11,6 @@ using System.IO;
 
 namespace siKecil   
 {
-    /// <summary>
-    /// Interaction logic for ProfileView.xaml
-    /// </summary>
     public partial class ProfileView : Window
     {
         private readonly string User_ID;
@@ -26,6 +23,14 @@ namespace siKecil
             LoadProvincesAsync();
             BitmapImage profileImage = GetImageFromDatabase();
             ProfileImage.Source = profileImage;
+            Loaded += Profile_Loaded;
+        }
+
+        private void Profile_Loaded(object sender, RoutedEventArgs e)
+        {
+            WindowState = WindowState.Maximized;
+            DisplayImage();
+
         }
 
         private void EditProfileButton(object sender, RoutedEventArgs e)
@@ -468,6 +473,15 @@ namespace siKecil
                 bitmap.EndInit();
             }
             return bitmap;
+        }
+
+        private void DisplayImage()
+        {
+            BitmapImage image = GetImageFromDatabase();
+            if (image != null)
+            {
+                ProfileImage.Source = image;
+            }
         }
     }
 }

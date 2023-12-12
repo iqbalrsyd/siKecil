@@ -6,15 +6,18 @@ using System.Data;
 
 namespace siKecil
 {
-    /// <summary>
-    /// Interaction logic for loginView.xaml
-    /// </summary>
     public partial class LoginView : Window
     {
         private string User_ID;
         public LoginView()
         {
             InitializeComponent();
+            Loaded += Login_Loaded;
+        }
+
+        private void Login_Loaded(object sender, RoutedEventArgs e)
+        {
+            WindowState = WindowState.Maximized;
         }
 
         private void TextBox_TextChanged(object sender, TextChangedEventArgs e)

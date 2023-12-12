@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:siKecil"
         mc:Ignorable="d"
         Title="ProfileView" Height="700" Width="1200"
-        WindowStyle="None" WindowState="Maximized">
+        Loaded="Profile_Loaded">
     <Grid>
         <Rectangle HorizontalAlignment="Left" Height="275" Margin="179,289,0,0" Stroke="Black" VerticalAlignment="Top" Width="483" RadiusX="10" RadiusY="10" StrokeThickness="0.5"/>
         <Rectangle HorizontalAlignment="Left" Height="124" Margin="179,145,0,0" Stroke="Black" VerticalAlignment="Top" Width="966" RadiusX="10" RadiusY="10" StrokeThickness="0.5" Grid.ColumnSpan="2"/>

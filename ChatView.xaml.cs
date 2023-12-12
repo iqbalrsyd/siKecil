@@ -26,6 +26,11 @@ namespace siKecil
             chatItemsControl.ItemsSource = chatMessages;
             kontakItemsControl.DataContext = KontakList;
         }
+
+        private void Chat_Loaded(object sender, RoutedEventArgs e)
+        {
+            WindowState = WindowState.Maximized;
+        }
         private void SetYourUserId(string User_ID)
         {
             using (SqlConnection sqlCon = connectionHelper.GetConn())
