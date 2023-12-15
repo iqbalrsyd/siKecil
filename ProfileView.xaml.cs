@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Windows;
@@ -8,21 +8,22 @@ using System.Net.Http;
 using Microsoft.Win32;
 using System.Windows.Media.Imaging;
 using System.IO;
+using siKecil.Model;
+using System.ComponentModel;
+using siKecil.ViewModel;
 
-namespace siKecil   
+namespace siKecil
 {
     public partial class ProfileView : Window
     {
         private readonly string User_ID;
         private LocationData selectedLocation = new LocationData();
+        private ProfileDataModel profileDataModel;
 
         public ProfileView(string User_ID)
         {
             InitializeComponent();
             this.User_ID = User_ID;
-            LoadProvincesAsync();
-            BitmapImage profileImage = GetImageFromDatabase();
-            ProfileImage.Source = profileImage;
             Loaded += Profile_Loaded;
         }
 
@@ -30,7 +31,45 @@ namespace siKecil
         {
             WindowState = WindowState.Maximized;
             DisplayImage();
+            LoadProvincesAsync();
+            GetDataFromSQL(User_ID);
+        }
 
+        private ProfileDataModel GetDataFromSQL(string User_ID)
+        {
+            Connection connectionHelper = new Connection();
+            using (SqlConnection sqlCon = connectionHelper.GetConn())
+            {
+                try
+                {
+                    sqlCon.Open();
+                    
+                    string selectQuery = $"SELECT AlamatKelurahan, AlamatKecamatan, AlamatKabKota, AlamatProvinsi," +
+                                        "TanggalLahirOrangTua, Alamat, JenisKelaminOrangTua, NomorTelepon, HubunganDenganAnak " +
+                                        "FROM ProfileOrangTua WHERE User_ID = @User_ID";
+
+                    using (SqlCommand cmd = new SqlCommand(selectQuery, sqlCon))
+                    {
+                        cmd.Parameters.AddWithValue("@User_ID", int.Parse(User_ID));
+
+                        using (SqlDataReader reader = cmd.ExecuteReader())
+                        {
+                            if (reader.Read())
+                            {
+                                profileDataModel.Alamat = reader["Alamat"].ToString();
+                                txtEditAlamat.Text = profileDataModel.Alamat;
+                            }
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine($"Error getting data from SQL: {ex.Message}");
+                }
+            }
+
+
+            return profileDataModel;
         }
 
         private void EditProfileButton(object sender, RoutedEventArgs e)
@@ -64,7 +103,8 @@ namespace siKecil
                             if (count2 > 0)
                             {
                                 string updateQuery2 = "UPDATE ProfileOrangTua SET TanggalLahir=@TanggalLahir, Alamat=@Alamat, JenisKelamin=@JenisKelamin, NomorTelepon=@NomorTelepon, " +
-                                                      "HubunganDenganAnak=@HubunganDenganAnak WHERE User_Id = @User_ID";
+                                                      "HubunganDenganAnak=@HubunganDenganAnak, AlamatKelurahan=@AlamatKelurahan, AlamatKecamatan=@AlamatKecamatan, AlamatKabKota=@AlamatKabKota," +
+                                                      "AlamatProvinsi=@AlamatProvinsi WHERE User_Id = @User_ID";
                                 using (SqlCommand cmd2 = new SqlCommand(updateQuery2, sqlCon, transaction))
                                 {
                                     cmd2.Parameters.AddWithValue("@TanggalLahir", DateTanggalLahirOrangTua.DisplayDate);
@@ -73,13 +113,18 @@ namespace siKecil
                                     cmd2.Parameters.AddWithValue("@NomorTelepon", txtEditNomorTelepon.Text);
                                     cmd2.Parameters.AddWithValue("@HubunganDenganAnak", HubunganDenganAnakComboBox.Text);
                                     cmd2.Parameters.AddWithValue("@User_ID", User_ID);
+                                    cmd2.Parameters.AddWithValue("@AlamatKelurahan", selectedLocation.Village);
+                                    cmd2.Parameters.AddWithValue("@AlamatKecamatan", selectedLocation.District);
+                                    cmd2.Parameters.AddWithValue("@AlamatKabKota", selectedLocation.Regency);
+                                    cmd2.Parameters.AddWithValue("@AlamatProvinsi", selectedLocation.Province);
+
                                     cmd2.ExecuteNonQuery();
                                 }
                             }
                             else
                             {
-                                string insertQuery2 = "INSERT INTO ProfileOrangTua (User_Id, TanggalLahir, Alamat, JenisKelamin, NomorTelepon, HubunganDenganAnak) " +
-                                                      "VALUES (@User_ID, @TanggalLahir, @Alamat, @JenisKelamin, @NomorTelepon, @HubunganDenganAnak)";
+                                string insertQuery2 = "INSERT INTO ProfileOrangTua (User_Id, TanggalLahir, Alamat, JenisKelamin, NomorTelepon, HubunganDenganAnak, AlamatKelurahan, AlamatKecamatan, AlamatKabKota,AlamatProvinsi) " +
+                                                      "VALUES (@User_ID, @TanggalLahir, @Alamat, @JenisKelamin, @NomorTelepon, @HubunganDenganAnak, @AlamatKelurahan, @AlamatKecamatan, @AlamatKabKota, @AlamatProvinsi)";
                                 using (SqlCommand cmd2 = new SqlCommand(insertQuery2, sqlCon, transaction))
                                 {
                                     cmd2.Parameters.AddWithValue("@User_ID", User_ID);
@@ -88,10 +133,13 @@ namespace siKecil
                                     cmd2.Parameters.AddWithValue("@JenisKelamin", JenisKelaminOrangTuaComboBox.Text);
                                     cmd2.Parameters.AddWithValue("@NomorTelepon", txtEditNomorTelepon.Text);
                                     cmd2.Parameters.AddWithValue("@HubunganDenganAnak", HubunganDenganAnakComboBox.Text);
+                                    cmd2.Parameters.AddWithValue("@AlamatKelurahan", selectedLocation.Village);
+                                    cmd2.Parameters.AddWithValue("@AlamatKecamatan", selectedLocation.District);
+                                    cmd2.Parameters.AddWithValue("@AlamatKabKota", selectedLocation.Regency);
+                                    cmd2.Parameters.AddWithValue("@AlamatProvinsi", selectedLocation.Province);
                                     cmd2.ExecuteNonQuery();
                                 }
                             }
-
                         }
 
                         string checkQuery3 = "SELECT COUNT(*) FROM ProfileAnak WHERE User_Id = @User_ID";
@@ -137,14 +185,12 @@ namespace siKecil
                     }
                     catch (Exception ex)
                     {
-                        // Rollback transaksi jika terjadi kesalahan
                         transaction.Rollback();
                         MessageBox.Show("Error saving changes: " + ex.Message);
                     }
                 }
             }
         }
-
 
         private void HubunganDenganAnakComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
@@ -356,21 +402,13 @@ namespace siKecil
                             KelurahanComboBox.ItemsSource = villages;
                             selectedLocation.Village = selectedVillage.Name;
                         }
-                        else
-                        {
-                            MessageBox.Show($"Failed to retrieve villages. Status code: {response.StatusCode}");
-                        }
 
                         if (selectedVillage != null)
                         {
-                            // Mendapatkan data yang dipilih dari ComboBox
                             selectedLocation.Province = ProvinsiComboBox.SelectedValue.ToString();
                             selectedLocation.Regency = KabKotaComboBox.SelectedValue.ToString();
                             selectedLocation.District = KecamatanComboBox.SelectedValue.ToString();
                             selectedLocation.Village = selectedVillage.Name;
-
-                            // Memanggil metode untuk mengganti isi txtEditAlamat.Text
-                            UpdateAddressText();
                         }
                         else
                         {
@@ -387,11 +425,6 @@ namespace siKecil
             {
                 MessageBox.Show($"An error occurred: {ex.Message}");
             }
-        }
-        private void UpdateAddressText()
-        {
-            // Anda dapat mengganti logika ini sesuai kebutuhan
-            txtEditAlamat.Text = $"{selectedLocation.Village}, {selectedLocation.District}, {selectedLocation.Regency}, {selectedLocation.Province}";
         }
 
         private BitmapImage GetImageFromDatabase()
@@ -423,7 +456,7 @@ namespace siKecil
         {
             OpenFileDialog openFileDialog = new OpenFileDialog();
             openFileDialog.Filter = "Image files (*.jpg, *.jpeg, *.png) | *.jpg; *.jpeg; *.png";
-            if (openFileDialog.ShowDialog() == true) 
+            if (openFileDialog.ShowDialog() == true)
             {
                 BitmapImage bitmap = new BitmapImage(new Uri(openFileDialog.FileName));
 
@@ -434,7 +467,7 @@ namespace siKecil
                 ProfileImage.Source = bitmap;
             }
         }
-        private byte[] ImageToByteArray (BitmapImage bitmap)
+        private byte[] ImageToByteArray(BitmapImage bitmap)
         {
             JpegBitmapEncoder encoder = new JpegBitmapEncoder();
             encoder.Frames.Add(BitmapFrame.Create(bitmap));
@@ -444,7 +477,7 @@ namespace siKecil
                 encoder.Save(memoryStream);
                 return memoryStream.ToArray();
             }
-        }   
+        }
 
         private void SaveImageToDatabase(byte[] imageData)
         {
@@ -497,7 +530,7 @@ public class Province
     public string Id { get; set; }
     public string Name { get; set; }
 
-    public override string ToString() { return Name;}
+    public override string ToString() { return Name; }
 }
 
 public class Regency
@@ -519,4 +552,23 @@ public class Village
     public string Id { get; set; }
     public string Name { get; set; }
     public override string ToString() { return Name; }
+}
+
+public class ProfileDataModel
+{
+    //private string User_ID { get; set; }
+    //public string EmailAddress { get; set; }
+    //public string Password { get; set; }
+    //public string FirstName { get; set; }
+    //public string LastName { get; set; }
+    //public DateTime TanggalLahirOrangTua { get; set; }
+    public string Alamat { get; set; }
+    //public string AlamatKelurahan {  get; set; }
+    //public string AlamatKecamatan { get; set; }
+    //public string AlamatKabKota { get; set; }
+    //public string AlamatProvinsi { get; set; }
+    //public string JenisKelaminOrangTua { get; set; }
+    //public string JenisKelaminAnak { get; set; }
+    //public string NomorTelepon { get; set; }
+    //public string HubunganDenganAnak { get; set; }
 }
