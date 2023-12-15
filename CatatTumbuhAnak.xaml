@@ -6,24 +6,32 @@
         xmlns:local="clr-namespace:siKecil"
         mc:Ignorable="d"
         Title="CatatTumbuhAnak" Height="700" Width="1200"
-        Loaded="CatatTumbuhAnak_Loaded">
+        WindowStyle="None" WindowState="Maximized">
     <Grid>
-        <TextBlock x:Name="greetingText"
-             HorizontalAlignment="Center" 
-             Height="55" 
-             Margin="0,20,0,0" 
-             VerticalAlignment="Top" 
-             Width="500" 
-             FontFamily="inter" 
-             FontSize="36"  />
         <Label Content="Yuk, catat perkembangan anakmu!" 
            HorizontalAlignment="Center" 
            Height="55" 
-           Margin="0,80,0,0" 
+           Margin="0,40,0,0" 
            VerticalAlignment="Top"  
            FontFamily="inter" 
-           FontSize="30"
+           FontSize="25"
            />
+        <Label Content="Umur Anak: " 
+            HorizontalAlignment="Left" 
+            Height="55" 
+            Margin="250,100,0,0" 
+            VerticalAlignment="Top"  
+            FontFamily="Inter"
+            FontSize="25"
+            />
+        <TextBlock x:Name="AgeTextBox" 
+            HorizontalAlignment="Left" 
+            Height="50" 
+            Margin="400,100,0,0" 
+            TextWrapping="Wrap" 
+            VerticalAlignment="Top"
+            Width="200" 
+            FontSize="25"/>
         <Label Content="Tanggal" 
            HorizontalAlignment="Left" 
            Height="55" 
