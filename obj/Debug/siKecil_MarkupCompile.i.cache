@@ -4,15 +4,15 @@
 winexe
 C#
 .cs
-C:\College Project\PBO siKecil\siKecil\obj\Release\
+C:\College Project\PBO siKecil\siKecil\obj\Debug\
 siKecil
 none
 false
-TRACE
+DEBUG;TRACE
 C:\College Project\PBO siKecil\siKecil\App.xaml
 8583301051
 
-15932449034
+16-1149639584
 150-1238601553
 CatatTumbuhAnak.xaml;ChatView.xaml;LoginPage.xaml;MainWindow.xaml;ProfileView.xaml;RiwayatMedisView.xaml;SignupPage.xaml;UserEnter.xaml;
 

@@ -23,7 +23,6 @@ namespace siKecil
             WindowState = WindowState.Maximized;
         }
 
-
         private void SaveCatatanTumbuhAnak(object sender, RoutedEventArgs e)
         {
             using (SqlConnection sqlCon = connectionHelper.GetConn())
