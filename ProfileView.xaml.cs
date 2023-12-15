@@ -8,9 +8,8 @@ using System.Net.Http;
 using Microsoft.Win32;
 using System.Windows.Media.Imaging;
 using System.IO;
-using siKecil.Model;
 using System.ComponentModel;
-using siKecil.ViewModel;
+
 
 namespace siKecil
 {
@@ -43,21 +42,19 @@ namespace siKecil
                 try
                 {
                     sqlCon.Open();
-                    
-                    string selectQuery = $"SELECT AlamatKelurahan, AlamatKecamatan, AlamatKabKota, AlamatProvinsi," +
-                                        "TanggalLahirOrangTua, Alamat, JenisKelaminOrangTua, NomorTelepon, HubunganDenganAnak " +
-                                        "FROM ProfileOrangTua WHERE User_ID = @User_ID";
+
+                    string selectQuery = $"SELECT EmailAddress, Password FROM Users WHERE User_Id = {User_ID}";
 
                     using (SqlCommand cmd = new SqlCommand(selectQuery, sqlCon))
                     {
-                        cmd.Parameters.AddWithValue("@User_ID", int.Parse(User_ID));
-
                         using (SqlDataReader reader = cmd.ExecuteReader())
                         {
                             if (reader.Read())
-                            {
-                                profileDataModel.Alamat = reader["Alamat"].ToString();
-                                txtEditAlamat.Text = profileDataModel.Alamat;
+                            { 
+                                string editEmail = reader["EmailAddress"].ToString();
+                                txtEditEmailAddress.Text = editEmail;
+                                string editPassword = reader["Password"].ToString();
+                                txtEditPassword.Password = editPassword;
                             }
                         }
                     }
@@ -153,7 +150,7 @@ namespace siKecil
                                 string updateQuery3 = "UPDATE ProfileAnak SET TanggalLahirAnak=@TanggalLahirAnak, NamaAnak=@NamaAnak, NamaPanggilanAnak=@NamaPanggilanAnak, JenisKelaminAnak=@JenisKelaminAnak WHERE User_Id = @User_ID";
                                 using (SqlCommand cmd3 = new SqlCommand(updateQuery3, sqlCon, transaction))
                                 {
-                                    cmd3.Parameters.AddWithValue("@TanggalLahirAnak", DateTanggalLahirAnak.DisplayDate);
+                                    cmd3.Parameters.AddWithValue("@TanggalLahirAnak", DateTanggalLahirAnak.SelectedDate ?? DateTime.Now);
                                     cmd3.Parameters.AddWithValue("@NamaAnak", txtEditNamaAnak.Text);
                                     cmd3.Parameters.AddWithValue("@NamaPanggilanAnak", txtEditNamaPanggilanAnak.Text);
                                     cmd3.Parameters.AddWithValue("@JenisKelaminAnak", JenisKelaminAnakComboBox.Text);
@@ -168,7 +165,7 @@ namespace siKecil
                                 using (SqlCommand cmd3 = new SqlCommand(insertQuery3, sqlCon, transaction))
                                 {
                                     cmd3.Parameters.AddWithValue("@User_ID", User_ID);
-                                    cmd3.Parameters.AddWithValue("@TanggalLahirAnak", DateTanggalLahirAnak.DisplayDate);
+                                    cmd3.Parameters.AddWithValue("@TanggalLahirAnak", DateTanggalLahirAnak.SelectedDate ?? DateTime.Now);
                                     cmd3.Parameters.AddWithValue("@NamaAnak", txtEditNamaAnak.Text);
                                     cmd3.Parameters.AddWithValue("@NamaPanggilanAnak", txtEditNamaPanggilanAnak.Text);
                                     cmd3.Parameters.AddWithValue("@JenisKelaminAnak", JenisKelaminAnakComboBox.Text);
