@@ -119,28 +119,39 @@
             VerticalAlignment="Top"  
             FontFamily="Inter" 
             FontSize="20"
-            AutoGenerateColumns="True"
-            IsReadOnly="True" />
+            AutoGenerateColumns="False"
+            IsReadOnly="True">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="No" Binding="{Binding No}" />
+                <DataGridTextColumn Header="Tanggal" Binding="{Binding Tanggal, StringFormat=d MMMM yyyy}" />
+                <DataGridTextColumn Header="Berat" Binding="{Binding Berat}" />
+                <DataGridTextColumn Header="Tinggi" Binding="{Binding Tinggi}" />
+                <DataGridTextColumn Header="Lingkar Kepala" Binding="{Binding LingkarKepala}" />
+                <DataGridTextColumn Header="Status Gizi" Binding="{Binding [Status Gizi]}" />
+                <DataGridTextColumn Header="Status LK" Binding="{Binding [Status LK]}" />
+                <DataGridTemplateColumn>
+                    <DataGridTemplateColumn.HeaderTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="Action" />
+                        </DataTemplate>
+                    </DataGridTemplateColumn.HeaderTemplate>
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Horizontal">
+                                <Button x:Name="editButton" Content="edit" Click="editButton_Click"/>
+                                <Button x:Name="deleteButton" Content="hps" Click="deleteButton_Click"/>
+                            </StackPanel>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
         <Button Content="Dashboard" 
             HorizontalAlignment="Left" 
             Margin="45,38,0,0" 
             VerticalAlignment="Top" 
             Height="61" Width="85" 
             Click="ToDashboard_Click"/>
-        <Button x:Name="editData" 
-            HorizontalAlignment="Left" 
-            Height="50" 
-            Margin="600,420,0,0" 
-            VerticalAlignment="Top" 
-            Width="100"
-            Click="editDataButton" />
-        <Label Content="Edit" 
-            HorizontalAlignment="Left" 
-            Height="55" 
-            Margin="630,430,0,0" 
-            VerticalAlignment="Top"  
-            FontFamily="Inter" 
-            FontSize="20"/>
         <Button x:Name="simpanPerubahan" 
             HorizontalAlignment="Left" 
             Height="50" 
@@ -155,19 +166,13 @@
             VerticalAlignment="Top"  
             FontFamily="Inter" 
             FontSize="20"/>
-        <Button x:Name="hapusData" 
+        <Button Content="Cek Status" 
             HorizontalAlignment="Left" 
             Height="50" 
-            Margin="750,420,0,0" 
+            Margin="250,620,0,0" 
             VerticalAlignment="Top" 
             Width="100"
-            Click="deleteData" />
-        <Label Content="Delete" 
-            HorizontalAlignment="Left" 
-            Height="55" 
-            Margin="765,430,0,0" 
-            VerticalAlignment="Top"  
-            FontFamily="Inter" 
-            FontSize="20"/>
+            FontSize="20"
+            Click="cekStatusButton" />
     </Grid>
 </Window>
