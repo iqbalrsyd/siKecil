@@ -1,4 +1,4 @@
-﻿<Window x:Class="siKecil.MainWindow"
+<Window x:Class="siKecil.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
@@ -8,15 +8,48 @@
         Title="MainWindow" Height="700" Width="1200"
         Loaded="MainWindow_Loaded">
     <Grid>
-        <TextBlock x:Name="greetingText" FontSize="30" Width="212" VerticalAlignment="Center"/>
+        <Grid d:IsLocked="True">
+            <!--Header -->
+            <Grid d:IsLocked="True">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="407*"/>
+                    <ColumnDefinition Width="793*"/>
+                </Grid.ColumnDefinitions>
+                <!-- Logo dan Nama -->
+                <StackPanel Orientation="Horizontal" Margin="0,0,24,512" Background="#FFFFC436">
+                    <!-- Logo -->
+                    <!-- Logo -->
+                    <!-- Logo -->
+                    <!-- Logo -->
+                    <!-- Logo -->
+                    <Ellipse Width="99" Height="78" Margin = "30, 0, 0, 0" Fill="Gray"/>
+                    <TextBlock Text="siKecil" FontSize="40" FontWeight="Bold" RenderTransformOrigin="476,181" Width="158" Height="40"/>
+                    <!-- Nama -->
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" VerticalAlignment="Top" Height="512" Margin="0,172,24,0" Background="#FFE1D8C2">
+                    
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" VerticalAlignment="Top"  Height="165" Background="White" Grid.ColumnSpan="2" Margin="383,4,0,0" d:IsLocked="True">
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" VerticalAlignment="Top" Opacity="0.5" Height="47" Margin="383,169,5,0" Background="#7FA2A0A0" Grid.ColumnSpan="2">
+                    
+                </StackPanel>
+                <!-- Page Navigation -->
+                <StackPanel Orientation="Horizontal" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0,10,10,0"/>
+                <!-- Navigasi Beranda -->
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                    <!-- Tulisan Beranda -->
 
-        <Button x:Name="ButtonRiwayat" Content="Riwayat" Click="ToRiwayatMedisView" Height="75" Width="115" Margin="62,512,1023,113"/>
-        <Button x:Name="ButtonCatatan" Content="Catatan" Click="ToCatatanTumbuhAnak" Height="75" Width="116" Margin="61,430,1023,195"/>
-        <Button x:Name="ButtonProfile" Content="Profil" Click="ToProfileView" Height="75" Width="116" Margin="60,270,1024,355"/>
-        <Button x:Name="ButtonChat" Content="Chat" Click="ToChatView" Height="75" Width="115" Margin="61,350,1024,275"/>
-        
+                    <!-- Informasi Akun (Contoh: Nama Pengguna) -->
+                  
+                </StackPanel>
+            </Grid>
+        </Grid>
+        <TextBlock x:Name="greetingText" FontSize="30" Width="212" VerticalAlignment="Center"/>
+        <Button x:Name="ButtonRiwayat" Content="Riwayat" Click="ToRiwayatMedisView" Height="75" Width="115" Margin="194,504,891,105"/>
+        <Button x:Name="ButtonCatatan" Content="Catatan" Click="ToCatatanTumbuhAnak" Height="75" Width="116" Margin="193,422,891,187"/>
+        <Button x:Name="ButtonProfile" Content="Profil" Click="ToProfileView" Height="75" Width="116" Margin="192,262,892,347"/>
+        <Button x:Name="ButtonChat" Content="Chat" Click="ToChatView" Height="75" Width="115" Margin="193,342,892,267"/>
     </Grid>
 
 </Window>
-    
-
