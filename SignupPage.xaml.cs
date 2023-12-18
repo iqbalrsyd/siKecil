@@ -1,36 +1,30 @@
 ﻿using System;
-using System.Windows;
-using System.Windows.Controls;
 using System.Data.SqlClient;
 using System.Data;
 using System.Net.Mail;
 using System.Net;
+using System.Windows;
+using System.Windows.Controls;
 
 namespace siKecil
 {
-    public partial class SignupView : Window
+    public partial class SignupPage : Page
     {
         private string User_ID;
         string randomCodeOTP;
         public static string to;
 
-        public SignupView(string User_ID)
+        public SignupPage(string User_ID)
         {
             InitializeComponent();
             this.User_ID = User_ID;
-            Loaded += Signup_Loaded;
-        }
-
-        private void Signup_Loaded(object sender, RoutedEventArgs e)
-        {
-            WindowState = WindowState.Maximized;
         }
 
         private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
             TextBox textBox = sender as TextBox;
         }
-        private void btnNext_Click(object sender, RoutedEventArgs e)
+        private void ToLoginPage_Click(object sender, RoutedEventArgs e)
         {
             try
             {
@@ -88,17 +82,18 @@ namespace siKecil
                         if (sqlCon.State == ConnectionState.Closed)
                             sqlCon.Open();
 
-                        String query = "INSERT INTO Users (User_ID, FirstName, LastName, EmailAddress, Password) VALUES (@User_ID, @FirstName, @LastName, @EmailAddress, @Password)";
+                        String query = "INSERT INTO Users (User_ID, Username, FirstName, LastName, EmailAddress, Password) VALUES (@User_ID, @Username, @FirstName, @LastName, @EmailAddress, @Password)";
 
                         Random random = new Random();
 
                         int randomNumber = random.Next(1000, 9999);
 
-                        string userID = randomNumber.ToString().PadLeft(10, '0');
+                        string User_ID = randomNumber.ToString().PadLeft(10, '0');
 
                         SqlCommand sqlcmd = new SqlCommand(query, sqlCon);
                         sqlcmd.CommandType = CommandType.Text;
                         sqlcmd.Parameters.AddWithValue("@User_ID", User_ID);
+                        sqlcmd.Parameters.AddWithValue("@Username", txtUsername.Text);
                         sqlcmd.Parameters.AddWithValue("@FirstName", txtFirstName.Text);
                         sqlcmd.Parameters.AddWithValue("@LastName", txtLastName.Text);
                         sqlcmd.Parameters.AddWithValue("@EmailAddress", txtEmailAddress.Text);
@@ -107,9 +102,8 @@ namespace siKecil
                         sqlcmd.ExecuteNonQuery();
 
                         MessageBox.Show("Sign Up Successful");
-                        LoginView login = new LoginView();
-                        login.Show();
-                        this.Close();
+                        ((UserEnter)Application.Current.MainWindow).NavigateToLoginPage();
+                        this.Visibility = Visibility.Collapsed;
                     }
                     catch (Exception ex)
                     {
@@ -121,12 +115,6 @@ namespace siKecil
             {
                 MessageBox.Show("Wrong Code");
             }
-        }
-        private void ToLoginViewLabel(object sender, RoutedEventArgs e)
-        {
-            LoginView login = new LoginView();
-            login.Show();
-            this.Close();
         }
 
         private void txtOtp_TextChanged(object sender, TextChangedEventArgs e)

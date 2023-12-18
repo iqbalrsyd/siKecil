@@ -1,4 +1,5 @@
 ﻿
+<<<<<<< HEAD
 
 FC:\Users\Ekadukasi\source\repos\siKecil\CatatTumbuhAnak.xaml;;
 FC:\Users\Ekadukasi\source\repos\siKecil\ChatView.xaml;;
@@ -6,4 +7,14 @@ FC:\Users\Ekadukasi\source\repos\siKecil\LoginView.xaml;;
 FC:\Users\Ekadukasi\source\repos\siKecil\MainWindow.xaml;;
 FC:\Users\Ekadukasi\source\repos\siKecil\ProfileView.xaml;;
 FC:\Users\Ekadukasi\source\repos\siKecil\SignupView.xaml;;
+=======
+FC:\College Project\PBO siKecil\siKecil\App.xaml;;
+FC:\College Project\PBO siKecil\siKecil\CatatTumbuhAnak.xaml;;
+FC:\College Project\PBO siKecil\siKecil\ChatView.xaml;;
+FC:\College Project\PBO siKecil\siKecil\LoginPage.xaml;;
+FC:\College Project\PBO siKecil\siKecil\MainWindow.xaml;;
+FC:\College Project\PBO siKecil\siKecil\ProfileView.xaml;;
+FC:\College Project\PBO siKecil\siKecil\SignupPage.xaml;;
+FC:\College Project\PBO siKecil\siKecil\UserEnter.xaml;;
+>>>>>>> aa180c40fcef868e3ea038dab0a204f1892a6b7b
 

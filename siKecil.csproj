@@ -203,14 +203,22 @@
       <DependentUpon>ChatView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Criteria.cs" />
+    <Compile Include="LoginPage.xaml.cs">
+      <DependentUpon>LoginPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Model\ChatModel.cs" />
+    <Compile Include="Model\ProfileModel.cs" />
     <Compile Include="ProfileView.xaml.cs">
       <DependentUpon>ProfileView.xaml</DependentUpon>
     </Compile>
     <Compile Include="RiwayatMedisView.xaml.cs">
       <DependentUpon>RiwayatMedisView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="SignupView.xaml.cs">
-      <DependentUpon>SignupView.xaml</DependentUpon>
+    <Compile Include="SignupPage.xaml.cs">
+      <DependentUpon>SignupPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserEnter.xaml.cs">
+      <DependentUpon>UserEnter.xaml</DependentUpon>
     </Compile>
     <Page Include="CatatTumbuhAnak.xaml">
       <SubType>Designer</SubType>
@@ -220,7 +228,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="LoginView.xaml">
+    <Page Include="LoginPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -233,9 +241,6 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Connection.cs" />
-    <Compile Include="LoginView.xaml.cs">
-      <DependentUpon>LoginView.xaml</DependentUpon>
-    </Compile>
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
@@ -248,7 +253,11 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="SignupView.xaml">
+    <Page Include="SignupPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserEnter.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -279,6 +288,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Asset\signup.jpeg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Asset\login.jpeg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

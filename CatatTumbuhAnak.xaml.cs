@@ -43,7 +43,6 @@ namespace siKecil
             LoadDataGrid(User_ID);
         }
 
-
         private void SaveCatatanTumbuhAnak(object sender, RoutedEventArgs e)
         {
             using (SqlConnection sqlCon = connectionHelper.GetConn())

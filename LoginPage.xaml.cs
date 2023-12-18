@@ -1,23 +1,17 @@
 ﻿using System;
-using System.Windows;
-using System.Windows.Controls;
 using System.Data.SqlClient;
 using System.Data;
+using System.Windows;
+using System.Windows.Controls;
 
 namespace siKecil
 {
-    public partial class LoginView : Window
+    public partial class LoginPage : Page
     {
         private string User_ID;
-        public LoginView()
+        public LoginPage()
         {
             InitializeComponent();
-            Loaded += Login_Loaded;
-        }
-
-        private void Login_Loaded(object sender, RoutedEventArgs e)
-        {
-            WindowState = WindowState.Maximized;
         }
 
         private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
@@ -25,7 +19,7 @@ namespace siKecil
 
         }
 
-        private void btnNext_Click(object sender, RoutedEventArgs e)
+        private void ToDashboard_Click(object sender, RoutedEventArgs e)
         {
             {
                 Connection connectionHelper = new Connection();
@@ -42,7 +36,7 @@ namespace siKecil
                         using (SqlCommand sqlCmdCount = new SqlCommand(queryCount, sqlCon))
                         {
                             sqlCmdCount.CommandType = CommandType.Text;
-                            sqlCmdCount.Parameters.AddWithValue("@EmailAddress", txtUsername.Text);
+                            sqlCmdCount.Parameters.AddWithValue("@EmailAddress", txtEmailAddress.Text);
                             sqlCmdCount.Parameters.AddWithValue("@Password", txtPassword.Password);
 
                             int count = Convert.ToInt32(sqlCmdCount.ExecuteScalar());
@@ -54,14 +48,15 @@ namespace siKecil
                                 using (SqlCommand sqlCmdUserId = new SqlCommand(queryUserId, sqlCon))
                                 {
                                     sqlCmdUserId.CommandType = CommandType.Text;
-                                    sqlCmdUserId.Parameters.AddWithValue("@EmailAddress", txtUsername.Text);
+                                    sqlCmdUserId.Parameters.AddWithValue("@EmailAddress", txtEmailAddress.Text);
                                     sqlCmdUserId.Parameters.AddWithValue("@Password", txtPassword.Password);
 
                                     string User_ID = sqlCmdUserId.ExecuteScalar().ToString();
 
                                     MainWindow dashboard = new MainWindow(User_ID);
                                     dashboard.Show();
-                                    this.Close();
+                                    Window currentUserEnter = Window.GetWindow(this);
+                                    currentUserEnter.Close();
                                 }
                             }
                             else
@@ -77,13 +72,6 @@ namespace siKecil
                 }
 
             }
-        }
-
-        private void Signup_Click(object sender, RoutedEventArgs e)
-        {
-            SignupView form = new SignupView(User_ID);
-            form.Show();
-            this.Close();
         }
 
         private void PasswordBox_PasswordChanged(object sender, RoutedEventArgs e)

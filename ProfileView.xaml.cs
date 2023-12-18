@@ -8,8 +8,8 @@ using System.Net.Http;
 using Microsoft.Win32;
 using System.Windows.Media.Imaging;
 using System.IO;
+using siKecil.Model;
 using System.ComponentModel;
-
 
 namespace siKecil
 {
@@ -50,7 +50,7 @@ namespace siKecil
                         using (SqlDataReader reader = cmd.ExecuteReader())
                         {
                             if (reader.Read())
-                            { 
+                            {
                                 string editEmail = reader["EmailAddress"].ToString();
                                 txtEditEmailAddress.Text = editEmail;
                                 string editPassword = reader["Password"].ToString();
@@ -514,58 +514,4 @@ namespace siKecil
             }
         }
     }
-}
-public class LocationData
-{
-    public string Province { get; set; }
-    public string Regency { get; set; }
-    public string District { get; set; }
-    public string Village { get; set; }
-}
-public class Province
-{
-    public string Id { get; set; }
-    public string Name { get; set; }
-
-    public override string ToString() { return Name; }
-}
-
-public class Regency
-{
-    public string Id { get; set; }
-    public string Name { get; set; }
-    public override string ToString() { return Name; }
-}
-
-public class District
-{
-    public string Id { get; set; }
-    public string Name { get; set; }
-    public override string ToString() { return Name; }
-}
-
-public class Village
-{
-    public string Id { get; set; }
-    public string Name { get; set; }
-    public override string ToString() { return Name; }
-}
-
-public class ProfileDataModel
-{
-    //private string User_ID { get; set; }
-    //public string EmailAddress { get; set; }
-    //public string Password { get; set; }
-    //public string FirstName { get; set; }
-    //public string LastName { get; set; }
-    //public DateTime TanggalLahirOrangTua { get; set; }
-    public string Alamat { get; set; }
-    //public string AlamatKelurahan {  get; set; }
-    //public string AlamatKecamatan { get; set; }
-    //public string AlamatKabKota { get; set; }
-    //public string AlamatProvinsi { get; set; }
-    //public string JenisKelaminOrangTua { get; set; }
-    //public string JenisKelaminAnak { get; set; }
-    //public string NomorTelepon { get; set; }
-    //public string HubunganDenganAnak { get; set; }
 }

@@ -4,17 +4,30 @@
 winexe
 C#
 .cs
+<<<<<<< HEAD
 C:\Users\Ekadukasi\source\repos\siKecil\obj\Debug\
+=======
+C:\College Project\PBO siKecil\siKecil\obj\Debug\
+>>>>>>> aa180c40fcef868e3ea038dab0a204f1892a6b7b
 siKecil
 none
 false
 DEBUG;TRACE
+<<<<<<< HEAD
 C:\Users\Ekadukasi\source\repos\siKecil\App.xaml
 7-1908298508
 
 13313045109
 150-2029783223
 CatatTumbuhAnak.xaml;ChatView.xaml;LoginView.xaml;MainWindow.xaml;ProfileView.xaml;RiwayatMedisView.xaml;SignupView.xaml;
+=======
+C:\College Project\PBO siKecil\siKecil\App.xaml
+8583301051
+
+15932449034
+150-1238601553
+CatatTumbuhAnak.xaml;ChatView.xaml;LoginPage.xaml;MainWindow.xaml;ProfileView.xaml;RiwayatMedisView.xaml;SignupPage.xaml;UserEnter.xaml;
+>>>>>>> aa180c40fcef868e3ea038dab0a204f1892a6b7b
 
 False
 
