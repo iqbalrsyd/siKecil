@@ -4,17 +4,26 @@
 winexe
 C#
 .cs
-C:\College Project\PBO siKecil\siKecil\obj\Debug\
+C:\Users\Ekadukasi\source\repos\siKecil\obj\Debug\
 siKecil
 none
 false
 DEBUG;TRACE
+<<<<<<< HEAD
 C:\College Project\PBO siKecil\siKecil\App.xaml
 10-56000898
 
 18-1276183221
 150-1238601553
 CatatTumbuhAnak.xaml;ChatView.xaml;Dashboard.xaml;GenerateOtpPage.xaml;LoginPage.xaml;MainWindow.xaml;ProfileView.xaml;RiwayatMedisView.xaml;SignupPage.xaml;UserEnter.xaml;
+=======
+C:\Users\Ekadukasi\source\repos\siKecil\App.xaml
+91188765641
+
+172035265705
+150-2029783223
+ChatView.xaml;DiaryAnakPage.xaml;HomePage.xaml;LoginPage.xaml;MainWindow.xaml;ProfileView.xaml;RiwayatMedisView.xaml;SignupPage.xaml;UserEnter.xaml;
+>>>>>>> 21da5def7725d64802f1c994ba0db1a23e2e4b53
 
 True
 

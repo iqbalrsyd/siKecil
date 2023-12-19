@@ -1,5 +1,7 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -10,34 +12,31 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 using System.Windows.Shapes;
-using System.Data.SqlClient;
-using System.Data;
-using System.Globalization;
 
 namespace siKecil
 {
     /// <summary>
-    /// Interaction logic for CatatTumbuhAnak.xaml
+    /// Interaction logic for DiaryAnakPage.xaml
     /// </summary>
-    public partial class CatatTumbuhAnak : Window
+    public partial class DiaryAnakPage : Page
     {
-
         private readonly string User_ID;
         Connection connectionHelper = new Connection();
         private Person person;
-        public CatatTumbuhAnak(string User_ID)
+        public DiaryAnakPage(string User_ID)
         {
             InitializeComponent();
             this.User_ID = User_ID;
-            Loaded += CatatTumbuhAnak_Loaded;
+            Loaded += DiaryAnakPage_Loaded;
 
             person = GetPersonFromDatabase();
             DataContext = person;
             UpdateAge();
         }
 
-        private void CatatTumbuhAnak_Loaded(object sender, RoutedEventArgs e)
+        private void DiaryAnakPage_Loaded(object sender, RoutedEventArgs e)
         {
             LoadDataGrid(User_ID);
         }
@@ -59,14 +58,43 @@ namespace siKecil
                         using (SqlCommand checkCmd = new SqlCommand(checkQuery, sqlCon, transaction))
                         {
                             checkCmd.Parameters.AddWithValue("@User_ID", User_ID);
-                            String query = "INSERT INTO CatatTumbuhAnak (User_ID, No, Tanggal, Berat, Tinggi, LingkarKepala) VALUES (@User_ID, (SELECT ISNULL(MAX(No), 0) + 1 FROM CatatTumbuhAnak WHERE User_ID = @User_ID), @Tanggal, @Berat, @Tinggi, @LingkarKepala)";
+                            String query = "INSERT INTO CatatTumbuhAnak (User_ID, No, Tanggal, Berat, Tinggi, LingkarKepala, [Status Gizi], [Status LK]) VALUES (@User_ID, (SELECT ISNULL(MAX(No), 0) + 1 FROM CatatTumbuhAnak WHERE User_ID = @User_ID), @Tanggal, @Berat, @Tinggi, @LingkarKepala, @StatusGizi, @StatusLK)";
                             using (SqlCommand cmd = new SqlCommand(query, sqlCon, transaction))
                             {
+                                double weight;
+                                if (!double.TryParse(txtBerat.Text, out weight))
+                                {
+                                    MessageBox.Show("Please enter a valid weight.");
+                                    return;
+                                }
+
+                                double height;
+                                if (!double.TryParse(txtTinggi.Text, out height))
+                                {
+                                    MessageBox.Show("Please enter a valid height.");
+                                    return;
+                                }
+
+                                double lingkarKepala;
+                                if (!double.TryParse(txtLingkarKepala.Text, out lingkarKepala))
+                                {
+                                    MessageBox.Show("Please enter a valid lingkarKepala.");
+                                    return;
+                                }
+
+                                string gender = person.JenisKelaminAnak;
+                                int age = CalculateAge(person.TanggalLahirAnak, DateTime.Today);
+                                Criteria criteria = new Criteria(gender, weight, height, age, lingkarKepala);
+                                string statusGizi = criteria.CalculateGizi();
+                                string statusLK = criteria.CalculateLK();
+
                                 cmd.Parameters.AddWithValue("@User_ID", User_ID);
                                 cmd.Parameters.AddWithValue("@Tanggal", datePicker.SelectedDate ?? DateTime.Now);
                                 cmd.Parameters.AddWithValue("@Berat", txtBerat.Text);
                                 cmd.Parameters.AddWithValue("@Tinggi", txtTinggi.Text);
                                 cmd.Parameters.AddWithValue("@LingkarKepala", txtLingkarKepala.Text);
+                                cmd.Parameters.AddWithValue("@StatusGizi", statusGizi);
+                                cmd.Parameters.AddWithValue("@StatusLK", statusLK);
                                 cmd.ExecuteNonQuery();
                             }
                         }
@@ -74,6 +102,11 @@ namespace siKecil
                         transaction.Commit();
                         MessageBox.Show("Data berhasil disimpan");
                         LoadDataGrid(User_ID);
+
+                        datePicker.Text = "";
+                        txtBerat.Text = "";
+                        txtTinggi.Text = "";
+                        txtLingkarKepala.Text = "";
                     }
                     catch (Exception ex)
                     {
@@ -92,27 +125,17 @@ namespace siKecil
                 {
                     sqlCon.Open();
 
-                    string showQuery = $"SELECT No, Tanggal, Berat, Tinggi, LingkarKepala FROM CatatTumbuhAnak WHERE User_Id = {User_ID}";
+                    string showQuery = $"SELECT No, Tanggal, Berat, Tinggi, LingkarKepala, [Status Gizi], [Status LK] FROM CatatTumbuhAnak WHERE User_Id = {User_ID}";
                     using (SqlCommand cmd = new SqlCommand(showQuery, sqlCon))
                     {
                         using (SqlDataReader reader = cmd.ExecuteReader())
                         {
                             if (reader.HasRows)
                             {
-                                DataSet dataSet = new DataSet();
-                                dataSet.Load(reader, LoadOption.OverwriteChanges, "CatatTumbuhAnak");
-
-                                dataGrid.AutoGeneratingColumn += (sender, e) =>
-                                {
-                                    if (e.PropertyName == "Tanggal" && e.Column is DataGridTextColumn textColumn)
-                                    {
-                                        textColumn.Binding.StringFormat = "d MMMM yyyy";
-                                    }
-                                };
-
-                                dataGrid.ItemsSource = dataSet.Tables["CatatTumbuhAnak"].DefaultView;
-                                dataGrid.IsReadOnly = true;
-
+                                DataTable dataTable = new DataTable();
+                                dataTable.Load(reader);
+                                dataTable.DefaultView.Sort = "No ASC";
+                                dataGrid.ItemsSource = dataTable.DefaultView;
                             }
                         }
                     }
@@ -123,14 +146,8 @@ namespace siKecil
                 MessageBox.Show("Error: " + ex.Message);
             }
         }
-        private void ToDashboard_Click(object sender, RoutedEventArgs e)
-        {
-            MainWindow dashboard = new MainWindow(User_ID);
-            dashboard.Show();
-            this.Close();
-        }
 
-        private void editDataButton(object sender, RoutedEventArgs e)
+        private void editButton_Click(object sender, RoutedEventArgs e)
         {
             if (dataGrid.SelectedItem != null)
             {
@@ -168,9 +185,35 @@ namespace siKecil
 
                     string selectedNo = selectedRow["No"].ToString();
 
-                    string updateQuery = "UPDATE CatatTumbuhAnak SET Tanggal = @Tanggal, Berat = @Berat, Tinggi = @Tinggi, LingkarKepala = @LingkarKepala WHERE No = @No";
+                    string updateQuery = "UPDATE CatatTumbuhAnak SET Tanggal = @Tanggal, Berat = @Berat, Tinggi = @Tinggi, LingkarKepala = @LingkarKepala, [Status Gizi] = @StatusGizi, [Status LK] = @StatusLK WHERE No = @No AND User_Id = @User_Id";
                     using (SqlCommand updateCommand = new SqlCommand(updateQuery, sqlCon))
                     {
+                        double weight;
+                        if (!double.TryParse(txtBerat.Text, out weight))
+                        {
+                            MessageBox.Show("Please enter a valid weight.");
+                            return;
+                        }
+
+                        double height;
+                        if (!double.TryParse(txtTinggi.Text, out height))
+                        {
+                            MessageBox.Show("Please enter a valid height.");
+                            return;
+                        }
+
+                        double lingkarKepala;
+                        if (!double.TryParse(txtLingkarKepala.Text, out lingkarKepala))
+                        {
+                            MessageBox.Show("Please enter a valid lingkarKepala.");
+                            return;
+                        }
+
+                        string gender = person.JenisKelaminAnak;
+                        int age = CalculateAge(person.TanggalLahirAnak, DateTime.Today);
+                        Criteria criteria = new Criteria(gender, weight, height, age, lingkarKepala);
+                        string statusGizi = criteria.CalculateGizi();
+                        string statusLK = criteria.CalculateLK();
 
                         updateCommand.Parameters.AddWithValue("@Tanggal", datePicker.SelectedDate ?? DateTime.Now);
                         updateCommand.Parameters.AddWithValue("@Berat", txtBerat.Text);
@@ -178,7 +221,8 @@ namespace siKecil
                         updateCommand.Parameters.AddWithValue("@LingkarKepala", txtLingkarKepala.Text);
                         updateCommand.Parameters.AddWithValue("@User_ID", User_ID);
                         updateCommand.Parameters.AddWithValue("@No", selectedNo);
-
+                        updateCommand.Parameters.AddWithValue("@StatusGizi", statusGizi);
+                        updateCommand.Parameters.AddWithValue("@StatusLK", statusLK);
                         updateCommand.ExecuteNonQuery();
                         MessageBox.Show("Data berhasil di update!");
 
@@ -192,7 +236,8 @@ namespace siKecil
                 txtLingkarKepala.Text = "";
             }
         }
-        private void deleteData(object sender, RoutedEventArgs e)
+
+        private void deleteButton_Click(object sender, RoutedEventArgs e)
         {
             if (dataGrid.SelectedItem != null)
             {
@@ -204,10 +249,11 @@ namespace siKecil
 
                     string selectedNo = selectedRow["No"].ToString();
 
-                    string deleteQuery = "DELETE FROM CatatTumbuhAnak WHERE No = @No";
+                    string deleteQuery = "DELETE FROM CatatTumbuhAnak WHERE No = @No AND User_Id = @User_ID";
                     using (SqlCommand deleteCommand = new SqlCommand(deleteQuery, sqlCon))
                     {
                         deleteCommand.Parameters.AddWithValue("@No", int.Parse(selectedNo));
+                        deleteCommand.Parameters.AddWithValue("@User_ID", User_ID);
                         deleteCommand.ExecuteNonQuery();
                         MessageBox.Show("Data berhasil dihapus!");
                     }
@@ -233,9 +279,9 @@ namespace siKecil
                 sqlCon.Open();
 
                 string user_id = this.User_ID;
-                string getBirthday = "SELECT NamaAnak, TanggalLahirAnak FROM ProfileAnak WHERE User_ID = @User_ID";
+                string getPerson = "SELECT NamaAnak, TanggalLahirAnak, JenisKelaminAnak FROM ProfileAnak WHERE User_ID = @User_ID";
 
-                using (SqlCommand command = new SqlCommand(getBirthday, sqlCon))
+                using (SqlCommand command = new SqlCommand(getPerson, sqlCon))
                 {
                     command.Parameters.AddWithValue("@User_ID", user_id);
                     using (SqlDataReader reader = command.ExecuteReader())
@@ -244,6 +290,7 @@ namespace siKecil
                         {
                             result.NamaAnak = reader.GetString(0);
                             result.TanggalLahirAnak = reader.GetDateTime(1);
+                            result.JenisKelaminAnak = reader.GetString(2);
                         }
                     }
                 }
@@ -254,7 +301,7 @@ namespace siKecil
         {
             int age = CalculateAge(person.TanggalLahirAnak, DateTime.Today);
             string ageChild = age.ToString();
-            AgeTextBox.Text = $"{ageChild} bulan";
+            AgeTextBox.Text = $"{ageChild}";
         }
         private void BirthDatePicker_SelectedDateChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
         {
@@ -270,12 +317,48 @@ namespace siKecil
             }
             return ageInMonths;
         }
+
+        private void checkStatusGizi()
+        {
+            double weight;
+            if (!double.TryParse(txtBerat.Text, out weight))
+            {
+                MessageBox.Show("Please enter a valid weight.");
+                return;
+            }
+
+            double height;
+            if (!double.TryParse(txtTinggi.Text, out height))
+            {
+                MessageBox.Show("Please enter a valid height.");
+                return;
+            }
+            double lingkarKepala;
+            if (!double.TryParse(txtLingkarKepala.Text, out lingkarKepala))
+            {
+                MessageBox.Show("Please enter a valid lingkarKepala.");
+                return;
+            }
+            string gender = person.JenisKelaminAnak;
+            int age = CalculateAge(person.TanggalLahirAnak, DateTime.Today);
+            Criteria criteria = new Criteria(gender, weight, height, age, lingkarKepala);
+            string statusGizi = criteria.CalculateGizi();
+            string statusLK = criteria.CalculateLK();
+
+            MessageBox.Show("Status Kesehatan Anak\n" + "Status Gizi: " + statusGizi + "\nStatus LK: " + statusLK);
+        }
+
+        private void cekStatusButton(object sender, RoutedEventArgs e)
+        {
+            checkStatusGizi();
+        }
     }
 
     public class Person
     {
-        public string User_ID { get; set; }
         public string NamaAnak { get; set; }
         public DateTime TanggalLahirAnak { get; set; }
+        public string JenisKelaminAnak { get; set; }
     }
 }
+
