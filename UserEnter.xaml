@@ -46,7 +46,7 @@
         </Rectangle>
         <Button Grid.Column="1" Content="LOG IN" FontSize="20" HorizontalAlignment="Left" Grid.Row="1" VerticalAlignment="Top" Height="70" Width="180" Margin="68,37,0,0" Style="{StaticResource CustomButtonStyleChangePage}" Click="Login_Click" />
         <Button Grid.Column="1" Content="SIGN UP" FontSize="20" HorizontalAlignment="Left" Grid.Row="1" VerticalAlignment="Top" Height="70" Width="180" Margin="247,37,0,0" Style="{StaticResource CustomButtonStyleChangePage}" Click="Signup_Click"/>
-        <Frame x:Name="mainFrame" NavigationUIVisibility="Hidden" Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="1"/>
+        <Frame x:Name="mainFrame" NavigationUIVisibility="Hidden" Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="1" Navigated="mainFrame_Navigated"/>
         <Grid.ColumnDefinitions>
             <ColumnDefinition MinWidth="100"/>
             <ColumnDefinition Width="500"/>

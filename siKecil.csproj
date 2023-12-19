@@ -196,13 +196,16 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="CatatTumbuhAnak.xaml.cs">
-      <DependentUpon>CatatTumbuhAnak.xaml</DependentUpon>
-    </Compile>
     <Compile Include="ChatView.xaml.cs">
       <DependentUpon>ChatView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Criteria.cs" />
+    <Compile Include="DiaryAnakPage.xaml.cs">
+      <DependentUpon>DiaryAnakPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="HomePage.xaml.cs">
+      <DependentUpon>HomePage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="LoginPage.xaml.cs">
       <DependentUpon>LoginPage.xaml</DependentUpon>
     </Compile>
@@ -220,11 +223,15 @@
     <Compile Include="UserEnter.xaml.cs">
       <DependentUpon>UserEnter.xaml</DependentUpon>
     </Compile>
-    <Page Include="CatatTumbuhAnak.xaml">
+    <Page Include="ChatView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="ChatView.xaml">
+    <Page Include="DiaryAnakPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="HomePage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -294,6 +301,20 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Asset\login.jpeg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Asset\bell.png" />
+    <Resource Include="Asset\book.png" />
+    <Resource Include="Asset\chat.png" />
+    <Resource Include="Asset\email.png" />
+    <Resource Include="Asset\home.png" />
+    <Resource Include="Asset\info.png" />
+    <Resource Include="Asset\jennie.jpg" />
+    <Resource Include="Asset\key.png" />
+    <Resource Include="Asset\menu.png" />
+    <Resource Include="Asset\notes.png" />
+    <Resource Include="Asset\search.png" />
+    <Resource Include="Asset\user.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

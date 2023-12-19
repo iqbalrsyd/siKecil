@@ -18,8 +18,9 @@ namespace siKecil
         private void UserEnter_Loaded(object sender, RoutedEventArgs e)
         {
             WindowState = WindowState.Maximized;
+            Uri pageUri = new Uri("LoginPage.xaml", UriKind.Relative);
+            mainFrame.NavigationService.Navigate(pageUri);
         }
-
 
         public void NavigateToLoginPage()
         {
@@ -44,6 +45,11 @@ namespace siKecil
 
             LoginPage loginPage = new LoginPage();
             mainFrame.NavigationService.Navigate(loginPage);
+        }
+
+        private void mainFrame_Navigated(object sender, System.Windows.Navigation.NavigationEventArgs e)
+        {
+
         }
     }
 }
