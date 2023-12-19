@@ -1,5 +1,8 @@
-﻿using System.Data.SqlClient;
+using System;
+using System.Data.SqlClient;
+using System.Diagnostics;
 using System.Windows;
+using System.Windows.Controls;
 
 namespace siKecil
 {
@@ -44,32 +47,77 @@ namespace siKecil
             WindowState = WindowState.Maximized;
         }
 
-        private void ToProfileView(object sender, RoutedEventArgs e)
+        private void NavigateToView(Type viewType)
         {
-            ProfileView profile = new ProfileView(User_ID);
-            profile.Show();
-            this.Close();
+            // Membuat instance kelas dan menavigasi ke halaman tersebut
+            var viewInstance = Activator.CreateInstance(viewType, User_ID);
+            MainFrame.Navigate(viewInstance);
         }
 
-        private void ToRiwayatMedisView(object sender, RoutedEventArgs e)
+
+        private void ProfileIcon_Click(object sender, RoutedEventArgs e)
         {
-            RiwayatMedisView Riwayat= new RiwayatMedisView(User_ID);
-            Riwayat.Show();
-            this.Close();
+            NavigateToView(typeof(ProfileView));
         }
 
-        private void ToChatView(object sender, RoutedEventArgs e)
+        private void NotesIcon_Click(object sender, RoutedEventArgs e)
         {
-            ChatView chat = new ChatView(User_ID);
-            chat.Show();
-            this.Close();
+            NavigateToView(typeof(CatatTumbuhAnak));
         }
 
-        private void ToCatatanTumbuhAnak(object sender, RoutedEventArgs e)
+        private void ChatIcon_Click(object sender, RoutedEventArgs e)
         {
-            CatatTumbuhAnak Catatan = new CatatTumbuhAnak(User_ID);
-            Catatan.Show();
-            this.Close();
+            NavigateToView(typeof(ChatView));
         }
+
+        private void InfoIcon_Click(object sender, RoutedEventArgs e)
+        {
+            NavigateToView(typeof(RiwayatMedisView));
+        }
+
+        private void Image_Click(object sender, RoutedEventArgs e)
+        {
+            // Mendapatkan sender sebagai elemen Image yang diklik
+            Image clickedImage = sender as Image;
+
+            // Debug: Cek apakah clickedImage null atau tidak
+            if (clickedImage == null)
+            {
+                Debug.WriteLine("clickedImage is null.");
+                return;
+            }
+
+            // Debug: Cek Tag dari clickedImage
+            Debug.WriteLine($"Image Tag: {clickedImage.Tag}");
+
+            // Mendapatkan nama kelas dari Tag
+            string className = clickedImage.Tag as string;
+
+            // Debug: Cek apakah className diambil dengan benar
+            Debug.WriteLine($"Class Name: {className}");
+
+            // Panggil metode sesuai dengan kelas
+            switch (className)
+            {
+                case "User":
+                    NavigateToView(typeof(ProfileView));
+                    break;
+                case "Info":
+                    NavigateToView(typeof(RiwayatMedisView));
+                    break;
+                case "Chat":
+                    NavigateToView(typeof(ChatView));
+                    break;
+                case "Notes":
+                    NavigateToView(typeof(CatatTumbuhAnak));
+                    break;
+                // Tambahkan case lain jika diperlukan
+                default:
+                    Debug.WriteLine($"Unhandled class: {className}");
+                    break;
+            }
+        }
+
     }
+
 }
