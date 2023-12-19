@@ -10,10 +10,9 @@
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="150"/>
-            <ColumnDefinition Width="497"/>
-            <ColumnDefinition Width="601"/>
+            <ColumnDefinition Width="548"/>
+            <ColumnDefinition Width="550"/>
             <ColumnDefinition Width="69"/>
-            <ColumnDefinition Width="180.667"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="170"/>
@@ -147,7 +146,7 @@
             </Image>
         </Border>
         <Rectangle Grid.Column="1" Grid.Row="0" Fill="#FFFFFF"/>
-        <Border Grid.Column="1" Grid.Row="0" Background="Transparent" Margin="1,10,40,10" Grid.ColumnSpan="2">
+        <Border Grid.Column="1" Grid.Row="0" Background="Transparent" Margin="1,10,35,10" Grid.ColumnSpan="3">
             <TextBlock Text="Beranda"
                Foreground="#1450A3"
                FontFamily="Inter"
@@ -155,7 +154,7 @@
                FontSize="50"
                VerticalAlignment="Center" Margin="10,0,661,0"/>
         </Border>
-        <Rectangle Grid.Column="1" Grid.Row="1" Fill="Gray" Opacity ="0.5" Grid.ColumnSpan="4" Margin="0,0,176,0"/>
+        <Rectangle Grid.Column="1" Grid.Row="1" Fill="Gray" Opacity ="0.5" Grid.ColumnSpan="3" Margin="0,0,1,0"/>
         <Rectangle Grid.Column="1" Grid.Row="2" Fill="Green" Opacity ="1" Grid.RowSpan="6" Margin="0,0,0,324"/>
         <Border Grid.Column="1" Grid.Row="2" Background="Transparent" Margin="1,10,40,10" Grid.ColumnSpan="2">
             <TextBlock  x:Name="greetingText"
@@ -165,7 +164,7 @@
                FontSize="30"
                VerticalAlignment="Center" Margin="10,0,661,0"/>
         </Border>
-        <Rectangle Grid.Column="2" Grid.Row="2" Fill="pink" Opacity="1" Grid.RowSpan="6" Grid.ColumnSpan="3" Margin="0,0,176,0"/>
+        <Rectangle Grid.Column="2" Grid.Row="2" Fill="pink" Opacity="1" Grid.RowSpan="6" Grid.ColumnSpan="2" Margin="0,0,1,324"/>
 
         <!-- Tempatkan elemen <Frame> di dalam elemen <Grid> -->
         <Frame x:Name="MainFrame" NavigationUIVisibility="Hidden"/>
