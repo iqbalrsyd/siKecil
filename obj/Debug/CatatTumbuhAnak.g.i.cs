@@ -154,21 +154,18 @@ namespace siKecil {
             this.AgeTextBox = ((System.Windows.Controls.TextBlock)(target));
             return;
             case 2:
-            this.greetingText = ((System.Windows.Controls.TextBlock)(target));
-            return;
-            case 3:
             this.datePicker = ((System.Windows.Controls.DatePicker)(target));
             return;
-            case 4:
+            case 3:
             this.txtTinggi = ((System.Windows.Controls.TextBox)(target));
             return;
-            case 5:
+            case 4:
             this.txtBerat = ((System.Windows.Controls.TextBox)(target));
             return;
-            case 6:
+            case 5:
             this.txtLingkarKepala = ((System.Windows.Controls.TextBox)(target));
             return;
-            case 7:
+            case 6:
             this.SaveCatatan = ((System.Windows.Controls.Button)(target));
             
             #line 104 "..\..\CatatTumbuhAnak.xaml"
@@ -177,10 +174,10 @@ namespace siKecil {
             #line default
             #line hidden
             return;
-            case 8:
+            case 7:
             this.dataGrid = ((System.Windows.Controls.DataGrid)(target));
             return;
-            case 9:
+            case 8:
             
             #line 129 "..\..\CatatTumbuhAnak.xaml"
             ((System.Windows.Controls.Button)(target)).Click += new System.Windows.RoutedEventHandler(this.ToDashboard_Click);
@@ -188,7 +185,7 @@ namespace siKecil {
             #line default
             #line hidden
             return;
-            case 10:
+            case 9:
             this.editData = ((System.Windows.Controls.Button)(target));
             
             #line 136 "..\..\CatatTumbuhAnak.xaml"
@@ -197,7 +194,7 @@ namespace siKecil {
             #line default
             #line hidden
             return;
-            case 11:
+            case 10:
             this.simpanPerubahan = ((System.Windows.Controls.Button)(target));
             
             #line 150 "..\..\CatatTumbuhAnak.xaml"
@@ -206,7 +203,7 @@ namespace siKecil {
             #line default
             #line hidden
             return;
-            case 12:
+            case 11:
             this.hapusData = ((System.Windows.Controls.Button)(target));
             
             #line 164 "..\..\CatatTumbuhAnak.xaml"

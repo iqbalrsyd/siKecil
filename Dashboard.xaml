@@ -1,0 +1,23 @@
+﻿<Window x:Class="siKecil.Dashboard"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:siKecil"
+        mc:Ignorable="d"
+        Title="Dashboard" Height="700" Width="1200"
+        WindowState="Maximized">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="85"/>
+            <ColumnDefinition Width="1115"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="100"/>
+            <RowDefinition Height="600"/>
+        </Grid.RowDefinitions>
+
+        <Rectangle Grid.Column="0" Grid.Row="1" Fill="#FFDC5555" Margin="0,0,0,16"/>
+        <Rectangle Grid.Column="1" Grid.Row="0" Fill="Aquamarine" Grid.ColumnSpan="2"/>
+    </Grid>
+</Window>

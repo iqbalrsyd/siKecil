@@ -11,7 +11,6 @@ namespace siKecil
     public partial class SignupPage : Page
     {
         private string User_ID;
-        string randomCodeOTP;
         public static string to;
 
         public SignupPage(string User_ID)
@@ -22,44 +21,18 @@ namespace siKecil
 
         private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
-            TextBox textBox = sender as TextBox;
+
         }
         private void ToLoginPage_Click(object sender, RoutedEventArgs e)
         {
             try
             {
-                string from, pass, messageBody;
-                Random rand = new Random();
-                randomCodeOTP = (rand.Next(999999)).ToString();
-                MailMessage message = new MailMessage();
-                to = (txtEmailAddress.Text).ToString();
-
-                string domain = to.Split('@')[1].ToLower();
-
-                if (domain.Contains("gmail.com"))
+                if (IsValidUserInput())
                 {
-                    from = "rasyad3003@gmail.com";
-                    pass = "ymvn frzk ejbw ihwv";
-                    messageBody = "Your OTP code is " + randomCodeOTP;
+                    GenerateOtpPage generateOtpPage = new GenerateOtpPage(txtEmailAddress.Text);
+                    OtpFrame.NavigationService.Navigate(generateOtpPage);
+                    generateOtpPage.SuccessfulOtpVerification += OnSuccessfulOtpVerificationForSignup;
 
-                    SmtpClient smtp = new SmtpClient("smtp.gmail.com");
-                    smtp.EnableSsl = true;
-                    smtp.Port = 587;
-                    smtp.Credentials = new NetworkCredential(from, pass);
-
-                    message.To.Add(to);
-                    message.From = new MailAddress(from);
-                    message.Body = messageBody;
-                    message.Subject = "Password OTP Code Application siKecil";
-
-                    smtp.Send(message);
-
-                    MessageBox.Show("Code Sent Successfully");
-                    otpStackPanel.Visibility = Visibility.Visible;
-                }
-                else
-                {
-                    MessageBox.Show("Unsupported email domain");
                 }
             }
             catch (Exception ex)
@@ -68,11 +41,10 @@ namespace siKecil
             }
         }
 
-        private void SubmitOtp_Click(object sender, RoutedEventArgs e)
+        private void OnSuccessfulOtpVerificationForSignup(string emailAddress)
         {
-            if (randomCodeOTP == (txtOtp.Text).ToString())
+            try
             {
-                to = txtEmailAddress.Text;
                 Connection connectionHelper = new Connection();
 
                 using (SqlConnection sqlCon = connectionHelper.GetConn())
@@ -83,20 +55,18 @@ namespace siKecil
                             sqlCon.Open();
 
                         String query = "INSERT INTO Users (User_ID, Username, FirstName, LastName, EmailAddress, Password) VALUES (@User_ID, @Username, @FirstName, @LastName, @EmailAddress, @Password)";
-
+                        
                         Random random = new Random();
-
                         int randomNumber = random.Next(1000, 9999);
-
                         string User_ID = randomNumber.ToString().PadLeft(10, '0');
-
+                        
                         SqlCommand sqlcmd = new SqlCommand(query, sqlCon);
                         sqlcmd.CommandType = CommandType.Text;
                         sqlcmd.Parameters.AddWithValue("@User_ID", User_ID);
                         sqlcmd.Parameters.AddWithValue("@Username", txtUsername.Text);
                         sqlcmd.Parameters.AddWithValue("@FirstName", txtFirstName.Text);
                         sqlcmd.Parameters.AddWithValue("@LastName", txtLastName.Text);
-                        sqlcmd.Parameters.AddWithValue("@EmailAddress", txtEmailAddress.Text);
+                        sqlcmd.Parameters.AddWithValue("@EmailAddress", emailAddress);
                         sqlcmd.Parameters.AddWithValue("@Password", txtPassword.Password);
 
                         sqlcmd.ExecuteNonQuery();
@@ -111,15 +81,74 @@ namespace siKecil
                     }
                 }
             }
-            else
+            catch (Exception ex)
             {
-                MessageBox.Show("Wrong Code");
+                MessageBox.Show(ex.Message);
             }
         }
 
-        private void txtOtp_TextChanged(object sender, TextChangedEventArgs e)
+        private bool IsValidUserInput()
         {
+            if (string.IsNullOrWhiteSpace(txtUsername.Text) ||
+                string.IsNullOrWhiteSpace(txtFirstName.Text) ||
+                string.IsNullOrWhiteSpace(txtLastName.Text) ||
+                string.IsNullOrWhiteSpace(txtEmailAddress.Text) ||
+                string.IsNullOrWhiteSpace(txtPassword.Password))
+            {
+                MessageBox.Show("Please fill in all required fields.");
+                return false;
+            }
 
+            // Periksa apakah email memiliki format yang benar
+            if (!IsValidEmail(txtEmailAddress.Text))
+            {
+                MessageBox.Show("Invalid email address format.");
+                return false;
+            }
+
+            // Periksa apakah email sudah terdaftar
+            if (IsEmailRegistered(txtEmailAddress.Text))
+            {
+                MessageBox.Show("Email address is already registered.");
+                return false;
+            }
+
+            return true;
+        }
+
+        private bool IsValidEmail(string email)
+        {
+            try
+            {
+                var addr = new System.Net.Mail.MailAddress(email);
+                return addr.Address == email;
+            }
+            catch
+            {
+                return false;
+            }
+        }
+
+        private bool IsEmailRegistered(string email)
+        {
+            // Lakukan pengecekan di database
+            Connection connectionHelper = new Connection();
+
+            using (SqlConnection sqlCon = connectionHelper.GetConn())
+            {
+                if (sqlCon.State == ConnectionState.Closed)
+                    sqlCon.Open();
+
+                string query = "SELECT COUNT(*) FROM Users WHERE EmailAddress = @EmailAddress";
+                using (SqlCommand sqlCmd = new SqlCommand(query, sqlCon))
+                {
+                    sqlCmd.Parameters.AddWithValue("@EmailAddress", email);
+
+                    int count = Convert.ToInt32(sqlCmd.ExecuteScalar());
+
+                    return count > 0;
+                }
+            }
         }
     }
 }

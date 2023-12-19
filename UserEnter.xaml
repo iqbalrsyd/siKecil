@@ -8,6 +8,14 @@
         Title="UserEnter" Height="700" Width="1200"
         Loaded="UserEnter_Loaded">
     <Window.Resources>
+        <VisualBrush x:Key="watermark" AlignmentX="Left" AlignmentY="Center" Stretch="None">
+            <VisualBrush.Transform>
+                <TranslateTransform X="5" Y="0" />
+            </VisualBrush.Transform>
+            <VisualBrush.Visual>
+                <Label Content="{Binding PlaceholderText, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type TextBox}}}" Foreground="Gray" FontStyle="Italic" />
+            </VisualBrush.Visual>
+        </VisualBrush>
         <Style x:Key="CustomButtonStyleChangePage" TargetType="Button">
             <Setter Property="Foreground" Value="DarkGray"/>
             <Setter Property="Background" Value="#E6E6E6"/>

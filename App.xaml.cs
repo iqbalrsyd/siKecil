@@ -1,12 +1,11 @@
 ﻿using System;
 using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Media;
 
 namespace siKecil
 {
-    /// <summary>
-    /// Interaction logic for App.xaml
-    /// </summary>
-    public partial class App : Application 
+    public partial class App : Application
     {
     }
 }

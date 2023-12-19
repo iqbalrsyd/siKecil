@@ -14,7 +14,7 @@
         </Grid.ColumnDefinitions>
         <Image Grid.Column="1" Opacity="0.4" Stretch="UniformToFill" Source="/Asset/signup.jpeg"/>
         <Label Grid.Column="1" Margin="50,343,50,53" FontSize="25" >
-            <TextBlock Width="400" FontWeight="Bold">
+            <TextBlock Width="400" FontWeight="Bold" >
                 Bersama siKecil, Rangkul
                 <LineBreak/>
                 Masa Tumbuh Kembang Anak
@@ -22,35 +22,30 @@
                 dengan Senyuman!
             </TextBlock>
         </Label>
-        <StackPanel Style="{StaticResource CustomStackPanelStyle}" Margin="89,140,107,317">
-            <Image Width="40" Height="40"/>
-            <TextBox x:Name="txtUsername" Height="46"  TextWrapping="Wrap"  Width="269" TextChanged="TextBox_TextChanged" FontSize="24"/>
+        <StackPanel Style="{StaticResource CustomStackPanelStyle}" Margin="89,140,73,317">
+            <Image Style="{StaticResource CustomImageStyle}" Width="40" Height="40"/>
+            <TextBox x:Name="txtUsername" Style="{StaticResource CustomTextBoxStyle}" local:WatermarkService.Watermark="Username" Width="280" TextChanged="TextBox_TextChanged"/>
         </StackPanel>
-        <StackPanel Style="{StaticResource CustomStackPanelStyle}" Margin="89,200,250,257">
-            <Image Width="40" Height="40"/>
-            <TextBox x:Name="txtFirstName" Height="46"  TextWrapping="Wrap"  Width="124" TextChanged="TextBox_TextChanged" FontSize="24"/>
+        <StackPanel Style="{StaticResource CustomStackPanelStyle}" Margin="89,200,228,258">
+            <Image  Style="{StaticResource CustomImageStyle}" Width="40" Height="40"/>
+            <TextBox x:Name="txtFirstName" Style="{StaticResource CustomTextBoxStyle}" local:WatermarkService.Watermark="First Name" local:WatermarkService.WatermarkOpacity="0.5" Width="141" TextChanged="TextBox_TextChanged"/>
         </StackPanel>
-        <StackPanel Style="{StaticResource CustomStackPanelStyle}" Margin="264,199,72,258">
-            <TextBox x:Name="txtLastName" Height="46"  TextWrapping="Wrap"  Width="166" TextChanged="TextBox_TextChanged" FontSize="24"/>
+        <StackPanel Style="{StaticResource CustomStackPanelStyle}" Margin="280,200,73,258">
+            <TextBox x:Name="txtLastName" Style="{StaticResource CustomTextBoxStyle}" local:WatermarkService.Watermark="Last Name"   Width="166" TextChanged="TextBox_TextChanged"/>
         </StackPanel>
-        <StackPanel Style="{StaticResource CustomStackPanelStyle}" Margin="89,256,107,201">
-            <Image Width="40" Height="40"/>
-            <TextBox x:Name="txtEmailAddress" Height="46"  TextWrapping="Wrap"  Width="269" TextChanged="TextBox_TextChanged" FontSize="24"/>
+        <StackPanel Style="{StaticResource CustomStackPanelStyle}" Margin="89,256,73,201">
+            <Image Style="{StaticResource CustomImageStyle}" Width="40" Height="40"/>
+            <TextBox x:Name="txtEmailAddress" Style="{StaticResource CustomTextBoxStyle}" local:WatermarkService.Watermark="Email Address" Width="269" TextChanged="TextBox_TextChanged"/>
         </StackPanel>
-        <StackPanel Style="{StaticResource CustomStackPanelStyle}" Margin="89,310,107,147">
-            <Image Width="40" Height="40"/>
-            <PasswordBox x:Name="txtPassword" Height="46"   Width="269" FontSize="20"/>
+        <StackPanel Style="{StaticResource CustomStackPanelStyle}" Margin="89,310,73,147">
+            <Image Style="{StaticResource CustomImageStyle}" Width="40" Height="40"/>
+            <PasswordBox x:Name="txtPassword" Style="{StaticResource CustomPasswordBoxStyle}" local:WatermarkService.Watermark="Password"  Width="269"/>
         </StackPanel>
-        <StackPanel Style="{StaticResource CustomStackPanelStyle}" Margin="89,364,107,93">
-            <Image Width="40" Height="40"/>
-            <PasswordBox x:Name="txtConfirmPassword" Height="46" Width="269" FontSize="20"/>
+        <StackPanel Style="{StaticResource CustomStackPanelStyle}" Margin="89,364,73,93">
+            <Image Style="{StaticResource CustomImageStyle}" Width="40" Height="40"/>
+            <PasswordBox x:Name="txtConfirmPassword" Style="{StaticResource CustomPasswordBoxStyle}" local:WatermarkService.Watermark="Confirm Password" Width="269"/>
         </StackPanel>
         <Button Content="SIGN UP" Style="{StaticResource CustomButtonStyle}" Margin="153,420,153,21" Width="194" FontSize="25" Click="ToLoginPage_Click"/>
-        <StackPanel x:Name="otpStackPanel" Margin="0,0,0,0" Background="#FFE1E1E1" Visibility="Collapsed">
-            <Label x:Name="otpLabel" Content="Masukkan OTP" HorizontalContentAlignment="Center" FontFamily="Sitka Small" FontSize="20" BorderBrush="Black" />
-            <TextBox x:Name="txtOtp" TextChanged="txtOtp_TextChanged" Height="52" FontSize="30" />
-            <Button Content="Submit OTP" Click="SubmitOtp_Click" Height="60" Width="170" FontSize="20" FontFamily="Sitka Small" Background="#FFEDEDED" />
-        </StackPanel>
+        <Frame x:Name="OtpFrame" Grid.ColumnSpan="2" Width="400" Height="250" Margin="300,105,300,95" NavigationUIVisibility="Hidden"/>
     </Grid>
-
 </Page>

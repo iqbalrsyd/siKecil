@@ -26,13 +26,14 @@
             </TextBlock>
         </StackPanel>
         <StackPanel Style="{StaticResource CustomStackPanelStyle}" Margin="98,176,98,281">
-            <Image Width="40" Height="40"/>
-            <TextBox x:Name="txtEmailAddress" Height="46"  TextWrapping="Wrap"  Width="269" TextChanged="TextBox_TextChanged" FontSize="20"/>
+            <Image Style="{StaticResource CustomImageStyle}" Width="40" Height="40"/>
+            <TextBox x:Name="txtEmailAddress" Style="{StaticResource CustomTextBoxStyle}" TextChanged="TextBox_TextChanged" local:WatermarkService.Watermark="Email Address" Width="252"/>
         </StackPanel>
         <StackPanel Style="{StaticResource CustomStackPanelStyle}" Margin="98,270,98,187">
-            <Image Width="40" Height="40"/>
-            <PasswordBox x:Name="txtPassword" Height="46"  Width="269" FontSize="20"/>
+            <Image Style="{StaticResource CustomImageStyle}" Width="40" Height="40"/>
+            <PasswordBox x:Name="txtPassword" Style="{StaticResource CustomPasswordBoxStyle}" local:WatermarkService.Watermark="Password"  Width="269"/>
         </StackPanel>
-        <Button Content="LOGIN" Style="{StaticResource CustomButtonStyle}" Click="ToDashboard_Click" Margin="153,372,153,56" Height="72" Width="194" FontSize="25"/>
+        <Button Content="LOGIN" Style="{StaticResource CustomButtonStyle}" Click="ToDashboard_Click" local:WatermarkService.Watermark="Password" Margin="153,372,153,56" Height="72" Width="194" FontSize="25"/>
     </Grid>
+    
 </Page>

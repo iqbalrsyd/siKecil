@@ -3,9 +3,6 @@ using System.Windows;
 
 namespace siKecil
 {
-    /// <summary>
-    /// Interaction logic for MainWindow.xaml
-    /// </summary>
     public partial class MainWindow : Window
     {
         private readonly string User_ID;
