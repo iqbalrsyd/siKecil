@@ -5,6 +5,7 @@ using System.Diagnostics;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
+using System.Windows.Navigation;
 
 namespace siKecil
 {
@@ -24,6 +25,9 @@ namespace siKecil
             WindowState = WindowState.Maximized;
         }
 
+        private void mainFrame_Navigated(object sender, NavigationEventArgs e)
+        {
+        }
         private void HomePage_Click(object sender, RoutedEventArgs e)
         {
             HomePage homePage = new HomePage(User_ID);
@@ -43,5 +47,4 @@ namespace siKecil
             this.Close();
         }
     }
-
 }

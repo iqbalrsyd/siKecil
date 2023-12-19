@@ -233,7 +233,6 @@
       <DependentUpon>UserEnter.xaml</DependentUpon>
     </Compile>
     <Compile Include="Watermark.cs" />
-    <Page Include="CatatTumbuhAnak.xaml" />
     <Page Include="ChatView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
