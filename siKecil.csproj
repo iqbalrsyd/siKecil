@@ -199,26 +199,27 @@
     <Compile Include="ChatView.xaml.cs">
       <DependentUpon>ChatView.xaml</DependentUpon>
     </Compile>
-<<<<<<< HEAD
     <Compile Include="Dashboard.xaml.cs">
       <DependentUpon>Dashboard.xaml</DependentUpon>
     </Compile>
     <Compile Include="GenerateOtpPage.xaml.cs">
       <DependentUpon>GenerateOtpPage.xaml</DependentUpon>
-=======
+    </Compile>
     <Compile Include="Criteria.cs" />
     <Compile Include="DiaryAnakPage.xaml.cs">
       <DependentUpon>DiaryAnakPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="HomePage.xaml.cs">
       <DependentUpon>HomePage.xaml</DependentUpon>
->>>>>>> 21da5def7725d64802f1c994ba0db1a23e2e4b53
     </Compile>
     <Compile Include="LoginPage.xaml.cs">
       <DependentUpon>LoginPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Model\ChatModel.cs" />
     <Compile Include="Model\ProfileModel.cs" />
+    <Compile Include="ProfilePage.xaml.cs">
+      <DependentUpon>ProfilePage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="ProfileView.xaml.cs">
       <DependentUpon>ProfileView.xaml</DependentUpon>
     </Compile>
@@ -231,12 +232,9 @@
     <Compile Include="UserEnter.xaml.cs">
       <DependentUpon>UserEnter.xaml</DependentUpon>
     </Compile>
-<<<<<<< HEAD
     <Compile Include="Watermark.cs" />
-    <Page Include="CatatTumbuhAnak.xaml">
-=======
+    <Page Include="CatatTumbuhAnak.xaml" />
     <Page Include="ChatView.xaml">
->>>>>>> 21da5def7725d64802f1c994ba0db1a23e2e4b53
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -273,6 +271,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="ProfilePage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="ProfileView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

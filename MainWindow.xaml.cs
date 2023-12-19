@@ -35,6 +35,13 @@ namespace siKecil
             DiaryAnakPage diaryAnakPage = new DiaryAnakPage(User_ID);
             mainFrame.NavigationService.Navigate(diaryAnakPage);
         }
+        
+        private void ProfileView_Click(object sender, RoutedEventArgs e)
+        {
+            ProfileView profileView = new ProfileView(User_ID);
+            profileView.Show();
+            this.Close();
+        }
     }
 
 }
