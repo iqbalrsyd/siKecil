@@ -5,51 +5,169 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:siKecil"
         mc:Ignorable="d"
-        Title="MainWindow" Height="700" Width="1200"
-        Loaded="MainWindow_Loaded">
+        Title="Dashboard" Height="700" Width="1250"
+        WindowState="Maximized">
     <Grid>
-        <Grid d:IsLocked="True">
-            <!--Header -->
-            <Grid d:IsLocked="True">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="407*"/>
-                    <ColumnDefinition Width="793*"/>
-                </Grid.ColumnDefinitions>
-                <!-- Logo dan Nama -->
-                <StackPanel Orientation="Horizontal" Margin="0,0,24,512" Background="#FFFFC436">
-                    <!-- Logo -->
-                    <!-- Logo -->
-                    <!-- Logo -->
-                    <!-- Logo -->
-                    <!-- Logo -->
-                    <Ellipse Width="99" Height="78" Margin = "30, 0, 0, 0" Fill="Gray"/>
-                    <TextBlock Text="siKecil" FontSize="40" FontWeight="Bold" RenderTransformOrigin="476,181" Width="158" Height="40"/>
-                    <!-- Nama -->
-                </StackPanel>
-                <StackPanel Orientation="Horizontal" VerticalAlignment="Top" Height="512" Margin="0,172,24,0" Background="#FFE1D8C2">
-                    
-                </StackPanel>
-                <StackPanel Orientation="Horizontal" VerticalAlignment="Top"  Height="165" Background="White" Grid.ColumnSpan="2" Margin="383,4,0,0" d:IsLocked="True">
-                </StackPanel>
-                <StackPanel Orientation="Horizontal" VerticalAlignment="Top" Opacity="0.5" Height="47" Margin="383,169,5,0" Background="#7FA2A0A0" Grid.ColumnSpan="2">
-                    
-                </StackPanel>
-                <!-- Page Navigation -->
-                <StackPanel Orientation="Horizontal" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0,10,10,0"/>
-                <!-- Navigasi Beranda -->
-                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
-                    <!-- Tulisan Beranda -->
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="150"/>
+            <ColumnDefinition Width="497"/>
+            <ColumnDefinition Width="601"/>
+            <ColumnDefinition Width="69"/>
+            <ColumnDefinition Width="180.667"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="170"/>
+            <RowDefinition Height="58"/>
+            <RowDefinition Height="80"/>
+            <RowDefinition Height="80"/>
+            <RowDefinition Height="80"/>
+            <RowDefinition Height="80"/>
+            <RowDefinition Height="80"/>
+            <RowDefinition Height="424"/>
+        </Grid.RowDefinitions>
+        <Grid.Effect>
+            <DropShadowEffect Color="White" Direction="270" ShadowDepth="10" Opacity="0.25"/>
+        </Grid.Effect>
+        <Rectangle Grid.Column="0" Grid.Row="0" Fill="#FFC436" Opacity="1"/>
+        <Border Grid.Column="0" Grid.Row="0" Background="Transparent" Margin="0,10,0,10">
+            <Image Source="Asset/menu.png" Width="84" Height="70" HorizontalAlignment="Center" VerticalAlignment="Center" >
+                <Image.Style>
+                    <Style TargetType="Image">
+                        <Setter Property="Opacity" Value="1"/>
+                        <Style.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Opacity" Value="1"/>
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </Image.Style>
+            </Image>
+        </Border>
+        <Rectangle Grid.Column="0" Grid.Row="1" Fill="#FFC436" Opacity="0.4"/>
+        <Rectangle Grid.Column="0" Grid.Row="2" Fill="#FFC436" Opacity="1"/>
+        <Rectangle Grid.Column="0" Grid.Row="3" Fill="#FFC436" Opacity="0.4" Grid.RowSpan="5"/>
+        <Border Grid.Column="0" Grid.Row="2" Background="Transparent" Margin="0,10,0,10">
+            <Image Source="Asset/home.png" Width="84" Height="40" HorizontalAlignment="Center" VerticalAlignment="Center" >
+                <Image.Style>
+                    <Style TargetType="Image">
+                        <Setter Property="Opacity" Value="0.5"/>
+                        <Style.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Opacity" Value="1"/>
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </Image.Style>
+                <!-- Menambahkan tooltip -->
+                <Image.ToolTip>
+                    <ToolTip>
+                        <TextBlock Text="Beranda" />
+                    </ToolTip>
+                </Image.ToolTip>
+            </Image>
+        </Border>
+        <Border Grid.Column="0" Grid.Row="3" Background="Transparent" Margin="0,10,0,10">
+            <Image Source="Asset/user.png" Width="84" Height="40" HorizontalAlignment="Center" VerticalAlignment="Center" >
+                <Image.Style>
+                    <Style TargetType="Image">
+                        <Setter Property="Opacity" Value="0.5"/>
+                        <Style.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Opacity" Value="1"/>
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </Image.Style>
+                <!-- Menambahkan tooltip -->
+                <Image.ToolTip>
+                    <ToolTip>
+                        <TextBlock Text="Profil" />
+                    </ToolTip>
+                </Image.ToolTip>
+            </Image>
+        </Border>
+        <Border Grid.Column="0" Grid.Row="4" Background="Transparent" Margin="0,10,0,10">
+            <Image Source="Asset/notes.png" Width="84" Height="40" HorizontalAlignment="Center" VerticalAlignment="Center" >
+                <Image.Style>
+                    <Style TargetType="Image">
+                        <Setter Property="Opacity" Value="0.5"/>
+                        <Style.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Opacity" Value="1"/>
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </Image.Style>
+                <!-- Menambahkan tooltip -->
+                <Image.ToolTip>
+                    <ToolTip>
+                        <TextBlock Text="Catatan Perkembangan dan Kesehatan Anak" />
+                    </ToolTip>
+                </Image.ToolTip>
+            </Image>
+        </Border>
+        <Border Grid.Column="0" Grid.Row="5" Background="Transparent" Margin="0,10,0,10">
+            <Image Source="Asset/chat.png" Width="84" Height="40" HorizontalAlignment="Center" VerticalAlignment="Center" >
+                <Image.Style>
+                    <Style TargetType="Image">
+                        <Setter Property="Opacity" Value="0.5"/>
+                        <Style.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Opacity" Value="1"/>
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </Image.Style>
+                <!-- Menambahkan tooltip -->
+                <Image.ToolTip>
+                    <ToolTip>
+                        <TextBlock Text="Chat" />
+                    </ToolTip>
+                </Image.ToolTip>
+            </Image>
+        </Border>
+        <Border Grid.Column="0" Grid.Row="6" Background="Transparent" Margin="0,10,0,10">
+            <Image Source="Asset/info.png" Width="84" Height="40" HorizontalAlignment="Center" VerticalAlignment="Center" >
+                <Image.Style>
+                    <Style TargetType="Image">
+                        <Setter Property="Opacity" Value="0.5"/>
+                        <Style.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Opacity" Value="1"/>
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </Image.Style>
+                <!-- Menambahkan tooltip -->
+                <Image.ToolTip>
+                    <ToolTip>
+                        <TextBlock Text="Tips dan Informasi" />
+                    </ToolTip>
+                </Image.ToolTip>
+            </Image>
+        </Border>
+        <Rectangle Grid.Column="1" Grid.Row="0" Fill="#FFFFFF"/>
+        <Border Grid.Column="1" Grid.Row="0" Background="Transparent" Margin="1,10,40,10" Grid.ColumnSpan="2">
+            <TextBlock Text="Beranda"
+               Foreground="#1450A3"
+               FontFamily="Inter"
+               FontWeight="Regular"
+               FontSize="50"
+               VerticalAlignment="Center" Margin="10,0,661,0"/>
+        </Border>
+        <Rectangle Grid.Column="1" Grid.Row="1" Fill="Gray" Opacity ="0.5" Grid.ColumnSpan="4" Margin="0,0,176,0"/>
+        <Rectangle Grid.Column="1" Grid.Row="2" Fill="Green" Opacity ="1" Grid.RowSpan="6" Margin="0,0,0,324"/>
+        <Border Grid.Column="1" Grid.Row="2" Background="Transparent" Margin="1,10,40,10" Grid.ColumnSpan="2">
+            <TextBlock  x:Name="greetingText"
+               Foreground="#1450A3"
+               FontFamily="Inter"
+               FontWeight="Bold"
+               FontSize="30"
+               VerticalAlignment="Center" Margin="10,0,661,0"/>
+        </Border>
+        <Rectangle Grid.Column="2" Grid.Row="2" Fill="pink" Opacity="1" Grid.RowSpan="6" Grid.ColumnSpan="3" Margin="0,0,176,0"/>
 
-                    <!-- Informasi Akun (Contoh: Nama Pengguna) -->
-                  
-                </StackPanel>
-            </Grid>
-        </Grid>
-        <TextBlock x:Name="greetingText" FontSize="30" Width="212" VerticalAlignment="Center"/>
-        <Button x:Name="ButtonRiwayat" Content="Riwayat" Click="ToRiwayatMedisView" Height="75" Width="115" Margin="194,504,891,105"/>
-        <Button x:Name="ButtonCatatan" Content="Catatan" Click="ToCatatanTumbuhAnak" Height="75" Width="116" Margin="193,422,891,187"/>
-        <Button x:Name="ButtonProfile" Content="Profil" Click="ToProfileView" Height="75" Width="116" Margin="192,262,892,347"/>
-        <Button x:Name="ButtonChat" Content="Chat" Click="ToChatView" Height="75" Width="115" Margin="193,342,892,267"/>
+        <!-- Tempatkan elemen <Frame> di dalam elemen <Grid> -->
+        <Frame x:Name="MainFrame" NavigationUIVisibility="Hidden"/>
     </Grid>
-
 </Window>
