@@ -78,7 +78,7 @@ namespace siKecil
                 Debug.WriteLine("clickedImage is null.");
                 return;
             }
-
+        }
     }
 
 }
