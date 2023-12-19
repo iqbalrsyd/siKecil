@@ -1,6 +1,7 @@
-﻿using siKecil.Model;
+using siKecil.Model;
 using System;
 using System.Data.SqlClient;
+using System.Diagnostics;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
@@ -38,26 +39,46 @@ namespace siKecil
             mainFrame.NavigationService.Navigate(diaryAnakPage);
         }
 
-        private void ToProfileView(object sender, RoutedEventArgs e)
+        private void NavigateToView(Type viewType)
         {
-            ProfileView profile = new ProfileView(User_ID);
-            profile.Show();
-            this.Close();
+            // Membuat instance kelas dan menavigasi ke halaman tersebut
+            var viewInstance = Activator.CreateInstance(viewType, User_ID);
+            MainFrame.Navigate(viewInstance);
         }
 
-        private void ToRiwayatMedisView(object sender, RoutedEventArgs e)
+
+        private void ProfileIcon_Click(object sender, RoutedEventArgs e)
         {
-            RiwayatMedisView Riwayat= new RiwayatMedisView(User_ID);
-            Riwayat.Show();
-            this.Close();
+            NavigateToView(typeof(ProfileView));
         }
 
-        private void ToChatView(object sender, RoutedEventArgs e)
+        private void NotesIcon_Click(object sender, RoutedEventArgs e)
         {
-            ChatView chat = new ChatView(User_ID);
-            chat.Show();
-            this.Close();
+            NavigateToView(typeof(CatatTumbuhAnak));
         }
+
+        private void ChatIcon_Click(object sender, RoutedEventArgs e)
+        {
+            NavigateToView(typeof(ChatView));
+        }
+
+        private void InfoIcon_Click(object sender, RoutedEventArgs e)
+        {
+            NavigateToView(typeof(RiwayatMedisView));
+        }
+
+        private void Image_Click(object sender, RoutedEventArgs e)
+        {
+            // Mendapatkan sender sebagai elemen Image yang diklik
+            Image clickedImage = sender as Image;
+
+            // Debug: Cek apakah clickedImage null atau tidak
+            if (clickedImage == null)
+            {
+                Debug.WriteLine("clickedImage is null.");
+                return;
+            }
 
     }
+
 }
