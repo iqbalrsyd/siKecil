@@ -38,47 +38,6 @@ namespace siKecil
             DiaryAnakPage diaryAnakPage = new DiaryAnakPage(User_ID);
             mainFrame.NavigationService.Navigate(diaryAnakPage);
         }
-
-        private void NavigateToView(Type viewType)
-        {
-            // Membuat instance kelas dan menavigasi ke halaman tersebut
-            var viewInstance = Activator.CreateInstance(viewType, User_ID);
-            MainFrame.Navigate(viewInstance);
-        }
-
-
-        private void ProfileIcon_Click(object sender, RoutedEventArgs e)
-        {
-            NavigateToView(typeof(ProfileView));
-        }
-
-        private void NotesIcon_Click(object sender, RoutedEventArgs e)
-        {
-            NavigateToView(typeof(CatatTumbuhAnak));
-        }
-
-        private void ChatIcon_Click(object sender, RoutedEventArgs e)
-        {
-            NavigateToView(typeof(ChatView));
-        }
-
-        private void InfoIcon_Click(object sender, RoutedEventArgs e)
-        {
-            NavigateToView(typeof(RiwayatMedisView));
-        }
-
-        private void Image_Click(object sender, RoutedEventArgs e)
-        {
-            // Mendapatkan sender sebagai elemen Image yang diklik
-            Image clickedImage = sender as Image;
-
-            // Debug: Cek apakah clickedImage null atau tidak
-            if (clickedImage == null)
-            {
-                Debug.WriteLine("clickedImage is null.");
-                return;
-            }
-        }
     }
 
 }
