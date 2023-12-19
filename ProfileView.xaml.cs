@@ -10,6 +10,8 @@ using System.Windows.Media.Imaging;
 using System.IO;
 using siKecil.Model;
 using System.ComponentModel;
+using siKecil.Infrastructure;
+using siKecil.View.Main;
 
 namespace siKecil
 {

@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 C:\College Project\PBO siKecil\siKecil\App.xaml
-122131436960
+11-461179642
 
-21-164304138
+20-1498187989
 150-1238601553
-ChatView.xaml;DiaryAnakPage.xaml;HomePage.xaml;Dashboard.xaml;GenerateOtpPage.xaml;LoginPage.xaml;MainWindow.xaml;ProfilePage.xaml;ProfileView.xaml;RiwayatMedisView.xaml;SignupPage.xaml;UserEnter.xaml;
+ChatView.xaml;View\Main\DiaryAnakPage.xaml;View\Main\HomePage.xaml;View\GenerateOtpPage.xaml;View\UserEnter\LoginPage.xaml;View\Main\MainWindow.xaml;View\Main\ProfilePage.xaml;ProfileView.xaml;RiwayatMedisView.xaml;View\UserEnter\SignupPage.xaml;View\UserEnter\UserEnterView.xaml;
 
 False
 

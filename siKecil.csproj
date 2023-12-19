@@ -199,25 +199,22 @@
     <Compile Include="ChatView.xaml.cs">
       <DependentUpon>ChatView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Dashboard.xaml.cs">
-      <DependentUpon>Dashboard.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="GenerateOtpPage.xaml.cs">
+    <Compile Include="View\GenerateOtpPage.xaml.cs">
       <DependentUpon>GenerateOtpPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Criteria.cs" />
-    <Compile Include="DiaryAnakPage.xaml.cs">
+    <Compile Include="Infrastructure\Criteria.cs" />
+    <Compile Include="View\Main\DiaryAnakPage.xaml.cs">
       <DependentUpon>DiaryAnakPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="HomePage.xaml.cs">
+    <Compile Include="View\Main\HomePage.xaml.cs">
       <DependentUpon>HomePage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="LoginPage.xaml.cs">
+    <Compile Include="View\UserEnter\LoginPage.xaml.cs">
       <DependentUpon>LoginPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Model\ChatModel.cs" />
     <Compile Include="Model\ProfileModel.cs" />
-    <Compile Include="ProfilePage.xaml.cs">
+    <Compile Include="View\Main\ProfilePage.xaml.cs">
       <DependentUpon>ProfilePage.xaml</DependentUpon>
     </Compile>
     <Compile Include="ProfileView.xaml.cs">
@@ -226,38 +223,34 @@
     <Compile Include="RiwayatMedisView.xaml.cs">
       <DependentUpon>RiwayatMedisView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="SignupPage.xaml.cs">
+    <Compile Include="View\UserEnter\SignupPage.xaml.cs">
       <DependentUpon>SignupPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="UserEnter.xaml.cs">
-      <DependentUpon>UserEnter.xaml</DependentUpon>
+    <Compile Include="View\UserEnter\UserEnterView.xaml.cs">
+      <DependentUpon>UserEnterView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Watermark.cs" />
+    <Compile Include="Infrastructure\Watermark.cs" />
     <Page Include="ChatView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="DiaryAnakPage.xaml">
+    <Page Include="View\Main\DiaryAnakPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="HomePage.xaml">
+    <Page Include="View\Main\HomePage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Dashboard.xaml">
+    <Page Include="View\GenerateOtpPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="GenerateOtpPage.xaml">
+    <Page Include="View\UserEnter\LoginPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="LoginPage.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="MainWindow.xaml">
+    <Page Include="View\Main\MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -265,12 +258,12 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Connection.cs" />
-    <Compile Include="MainWindow.xaml.cs">
+    <Compile Include="Infrastructure\Connection.cs" />
+    <Compile Include="View\Main\MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="ProfilePage.xaml">
+    <Page Include="View\Main\ProfilePage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -282,11 +275,11 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="SignupPage.xaml">
+    <Page Include="View\UserEnter\SignupPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="UserEnter.xaml">
+    <Page Include="View\UserEnter\UserEnterView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -338,6 +331,7 @@
     <Resource Include="Asset\search.png" />
     <Resource Include="Asset\user.png" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>

@@ -70,6 +70,8 @@
         <Label Content="Kelurahan" HorizontalAlignment="Left" Margin="196,605,0,0" VerticalAlignment="Top"/>
         <ComboBox x:Name="KelurahanComboBox" SelectedItem="{Binding UserData.AlamatKelurahan, Mode=TwoWay}" HorizontalAlignment="Left" Margin="343,607,0,0" VerticalAlignment="Top" Width="190" SelectionChanged="KelurahanComboBox_SelectionChanged"/>
         <Label Content="ganti foto profile" HorizontalAlignment="Left" Margin="267,248,0,0" VerticalAlignment="Top" FontSize="9" MouseUp="SelectImage_MouseUp" FontWeight="Bold"/>
+        <Label Content="Username" HorizontalAlignment="Left" Margin="433,168,0,0" VerticalAlignment="Top" Width="72"/>
+        <TextBox x:Name="txtEditEmailAddress_Copy" Text="{Binding EmailAddress}" HorizontalAlignment="Left" Margin="526,172,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="299" Height="23"/>
 
 
     </Grid>
