@@ -6,24 +6,24 @@
         xmlns:local="clr-namespace:siKecil"
         mc:Ignorable="d"
         Title="Dashboard" Height="700" Width="1200">
+    <Viewbox>
         <Grid>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="150"/>
-                <ColumnDefinition Width="530*"/>
-                <ColumnDefinition Width="360*"/>
-                <ColumnDefinition Width="60*"/>
-                <ColumnDefinition Width="100*"/>
+                <ColumnDefinition Width="530"/>
+                <ColumnDefinition Width="360"/>
+                <ColumnDefinition Width="60"/>
+                <ColumnDefinition Width="100"/>
             </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
                 <RowDefinition Height="120"/>
-                <RowDefinition Height="50*"/>
-                <RowDefinition Height="80*"/>
-                <RowDefinition Height="80*"/>
-                <RowDefinition Height="80*"/>
-                <RowDefinition Height="80*"/>
-                <RowDefinition Height="80*"/>
-                <RowDefinition Height="80*"/>
-                <RowDefinition/>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="80"/>
+                <RowDefinition Height="80"/>
+                <RowDefinition Height="80"/>
+                <RowDefinition Height="80"/>
+                <RowDefinition Height="80"/>
+                <RowDefinition Height="80"/>
             </Grid.RowDefinitions>
             <Rectangle Grid.Column="1" Grid.Row="0" Grid.ColumnSpan="4" Fill="#FFFFFF">
                 <Rectangle.Effect>
@@ -116,7 +116,7 @@
                 <Border Grid.Column="0" Grid.Row="5" Background="Transparent" Margin="0,10,0,10">
                     <Image x:Name="ChatIcon" Tag="Chat" Source="/Asset/chat.png" Width="84" Height="40"
                         HorizontalAlignment="Center" VerticalAlignment="Center"
-                        Style="{StaticResource ImageWithMouseOverEffect}">
+                        Style="{StaticResource ImageWithMouseOverEffect}">  
                         <Image.ToolTip>
                             <ToolTip>
                                 <TextBlock Text="Chat" />
@@ -138,11 +138,12 @@
                     </Image>
                 </Border>
             </Button>
+            <Rectangle Grid.Column="0" Grid.Row="8" Fill="#FFC436" Opacity="0"/>
             <Button Grid.Column="0" Grid.Row="7" Style="{StaticResource ButtonMenuStyle}">
                 <Border Grid.Column="0" Grid.Row="7" Background="Transparent" Margin="0,10,0,10">
                     <Image x:Name="BookIcon" Tag="User" Source="/Asset/book.png" Width="84" Height="40"
-                        HorizontalAlignment="Center" VerticalAlignment="Center"
-                        Style="{StaticResource ImageWithMouseOverEffect}">
+            HorizontalAlignment="Center" VerticalAlignment="Center"
+            Style="{StaticResource ImageWithMouseOverEffect}">
                         <Image.ToolTip>
                             <ToolTip>
                                 <TextBlock Text="Dongeng" />
@@ -151,7 +152,7 @@
                     </Image>
                 </Border>
             </Button>
-        <Rectangle Grid.Column="0" Grid.Row="8" Fill="#FFC436" Opacity="0.4"/>
-        <Frame x:Name="mainFrame" Grid.Column="1" Grid.ColumnSpan="5" Grid.Row="1" Grid.RowSpan="9" NavigationUIVisibility="Hidden" Navigated="mainFrame_Navigated"/>
-    </Grid>
+            <Frame x:Name="mainFrame" NavigationUIVisibility="Hidden" Grid.Column="0" Grid.ColumnSpan="5" Grid.Row="0" Grid.RowSpan="9" Navigated="mainFrame_Navigated"/>
+        </Grid>
+    </Viewbox>
 </Window>
