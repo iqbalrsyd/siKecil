@@ -8,17 +8,10 @@
         Title="UserEnterView" Height="700" Width="1200"
         Loaded="UserEnterView_Loaded">
     <Window.Resources>
-        <VisualBrush x:Key="watermark" AlignmentX="Left" AlignmentY="Center" Stretch="None">
-            <VisualBrush.Transform>
-                <TranslateTransform X="5" Y="0" />
-            </VisualBrush.Transform>
-            <VisualBrush.Visual>
-                <Label Content="{Binding PlaceholderText, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type TextBox}}}" Foreground="Gray" FontStyle="Italic" />
-            </VisualBrush.Visual>
-        </VisualBrush>
         <Style x:Key="CustomButtonStyleChangePage" TargetType="Button">
             <Setter Property="Foreground" Value="DarkGray"/>
             <Setter Property="Background" Value="#E6E6E6"/>
+            <Setter Property="FontWeight" Value="Medium"/>
             <Setter Property="Padding" Value="10"/>
             <Setter Property="Template">
                 <Setter.Value>
@@ -32,6 +25,7 @@
                         <ControlTemplate.Triggers>
                             <Trigger Property="IsMouseOver" Value="True">
                                 <Setter TargetName="border" Property="BorderBrush" Value="DarkBlue"/>
+                                <Setter Property="FontWeight" Value="Bold"/>
                             </Trigger>
                             <Trigger Property="IsPressed" Value="True">
                                 <Setter TargetName="border" Property="BorderBrush" Value="White"/>

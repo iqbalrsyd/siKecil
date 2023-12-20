@@ -22,9 +22,20 @@ namespace siKecil.View.Main
     /// </summary>
     public partial class ProfilePage : Page
     {
-        public ProfilePage()
+        private string User_ID;
+        public ProfilePage(string User_ID)
         {
             InitializeComponent();
+            this.User_ID = User_ID;
         }
+
+        private void PengaturanAkun_Click(object sender, RoutedEventArgs e)
+        { }
+
+        private void ProfilOrangTua_Click(object sender, RoutedEventArgs e)
+        { }
+
+        private void ProfilAnak_Click(object sender, RoutedEventArgs e)
+        { }
     }
 }

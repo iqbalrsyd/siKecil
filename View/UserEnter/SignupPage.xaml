@@ -22,30 +22,30 @@
                 dengan Senyuman!
             </TextBlock>
         </Label>
-        <StackPanel Style="{StaticResource CustomStackPanelStyle}" Margin="89,140,73,317">
-            <Image Style="{StaticResource CustomImageStyle}" Width="40" Height="40"/>
+        <StackPanel Style="{StaticResource CustomStackPanelStyle}" Margin="79,140,83,317">
+            <Image Style="{StaticResource CustomImageStyle}" Width="40" Height="40" Source="/Asset/user.png"/>
             <TextBox x:Name="txtUsername" Style="{StaticResource CustomTextBoxStyle}" local:WatermarkService.Watermark="Username" Width="280" TextChanged="TextBox_TextChanged"/>
         </StackPanel>
-        <StackPanel Style="{StaticResource CustomStackPanelStyle}" Margin="89,200,228,258">
-            <Image  Style="{StaticResource CustomImageStyle}" Width="40" Height="40"/>
+        <StackPanel Style="{StaticResource CustomStackPanelStyle}" Margin="79,200,238,258">
+            <Image  Style="{StaticResource CustomImageStyle}" Width="40" Height="40" Source="/Asset/user.png"/>
             <TextBox x:Name="txtFirstName" Style="{StaticResource CustomTextBoxStyle}" local:WatermarkService.Watermark="First Name" local:WatermarkService.WatermarkOpacity="0.5" Width="141" TextChanged="TextBox_TextChanged"/>
         </StackPanel>
-        <StackPanel Style="{StaticResource CustomStackPanelStyle}" Margin="280,200,73,258">
-            <TextBox x:Name="txtLastName" Style="{StaticResource CustomTextBoxStyle}" local:WatermarkService.Watermark="Last Name" Width="166" TextChanged="TextBox_TextChanged"/>
+        <StackPanel Style="{StaticResource CustomStackPanelStyle}" Margin="270,200,83,258">
+            <TextBox x:Name="txtLastName" Style="{StaticResource CustomTextBoxStyle}" local:WatermarkService.Watermark="Last Name" Width="140" TextChanged="TextBox_TextChanged"/>
         </StackPanel>
-        <StackPanel Style="{StaticResource CustomStackPanelStyle}" Margin="89,256,73,201">
-            <Image Style="{StaticResource CustomImageStyle}" Width="40" Height="40"/>
+        <StackPanel Style="{StaticResource CustomStackPanelStyle}" Margin="79,256,83,201">
+            <Image Style="{StaticResource CustomImageStyle}" Width="40" Height="40" Source="/Asset/email.png"/>
             <TextBox x:Name="txtEmailAddress" Style="{StaticResource CustomTextBoxStyle}" local:WatermarkService.Watermark="Email Address" Width="269" TextChanged="TextBox_TextChanged"/>
         </StackPanel>
-        <StackPanel Style="{StaticResource CustomStackPanelStyle}" Margin="89,310,73,147">
-            <Image Style="{StaticResource CustomImageStyle}" Width="40" Height="40"/>
+        <StackPanel Style="{StaticResource CustomStackPanelStyle}" Margin="79,310,83,147">
+            <Image Style="{StaticResource CustomImageStyle}" Width="40" Height="40" Source="/Asset/key.png"/>
             <PasswordBox x:Name="txtPassword" Style="{StaticResource CustomPasswordBoxStyle}" local:WatermarkService.Watermark="Password"  Width="269"/>
         </StackPanel>
-        <StackPanel Style="{StaticResource CustomStackPanelStyle}" Margin="89,364,73,93">
-            <Image Style="{StaticResource CustomImageStyle}" Width="40" Height="40"/>
+        <StackPanel Style="{StaticResource CustomStackPanelStyle}" Margin="79,364,83,93">
+            <Image Style="{StaticResource CustomImageStyle}" Width="40" Height="40" Source="/Asset/key.png"/>
             <PasswordBox x:Name="txtConfirmPassword" Style="{StaticResource CustomPasswordBoxStyle}" local:WatermarkService.Watermark="Confirm Password" Width="269"/>
         </StackPanel>
         <Button Content="SIGN UP" Style="{StaticResource CustomButtonStyle}" Margin="153,420,153,21" Width="194" FontSize="25" Click="ToLoginPage_Click"/>
-        <Frame x:Name="OtpFrame" Grid.ColumnSpan="2" Width="400" Height="250" Margin="300,105,300,95" NavigationUIVisibility="Hidden"/>
+        <Frame x:Name="OtpFrame" Grid.ColumnSpan="2" Width="400" Height="250" Margin="300,105,300,95" NavigationUIVisibility="Hidden" Navigated="OtpFrame_Navigated"/>
     </Grid>
 </Page>

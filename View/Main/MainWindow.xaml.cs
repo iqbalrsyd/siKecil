@@ -41,11 +41,10 @@ namespace siKecil.View.Main
             mainFrame.NavigationService.Navigate(diaryAnakPage);
         }
         
-        private void ProfileView_Click(object sender, RoutedEventArgs e)
+        private void ProfilePage_Click(object sender, RoutedEventArgs e)
         {
-            ProfileView profileView = new ProfileView(User_ID);
-            profileView.Show();
-            this.Close();
+            ProfilePage profilePage = new ProfilePage(User_ID);
+            mainFrame.NavigationService.Navigate(profilePage);
         }
     }
 }
