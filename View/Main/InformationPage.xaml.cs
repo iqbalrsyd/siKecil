@@ -80,9 +80,6 @@ namespace siKecil.View.Main
             {
                 Artikel selectedArtikel = (Artikel)ListBoxArtikel.SelectedItem;
                 int selectedArtikelID = selectedArtikel.ID_Artikel;
-
-                // Pass the selectedArtikelID to the new page for navigation
-                // Replace "YourNewPage" with the actual name of the page you want to navigate to
                 NavigationService?.Navigate(new KontenPage(selectedArtikelID));
             }
         }
