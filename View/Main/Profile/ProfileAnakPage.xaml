@@ -23,15 +23,14 @@
             <TextBlock Text="Nama Panggilan Anak" FontSize="18" FontWeight="Medium" Foreground="Black" HorizontalAlignment="Left" Margin="4,105,0,207"/>
             <TextBlock Text="Tanggal Lahir Anak" FontSize="18" FontWeight="Medium" Foreground="Black" HorizontalAlignment="Left" Margin="5,165,0,147"/>
             <TextBlock Text="Jenis Kelamin Anak" FontSize="18" FontWeight="Medium" Foreground="Black" HorizontalAlignment="Left" Margin="3,235,0,77"/>
-            <TextBox x:Name="txtEditNamaAnak" HorizontalAlignment="Left" Margin="199,40,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="641" Height="30"/>
-            <TextBox x:Name="txtEditNamaPanggilanAnak" HorizontalAlignment="Left" Margin="199,102,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="641" Height="30"/>
-            <DatePicker x:Name="DateTanggalLahirAnak" HorizontalAlignment="Left" VerticalAlignment="Center" Height="30" Width="640" Margin="200,0,0,0"/>
-            <ComboBox x:Name="JenisKelaminAnakComboBox" HorizontalAlignment="Left" Margin="200,228,0,0" VerticalAlignment="Top" Width="640" Height="30">
+            <TextBox x:Name="txtEditNamaAnak" Style="{StaticResource TextBoxVer2}" HorizontalAlignment="Left" Margin="199,40,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="641" Height="32"/>
+            <TextBox x:Name="txtEditNamaPanggilanAnak" Style="{StaticResource TextBoxVer2}" HorizontalAlignment="Left" Margin="199,102,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="641" Height="32"/>
+            <DatePicker x:Name="DateTanggalLahirAnak" Style="{StaticResource DatePickerStyle}" HorizontalAlignment="Left" VerticalAlignment="Center" Height="32" Width="200" Margin="200,0,0,0"/>
+            <ComboBox x:Name="JenisKelaminAnakComboBox" Style="{StaticResource ComboBoxTextStyle}" Foreground="Black" HorizontalAlignment="Left" Margin="200,228,0,0" VerticalAlignment="Top" Width="640" Height="32">
                 <ComboBoxItem Content="Laki-Laki" />
                 <ComboBoxItem Content="Perempuan" />
             </ComboBox>
             <Button Content="Simpan" Click="SimpanProfileAnak_Click" Style="{StaticResource CustomButtonStyle}"  HorizontalAlignment="Left" FontSize="21"  Margin="377,292,0,0" VerticalAlignment="Top" Height="50" Width="131"/>
         </Grid>
     </Grid>
-
 </Page>

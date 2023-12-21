@@ -31,18 +31,25 @@ namespace siKecil.View.Main
             imageDisplay = new ImageDisplay(defaultImagePath);
             ImageMainProfile.ImageSource = imageDisplay.DisplayImage(User_ID);
 
-            mainFrame.NavigationService.Navigate(new HomePage(User_ID));
+            //mainFrame.NavigationService.Navigate(new HomePage(User_ID));
         }
 
         private void mainFrame_Navigated(object sender, NavigationEventArgs e)
         {
+            if (mainFrame.Content is Page currentPage)
+            {
+                // Ambil judul dari halaman saat ini
+                string pageTitle = (string)currentPage.Title;
 
+                // Tetapkan judul halaman ke TextBlock
+                PageTitleTextBlock.Text = pageTitle;
+            }
         }
 
         private void HomePage_Click(object sender, RoutedEventArgs e)
         {
-            HomePage homePage = new HomePage(User_ID);
-            mainFrame.NavigationService.Navigate(homePage);
+            //HomePage homePage = new HomePage(User_ID);
+            //mainFrame.NavigationService.Navigate(homePage);
         }
 
         private void DiaryAnakPage_Click(object sender, RoutedEventArgs e)

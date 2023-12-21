@@ -14,10 +14,29 @@
             <ColumnDefinition Width="65"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition Height="80"/>
+            <RowDefinition Height="100"/>
             <RowDefinition Height="*" MinHeight="430"/>
             <RowDefinition Height="40"/>
         </Grid.RowDefinitions>
+
+        <Rectangle Grid.Column="0" Grid.Row="0" Stroke="Black" Margin="0,3,0,0" Fill="#FFFFFF" StrokeThickness="0.2"/>
+        <Rectangle Grid.Column="1" Grid.ColumnSpan="2"  Margin="0,3,0,0" Stroke="Black" Fill="#FFFFFF" StrokeThickness="0.2"/>
+
+        <Image x:Name="UserImage" Source="/Asset/user.png" HorizontalAlignment="Left" Height="50" Margin="20,28,0,0" VerticalAlignment="Top" Width="50" Stretch="UniformToFill">
+            <Image.Clip>
+                <EllipseGeometry RadiusX="25" RadiusY="25" Center="25,25"/>
+            </Image.Clip>
+        </Image>
+        <TextBlock x:Name="UserName" FontSize="25" FontWeight="Medium" Foreground="#1450A3" Margin="126,40,475,33" Grid.Column="1"/>
+
+
+        <Image x:Name="ReceiverImage" Source="/Asset/user.png" HorizontalAlignment="Left" Height="50" Margin="50,0,0,0" VerticalAlignment="Center" Width="50" Stretch="UniformToFill" Grid.Column="1">
+            <Image.Clip>
+                <EllipseGeometry RadiusX="25" RadiusY="25" Center="25,25"/>
+            </Image.Clip>
+        </Image>
+        <TextBlock x:Name="ReceiverName" FontSize="25" FontWeight="Medium" Foreground="#1450A3" Margin="11,40,205,33"/>
+
 
         <StackPanel Grid.Column="1" Grid.Row="2" MinWidth="685" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
             <TextBox x:Name="pesanTextBox" Style="{StaticResource CustomTextBoxStyle}" TextWrapping="Wrap" VerticalAlignment="Center" Height="30" TextChanged="TextBox_TextChanged" Background="#FFEEEEEE" HorizontalAlignment="Stretch" FontWeight="Normal" FontSize="18"/>
@@ -26,9 +45,6 @@
         <StackPanel Grid.Row="3" Grid.Column="2">
             <Button x:Name="ButtonSend" Style="{StaticResource CustomButtonStyle}" VerticalAlignment="Stretch" Click="KirimButton_Click" Content="Kirim" MaxWidth="64" Margin="2,2,2,2"/>
         </StackPanel>
-
-        <Rectangle Grid.Column="0" Grid.Row="0" Stroke="Black" Margin="0,3,0,0" Fill="#FFFFFF" StrokeThickness="0"/>
-        <Rectangle Grid.Column="1" Grid.ColumnSpan="2"  Margin="0,3,0,0" Stroke="Black" Fill="#FFFFFF" StrokeThickness="0" />
 
         <!--Kontak-->
 

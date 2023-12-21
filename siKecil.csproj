@@ -219,13 +219,9 @@
     <Compile Include="View\Main\DiaryAnakPage.xaml.cs">
       <DependentUpon>DiaryAnakPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\Main\HomePage.xaml.cs">
-      <DependentUpon>HomePage.xaml</DependentUpon>
-    </Compile>
     <Compile Include="View\Main\KontenPage.xaml.cs">
       <DependentUpon>KontenPage.xaml</DependentUpon>
-		    </Compile>
-
+    </Compile>
     <Compile Include="View\Main\Profile\PengaturanAkunPage.xaml.cs">
       <DependentUpon>PengaturanAkunPage.xaml</DependentUpon>
     </Compile>
@@ -263,7 +259,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\Main\InformationPage.xaml"/>
+    <Page Include="View\Main\InformationPage.xaml" />
     <Page Include="View\Main\ChatPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -272,16 +268,11 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\Main\HomePage.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="View\GenerateOtpPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\Main\KontenPage.xaml"/>
-
+    <Page Include="View\Main\KontenPage.xaml" />
     <Page Include="View\Main\Profile\PengaturanAkunPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

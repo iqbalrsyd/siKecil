@@ -17,6 +17,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using siKecil.Infrastructure;
 using siKecil.Model;
+using System.Diagnostics;
 
 namespace siKecil.View.Main
 {
@@ -27,16 +28,58 @@ namespace siKecil.View.Main
         private string User_ID;
         Connection connectionHelper = new Connection();
         private string yourUserID;
+        private ImageDisplay imageDisplay;
 
         public ChatPage(string User_ID)
         {
             InitializeComponent();
+            Title = "Chat";
             this.User_ID = User_ID;
+            LoadUserFullName(User_ID);
             SetYourUserId(User_ID);
             KontakList = LoadKontakData(User_ID);
             chatMessages = new ObservableCollection<ChatMessage>();
             chatItemsControl.ItemsSource = chatMessages;
             kontakItemsControl.DataContext = KontakList;
+
+            string defaultImagePath = "pack://application:,,,/Asset/user.png";
+            imageDisplay = new ImageDisplay(defaultImagePath);
+            UserImage.Source = imageDisplay.DisplayImage(User_ID);
+            LoadUserFullName(User_ID);
+        }
+
+        private void LoadUserFullName(string user_ID)
+        {
+            using (SqlConnection sqlCon = connectionHelper.GetConn())
+            {
+                sqlCon.Open();
+
+                string query = $"SELECT FirstName, LastName FROM Users WHERE User_ID = {user_ID}";
+                using (SqlCommand cmd = new SqlCommand(query, sqlCon))
+                {
+                    cmd.Parameters.AddWithValue("@User_ID", user_ID);
+
+                    try
+                    {
+                        using (SqlDataReader reader = cmd.ExecuteReader())
+                        {
+                            if (reader.Read())
+                            {
+                                string firstName = reader.IsDBNull(reader.GetOrdinal("FirstName")) ? string.Empty : reader["FirstName"].ToString();
+                                string lastName = reader.IsDBNull(reader.GetOrdinal("LastName")) ? string.Empty : reader["LastName"].ToString();
+
+                                string fullName = $"{firstName} {lastName}";
+
+                                UserName.Text = fullName;
+                            }
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        Console.WriteLine($"Error getting user full name: {ex.Message}");
+                    }
+                }
+            }
         }
 
         private void SetYourUserId(string User_ID)
@@ -242,6 +285,14 @@ namespace siKecil.View.Main
         private void KontakItemsControl_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             User selectedUser = (User)kontakItemsControl.SelectedItem;
+            if (selectedUser != null)
+            {
+                string defaultImagePath = "pack://application:,,,/Asset/user.png";
+                imageDisplay = new ImageDisplay(defaultImagePath);
+                ReceiverImage.Source = imageDisplay.DisplayImage(selectedUser.UserIdKontak);
+
+                LoadUserFullName(selectedUser.UserIdKontak);
+            }
 
             UpdateChatView(selectedUser);
         }

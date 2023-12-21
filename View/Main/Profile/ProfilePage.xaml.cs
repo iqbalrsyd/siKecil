@@ -7,10 +7,12 @@ namespace siKecil.View.Main.Profile
     public partial class ProfilePage : Page
     {
         private string User_ID;
+        public string PageTitle { get; set; } = "Profile Page";
 
         public ProfilePage(string User_ID)
         {
             InitializeComponent();
+            Title = "Profil";
             this.User_ID = User_ID;
             profileFrame.NavigationService.Navigate(new PengaturanAkunPage(User_ID));
         }

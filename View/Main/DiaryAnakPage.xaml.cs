@@ -28,9 +28,11 @@ namespace siKecil.View.Main
         private readonly string User_ID;
         Connection connectionHelper = new Connection();
         private Person person;
+
         public DiaryAnakPage(string User_ID)
         {
             InitializeComponent();
+            Title = "Catatan Perkembangan Anak";
             this.User_ID = User_ID;
             Loaded += DiaryAnakPage_Loaded;
 

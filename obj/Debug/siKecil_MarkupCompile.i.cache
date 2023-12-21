@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 C:\College Project\siKecil_clone1\App.xaml
-181530238571
+171305553727
 
-29-1151752234
+28835604230
 151-1534848322
-ChatView.xaml;View\Main\InformationPage.xaml;View\Main\ChatPage.xaml;View\Main\DiaryAnakPage.xaml;View\Main\HomePage.xaml;View\GenerateOtpPage.xaml;View\Main\KontenPage.xaml;View\Main\Profile\PengaturanAkunPage.xaml;View\Main\Profile\ProfileAnakPage.xaml;View\Main\Profile\ProfileOrangTuaPage.xaml;View\UserEnter\LoginPage.xaml;View\Main\MainWindow.xaml;View\Main\Profile\ProfilePage.xaml;ProfileView.xaml;RiwayatMedisView.xaml;View\UserEnter\SignupPage.xaml;View\UserEnter\UserEnterView.xaml;View\VerificationDeleteAcc.xaml;
+ChatView.xaml;View\Main\InformationPage.xaml;View\Main\ChatPage.xaml;View\Main\DiaryAnakPage.xaml;View\GenerateOtpPage.xaml;View\Main\KontenPage.xaml;View\Main\Profile\PengaturanAkunPage.xaml;View\Main\Profile\ProfileAnakPage.xaml;View\Main\Profile\ProfileOrangTuaPage.xaml;View\UserEnter\LoginPage.xaml;View\Main\MainWindow.xaml;View\Main\Profile\ProfilePage.xaml;ProfileView.xaml;RiwayatMedisView.xaml;View\UserEnter\SignupPage.xaml;View\UserEnter\UserEnterView.xaml;View\VerificationDeleteAcc.xaml;
 
 True
 

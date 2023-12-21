@@ -29,9 +29,11 @@ namespace siKecil.View.Main
     {
         private ObservableCollection<Artikel> Artikels;
         Connection connectionHelper = new Connection();
+
         public InformationPage()
         {
             InitializeComponent();
+            Title = "Tips dan Informasi";
             Artikels = LoadArtikel();
             ListBoxArtikel.ItemsSource = Artikels;
         }
