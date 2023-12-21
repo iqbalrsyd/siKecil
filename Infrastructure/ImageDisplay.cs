@@ -4,11 +4,19 @@ using System.Data.SqlClient;
 using System.IO;
 using System.Windows.Media.Imaging;
 using siKecil.View.Main.Profile;
+using siKecil.Model;
 
 namespace siKecil.Infrastructure
 {
     public class ImageDisplay
     {
+        private readonly string defaultImagePath;
+
+        public ImageDisplay(string defaultImagePath)
+        {
+            this.defaultImagePath = defaultImagePath;
+        }
+
         private BitmapImage GetImageFromDatabase(string user_ID)
         {
             try
@@ -53,7 +61,13 @@ namespace siKecil.Infrastructure
 
         public BitmapImage DisplayImage(string user_ID)
         {
-            return GetImageFromDatabase(user_ID);
+            BitmapImage image = GetImageFromDatabase(user_ID);
+            if (image == null)
+            {
+                image = new BitmapImage(new Uri(defaultImagePath));
+            }
+
+            return image;
         }
 
         public byte[] EditImage(string user_ID, string filePath)

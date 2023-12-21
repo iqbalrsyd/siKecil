@@ -19,7 +19,7 @@
             <RowDefinition MinHeight="60"/>
         </Grid.RowDefinitions>
         <Grid Grid.Row="1" Grid.Column="1">
-            <Image x:Name="ProfileImage" HorizontalAlignment="Left" Height="200" Margin="60,7,0,0" VerticalAlignment="Top" Width="200" Stretch="UniformToFill">
+            <Image x:Name="ProfileImage" Source="/Asset/user.png" HorizontalAlignment="Left" Height="200" Margin="60,7,0,0" VerticalAlignment="Top" Width="200" Stretch="UniformToFill">
                 <Image.Clip>
                     <EllipseGeometry RadiusX="100" RadiusY="100" Center="100,100"/>
                 </Image.Clip>

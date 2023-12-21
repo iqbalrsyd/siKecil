@@ -30,7 +30,9 @@ namespace siKecil.View.Main.Profile
             InitializeComponent();
             this.User_ID = User_ID;
             GetDataFromSQL(User_ID);
-            imageDisplay = new ImageDisplay();
+
+            string defaultImagePath = "pack://application:,,,/Asset/user.png";
+            imageDisplay = new ImageDisplay(defaultImagePath);
             ProfileImage.Source = imageDisplay.DisplayImage(User_ID);
         }
 

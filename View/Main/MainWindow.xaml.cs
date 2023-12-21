@@ -14,6 +14,7 @@ namespace siKecil.View.Main
     public partial class MainWindow : Window
     {
         private readonly string User_ID;
+        private ImageDisplay imageDisplay;
 
         public MainWindow(string User_ID)
         {
@@ -26,11 +27,16 @@ namespace siKecil.View.Main
         {
             WindowState = WindowState.Maximized;
 
+            string defaultImagePath = "pack://application:,,,/Asset/user.png";
+            imageDisplay = new ImageDisplay(defaultImagePath);
+            ImageMainProfile.ImageSource = imageDisplay.DisplayImage(User_ID);
+
             mainFrame.NavigationService.Navigate(new HomePage(User_ID));
         }
 
         private void mainFrame_Navigated(object sender, NavigationEventArgs e)
         {
+
         }
 
         private void HomePage_Click(object sender, RoutedEventArgs e)
