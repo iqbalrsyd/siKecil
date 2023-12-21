@@ -37,6 +37,11 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup />
+  <PropertyGroup>
+    <ApplicationIcon>Resources\logosiKecil.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup />
   <ItemGroup>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>packages\EntityFramework.6.4.4\lib\net45\EntityFramework.dll</HintPath>
@@ -105,6 +110,7 @@
     <Reference Include="System.Diagnostics.DiagnosticSource, Version=5.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>packages\System.Diagnostics.DiagnosticSource.5.0.0\lib\net46\System.Diagnostics.DiagnosticSource.dll</HintPath>
     </Reference>
+    <Reference Include="System.Drawing" />
     <Reference Include="System.IO, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>packages\System.IO.4.3.0\lib\net462\System.IO.dll</HintPath>
       <Private>True</Private>
@@ -199,28 +205,46 @@
     <Compile Include="ChatView.xaml.cs">
       <DependentUpon>ChatView.xaml</DependentUpon>
     </Compile>
+<<<<<<< HEAD
     <Compile Include="View\Main\InformationPage.xaml.cs">
       <DependentUpon>InformationPage.xaml</DependentUpon>
     </Compile>
+=======
+    <Compile Include="Infrastructure\ImageDisplay.cs" />
+>>>>>>> 99aeac0709a4bced3bda6d2042364bc73c6b2918
     <Compile Include="View\GenerateOtpPage.xaml.cs">
       <DependentUpon>GenerateOtpPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Infrastructure\Criteria.cs" />
+    <Compile Include="View\Main\ChatPage.xaml.cs">
+      <DependentUpon>ChatPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\Main\DiaryAnakPage.xaml.cs">
       <DependentUpon>DiaryAnakPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\Main\HomePage.xaml.cs">
       <DependentUpon>HomePage.xaml</DependentUpon>
     </Compile>
+<<<<<<< HEAD
     <Compile Include="View\Main\KontenPage.xaml.cs">
       <DependentUpon>KontenPage.xaml</DependentUpon>
+=======
+    <Compile Include="View\Main\Profile\PengaturanAkunPage.xaml.cs">
+      <DependentUpon>PengaturanAkunPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Main\Profile\ProfileAnakPage.xaml.cs">
+      <DependentUpon>ProfileAnakPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Main\Profile\ProfileOrangTuaPage.xaml.cs">
+      <DependentUpon>ProfileOrangTuaPage.xaml</DependentUpon>
+>>>>>>> 99aeac0709a4bced3bda6d2042364bc73c6b2918
     </Compile>
     <Compile Include="View\UserEnter\LoginPage.xaml.cs">
       <DependentUpon>LoginPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Model\ChatModel.cs" />
     <Compile Include="Model\ProfileModel.cs" />
-    <Compile Include="View\Main\ProfilePage.xaml.cs">
+    <Compile Include="View\Main\Profile\ProfilePage.xaml.cs">
       <DependentUpon>ProfilePage.xaml</DependentUpon>
     </Compile>
     <Compile Include="ProfileView.xaml.cs">
@@ -236,11 +260,18 @@
       <DependentUpon>UserEnterView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Infrastructure\Watermark.cs" />
+    <Compile Include="View\VerificationDeleteAcc.xaml.cs">
+      <DependentUpon>VerificationDeleteAcc.xaml</DependentUpon>
+    </Compile>
     <Page Include="ChatView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+<<<<<<< HEAD
     <Page Include="View\Main\InformationPage.xaml">
+=======
+    <Page Include="View\Main\ChatPage.xaml">
+>>>>>>> 99aeac0709a4bced3bda6d2042364bc73c6b2918
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -256,7 +287,19 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+<<<<<<< HEAD
     <Page Include="View\Main\KontenPage.xaml">
+=======
+    <Page Include="View\Main\Profile\PengaturanAkunPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Main\Profile\ProfileAnakPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Main\Profile\ProfileOrangTuaPage.xaml">
+>>>>>>> 99aeac0709a4bced3bda6d2042364bc73c6b2918
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -277,7 +320,7 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="View\Main\ProfilePage.xaml">
+    <Page Include="View\Main\Profile\ProfilePage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -294,6 +337,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\UserEnter\UserEnterView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\VerificationDeleteAcc.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -346,12 +393,22 @@
     <Resource Include="Asset\user.png" />
   </ItemGroup>
   <ItemGroup>
+<<<<<<< HEAD
     <Resource Include="Asset\edit.png" />
     <Resource Include="Asset\remove.png" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Asset\boy.png" />
     <Resource Include="Asset\girl.png" />
+=======
+    <Resource Include="Asset\pencil.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\logo.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\logosiKecil.ico" />
+>>>>>>> 99aeac0709a4bced3bda6d2042364bc73c6b2918
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

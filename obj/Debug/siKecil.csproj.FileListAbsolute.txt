@@ -1,12 +1,3 @@
-C:\College Project\PBO siKecil\siKecil\obj\Debug\siKecil.csproj.AssemblyReference.cache
-C:\College Project\PBO siKecil\siKecil\obj\Debug\RiwayatMedisView.baml
-C:\College Project\PBO siKecil\siKecil\obj\Debug\ChatView.g.cs
-C:\College Project\PBO siKecil\siKecil\obj\Debug\ProfileView.g.cs
-C:\College Project\PBO siKecil\siKecil\obj\Debug\RiwayatMedisView.g.cs
-C:\College Project\PBO siKecil\siKecil\obj\Debug\App.g.cs
-C:\College Project\PBO siKecil\siKecil\obj\Debug\GeneratedInternalTypeHelper.g.cs
-C:\College Project\PBO siKecil\siKecil\obj\Debug\siKecil_MarkupCompile.cache
-C:\College Project\PBO siKecil\siKecil\obj\Debug\siKecil_MarkupCompile.lref
 C:\College Project\PBO siKecil\siKecil\bin\Debug\siKecil.exe.config
 C:\College Project\PBO siKecil\siKecil\bin\Debug\siKecil.exe
 C:\College Project\PBO siKecil\siKecil\bin\Debug\siKecil.pdb
@@ -71,9 +62,44 @@ C:\College Project\PBO siKecil\siKecil\bin\Debug\System.Text.Json.xml
 C:\College Project\PBO siKecil\siKecil\bin\Debug\System.Threading.Channels.xml
 C:\College Project\PBO siKecil\siKecil\bin\Debug\System.Threading.Tasks.Extensions.xml
 C:\College Project\PBO siKecil\siKecil\bin\Debug\System.ValueTuple.xml
+C:\College Project\PBO siKecil\siKecil\obj\Debug\siKecil.csproj.AssemblyReference.cache
+C:\College Project\PBO siKecil\siKecil\obj\Debug\RiwayatMedisView.baml
+C:\College Project\PBO siKecil\siKecil\obj\Debug\ChatView.g.cs
+C:\College Project\PBO siKecil\siKecil\obj\Debug\View\Main\ChatPage.g.cs
+C:\College Project\PBO siKecil\siKecil\obj\Debug\View\Main\DiaryAnakPage.g.cs
+C:\College Project\PBO siKecil\siKecil\obj\Debug\View\Main\HomePage.g.cs
+C:\College Project\PBO siKecil\siKecil\obj\Debug\View\GenerateOtpPage.g.cs
+C:\College Project\PBO siKecil\siKecil\obj\Debug\View\Main\Profile\PengaturanAkunPage.g.cs
+C:\College Project\PBO siKecil\siKecil\obj\Debug\View\Main\Profile\ProfileAnakPage.g.cs
+C:\College Project\PBO siKecil\siKecil\obj\Debug\View\Main\Profile\ProfileOrangTuaPage.g.cs
+C:\College Project\PBO siKecil\siKecil\obj\Debug\View\UserEnter\LoginPage.g.cs
+C:\College Project\PBO siKecil\siKecil\obj\Debug\View\Main\MainWindow.g.cs
+C:\College Project\PBO siKecil\siKecil\obj\Debug\View\Main\Profile\ProfilePage.g.cs
+C:\College Project\PBO siKecil\siKecil\obj\Debug\ProfileView.g.cs
+C:\College Project\PBO siKecil\siKecil\obj\Debug\RiwayatMedisView.g.cs
+C:\College Project\PBO siKecil\siKecil\obj\Debug\View\UserEnter\SignupPage.g.cs
+C:\College Project\PBO siKecil\siKecil\obj\Debug\View\UserEnter\UserEnterView.g.cs
+C:\College Project\PBO siKecil\siKecil\obj\Debug\View\VerificationDeleteAcc.g.cs
+C:\College Project\PBO siKecil\siKecil\obj\Debug\App.g.cs
+C:\College Project\PBO siKecil\siKecil\obj\Debug\GeneratedInternalTypeHelper.g.cs
+C:\College Project\PBO siKecil\siKecil\obj\Debug\siKecil_MarkupCompile.cache
+C:\College Project\PBO siKecil\siKecil\obj\Debug\siKecil_MarkupCompile.lref
 C:\College Project\PBO siKecil\siKecil\obj\Debug\App.baml
 C:\College Project\PBO siKecil\siKecil\obj\Debug\ChatView.baml
+C:\College Project\PBO siKecil\siKecil\obj\Debug\View\Main\ChatPage.baml
+C:\College Project\PBO siKecil\siKecil\obj\Debug\View\Main\DiaryAnakPage.baml
+C:\College Project\PBO siKecil\siKecil\obj\Debug\View\Main\HomePage.baml
+C:\College Project\PBO siKecil\siKecil\obj\Debug\View\GenerateOtpPage.baml
+C:\College Project\PBO siKecil\siKecil\obj\Debug\View\Main\Profile\PengaturanAkunPage.baml
+C:\College Project\PBO siKecil\siKecil\obj\Debug\View\Main\Profile\ProfileAnakPage.baml
+C:\College Project\PBO siKecil\siKecil\obj\Debug\View\Main\Profile\ProfileOrangTuaPage.baml
+C:\College Project\PBO siKecil\siKecil\obj\Debug\View\UserEnter\LoginPage.baml
+C:\College Project\PBO siKecil\siKecil\obj\Debug\View\Main\MainWindow.baml
+C:\College Project\PBO siKecil\siKecil\obj\Debug\View\Main\Profile\ProfilePage.baml
 C:\College Project\PBO siKecil\siKecil\obj\Debug\ProfileView.baml
+C:\College Project\PBO siKecil\siKecil\obj\Debug\View\UserEnter\SignupPage.baml
+C:\College Project\PBO siKecil\siKecil\obj\Debug\View\UserEnter\UserEnterView.baml
+C:\College Project\PBO siKecil\siKecil\obj\Debug\View\VerificationDeleteAcc.baml
 C:\College Project\PBO siKecil\siKecil\obj\Debug\siKecil.g.resources
 C:\College Project\PBO siKecil\siKecil\obj\Debug\siKecil.Properties.Resources.resources
 C:\College Project\PBO siKecil\siKecil\obj\Debug\siKecil.csproj.GenerateResource.cache
@@ -81,6 +107,7 @@ C:\College Project\PBO siKecil\siKecil\obj\Debug\siKecil.csproj.CoreCompileInput
 C:\College Project\PBO siKecil\siKecil\obj\Debug\siKecil.csproj.CopyComplete
 C:\College Project\PBO siKecil\siKecil\obj\Debug\siKecil.exe
 C:\College Project\PBO siKecil\siKecil\obj\Debug\siKecil.pdb
+<<<<<<< HEAD
 C:\College Project\PBO siKecil\siKecil\obj\Debug\View\Main\DiaryAnakPage.g.cs
 C:\College Project\PBO siKecil\siKecil\obj\Debug\View\Main\HomePage.g.cs
 C:\College Project\PBO siKecil\siKecil\obj\Debug\View\GenerateOtpPage.g.cs
@@ -200,3 +227,5 @@ C:\Users\Ekadukasi\source\repos\siKecil\obj\Debug\View\Main\InformationPage.g.cs
 C:\Users\Ekadukasi\source\repos\siKecil\obj\Debug\View\Main\InformationPage.baml
 C:\Users\Ekadukasi\source\repos\siKecil\obj\Debug\View\Main\KontenPage.g.cs
 C:\Users\Ekadukasi\source\repos\siKecil\obj\Debug\View\Main\KontenPage.baml
+=======
+>>>>>>> 99aeac0709a4bced3bda6d2042364bc73c6b2918

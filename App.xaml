@@ -29,6 +29,7 @@
 
             <Style x:Key="CustomTextBoxStyle" TargetType="TextBox">
                 <Setter Property="Margin" Value="5"/>
+                <Setter Property="TextAlignment" Value="Justify"/>
                 <Setter Property="VerticalAlignment" Value="Center"/>
                 <Setter Property="HorizontalAlignment" Value="Left"/>
                 <Setter Property="TextWrapping" Value="Wrap"/>
@@ -194,22 +195,115 @@
             <Style x:Key="ProfileMenuButtonStyle" TargetType="Button">
                 <Setter Property="Foreground" Value="Gray"/>
                 <Setter Property="Background" Value="Transparent"/>
-                <Setter Property="BorderBrush" Value="LightGray"/>
-                <Setter Property="BorderThickness" Value="1,0,0,0"/>
+                <Setter Property="BorderThickness" Value="0"/>
                 <Setter Property="FontFamily" Value="Inter"/>
                 <Setter Property="FontWeight" Value="Medium"/>
                 <Setter Property="FontSize" Value="30"/>
-                <Setter Property="Padding" Value="10,5"/>
+                <Setter Property="Padding" Value="0"/>
                 <Style.Triggers>
                     <Trigger Property="IsMouseOver" Value="True">
                         <Setter Property="Foreground" Value="#1450A3"/>
+                        <Setter Property="FontWeight" Value="Bold"/>
                         <Setter Property="BorderBrush" Value="#1450A3"/>
-                        <Setter Property="BorderThickness" Value="0,0,0,2"/>
                     </Trigger>
                     <Trigger Property="IsPressed" Value="True">
                         <Setter Property="Background" Value="#1450A3"/>
+                        <Setter Property="FontWeight" Value="Bold"/>
                         <Setter Property="BorderBrush" Value="#1450A3"/>
-                        <Setter Property="BorderThickness" Value="0,0,0,4"/>
+                    </Trigger>
+                </Style.Triggers>
+            </Style>
+
+            <Style x:Key="RectangleProfile" TargetType="Rectangle">
+                <Setter Property="Fill" Value="#FFFFFF"/>
+                <Setter Property="RadiusX" Value="10"/>
+                <Setter Property="RadiusY" Value="10"/>
+                <Setter Property="Effect">
+                    <Setter.Value>
+                        <DropShadowEffect ShadowDepth="1" Color="Black" Opacity="0.5"/>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+
+            <Style x:Key="CustomButtonStyleChangePage" TargetType="Button">
+                <Setter Property="Foreground" Value="DarkGray"/>
+                <Setter Property="Background" Value="#E6E6E6"/>
+                <Setter Property="FontWeight" Value="Medium"/>
+                <Setter Property="FontFamily" Value="Inter"/>
+                <Setter Property="Margin" Value="1"/>
+                <Setter Property="Padding" Value="10"/>
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="Button">
+                            <Grid>
+                                <Border x:Name="border" BorderBrush="Blue" BorderThickness="0,0,0,3">
+                                    <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                </Border>
+                                <Rectangle x:Name="highlight" Fill="Transparent" Visibility="Collapsed"/>
+                            </Grid>
+                            <ControlTemplate.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter TargetName="border" Property="BorderBrush" Value="DarkBlue"/>
+                                    <Setter TargetName="border" Property="BorderThickness" Value="0 0 0 4"/>
+                                    <Setter Property="FontWeight" Value="Bold"/>
+                                </Trigger>
+                                <Trigger Property="IsPressed" Value="True">
+                                    <Setter TargetName="border" Property="BorderBrush" Value="lightgray"/>
+                                    <Setter Property="Background" Value="DarkGray"/>
+                                    <Setter Property="Foreground" Value="LightBlue"/>
+                                    <Setter TargetName="highlight" Property="Visibility" Value="Visible"/>
+                                    <Setter Property="FontWeight" Value="Bold"/>
+                                </Trigger>
+                            </ControlTemplate.Triggers>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+
+            <Style x:Key="ImageButtonStyle" TargetType="Button">
+                <Setter Property="Background" Value="#FFC436"/>
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="Button">
+                            <Grid>
+                                <Border Background="{TemplateBinding Background}" BorderBrush="Black">
+                                    <Image Source="/Asset/pencil.png" Stretch="UniformToFill" Width="18" Height="18"/>
+                                </Border>
+                            </Grid>
+                            <ControlTemplate.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter Property="Background" Value="DarkGoldenrod"/>
+                                </Trigger>
+                            </ControlTemplate.Triggers>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+
+            <Style x:Key="CustomButtonStyleDelete" TargetType="Button">
+                <Setter Property="Background" Value="IndianRed"/>
+                <Setter Property="Foreground" Value="White"/>
+                <Setter Property="Padding" Value="10"/>
+                <Setter Property="FontSize" Value="20"/>
+                <Setter Property="FontWeight" Value="Bold"/>
+                <Setter Property="BorderThickness" Value="0"/>
+                <Setter Property="Margin" Value="5"/>
+                <Setter Property="FontFamily" Value="Inter"/>
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="Button">
+                            <Border Background="{TemplateBinding Background}"
+                                BorderBrush="{TemplateBinding BorderBrush}"
+                                BorderThickness="{TemplateBinding BorderThickness}"
+                                Padding="{TemplateBinding Padding}">
+                                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            </Border>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+                <Style.Triggers>
+                    <Trigger Property="IsMouseOver" Value="True">
+                        <Setter Property="Background" Value="Red"/>
                     </Trigger>
                 </Style.Triggers>
             </Style>

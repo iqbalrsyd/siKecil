@@ -66,8 +66,6 @@ namespace siKecil
                     Console.WriteLine($"Error getting data from SQL: {ex.Message}");
                 }
             }
-
-
             return profileDataModel;
         }
 

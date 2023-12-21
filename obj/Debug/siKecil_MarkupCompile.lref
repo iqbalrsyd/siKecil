@@ -1,4 +1,5 @@
 ﻿
+<<<<<<< HEAD
 FC:\Users\Ekadukasi\source\repos\siKecil\App.xaml;;
 FC:\Users\Ekadukasi\source\repos\siKecil\ChatView.xaml;;
 FC:\Users\Ekadukasi\source\repos\siKecil\View\Main\InformationPage.xaml;;
@@ -12,4 +13,22 @@ FC:\Users\Ekadukasi\source\repos\siKecil\View\Main\ProfilePage.xaml;;
 FC:\Users\Ekadukasi\source\repos\siKecil\ProfileView.xaml;;
 FC:\Users\Ekadukasi\source\repos\siKecil\View\UserEnter\SignupPage.xaml;;
 FC:\Users\Ekadukasi\source\repos\siKecil\View\UserEnter\UserEnterView.xaml;;
+=======
+FC:\College Project\PBO siKecil\siKecil\App.xaml;;
+FC:\College Project\PBO siKecil\siKecil\ChatView.xaml;;
+FC:\College Project\PBO siKecil\siKecil\View\Main\ChatPage.xaml;;
+FC:\College Project\PBO siKecil\siKecil\View\Main\DiaryAnakPage.xaml;;
+FC:\College Project\PBO siKecil\siKecil\View\Main\HomePage.xaml;;
+FC:\College Project\PBO siKecil\siKecil\View\GenerateOtpPage.xaml;;
+FC:\College Project\PBO siKecil\siKecil\View\Main\Profile\PengaturanAkunPage.xaml;;
+FC:\College Project\PBO siKecil\siKecil\View\Main\Profile\ProfileAnakPage.xaml;;
+FC:\College Project\PBO siKecil\siKecil\View\Main\Profile\ProfileOrangTuaPage.xaml;;
+FC:\College Project\PBO siKecil\siKecil\View\UserEnter\LoginPage.xaml;;
+FC:\College Project\PBO siKecil\siKecil\View\Main\MainWindow.xaml;;
+FC:\College Project\PBO siKecil\siKecil\View\Main\Profile\ProfilePage.xaml;;
+FC:\College Project\PBO siKecil\siKecil\ProfileView.xaml;;
+FC:\College Project\PBO siKecil\siKecil\View\UserEnter\SignupPage.xaml;;
+FC:\College Project\PBO siKecil\siKecil\View\UserEnter\UserEnterView.xaml;;
+FC:\College Project\PBO siKecil\siKecil\View\VerificationDeleteAcc.xaml;;
+>>>>>>> 99aeac0709a4bced3bda6d2042364bc73c6b2918
 

@@ -24,16 +24,19 @@ namespace siKecil.View.UserEnter
         {
 
         }
+
         private void ToLoginPage_Click(object sender, RoutedEventArgs e)
         {
             try
             {
                 if (IsValidUserInput())
                 {
+                    Overlay.Visibility = Visibility.Visible;
+
                     GenerateOtpPage generateOtpPage = new GenerateOtpPage(txtEmailAddress.Text);
                     OtpFrame.NavigationService.Navigate(generateOtpPage);
-                    generateOtpPage.SuccessfulOtpVerification += OnSuccessfulOtpVerificationForSignup;
 
+                    generateOtpPage.SuccessfulOtpVerification += OnSuccessfulOtpVerificationForSignup;
                 }
             }
             catch (Exception ex)
@@ -100,14 +103,12 @@ namespace siKecil.View.UserEnter
                 return false;
             }
 
-            // Periksa apakah email memiliki format yang benar
             if (!IsValidEmail(txtEmailAddress.Text))
             {
                 MessageBox.Show("Invalid email address format.");
                 return false;
             }
 
-            // Periksa apakah email sudah terdaftar
             if (IsEmailRegistered(txtEmailAddress.Text))
             {
                 MessageBox.Show("Email address is already registered.");
@@ -132,7 +133,6 @@ namespace siKecil.View.UserEnter
 
         private bool IsEmailRegistered(string email)
         {
-            // Lakukan pengecekan di database
             Connection connectionHelper = new Connection();
 
             using (SqlConnection sqlCon = connectionHelper.GetConn())

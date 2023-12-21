@@ -49,7 +49,6 @@ namespace siKecil.View.UserEnter
 
         private void mainFrame_Navigated(object sender, System.Windows.Navigation.NavigationEventArgs e)
         {
-
         }
     }
 }

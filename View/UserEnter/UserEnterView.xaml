@@ -7,39 +7,6 @@
         mc:Ignorable="d"
         Title="UserEnterView" Height="700" Width="1200"
         Loaded="UserEnterView_Loaded">
-    <Window.Resources>
-        <Style x:Key="CustomButtonStyleChangePage" TargetType="Button">
-            <Setter Property="Foreground" Value="DarkGray"/>
-            <Setter Property="Background" Value="#E6E6E6"/>
-            <Setter Property="FontWeight" Value="Medium"/>
-            <Setter Property="Padding" Value="10"/>
-            <Setter Property="Template">
-                <Setter.Value>
-                    <ControlTemplate TargetType="Button">
-                        <Grid>
-                            <Border x:Name="border" BorderBrush="Blue" BorderThickness="0,0,0,2">
-                                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                            </Border>
-                            <Rectangle x:Name="highlight" Fill="Transparent" Visibility="Collapsed"/>
-                        </Grid>
-                        <ControlTemplate.Triggers>
-                            <Trigger Property="IsMouseOver" Value="True">
-                                <Setter TargetName="border" Property="BorderBrush" Value="DarkBlue"/>
-                                <Setter Property="FontWeight" Value="Bold"/>
-                            </Trigger>
-                            <Trigger Property="IsPressed" Value="True">
-                                <Setter TargetName="border" Property="BorderBrush" Value="White"/>
-                                <Setter Property="Background" Value="DarkGray"/>
-                                <Setter Property="Foreground" Value="LightBlue"/>
-                                <Setter TargetName="highlight" Property="Visibility" Value="Visible"/>
-                                <Setter Property="FontWeight" Value="Bold"/>
-                            </Trigger>
-                        </ControlTemplate.Triggers>
-                    </ControlTemplate>
-                </Setter.Value>
-            </Setter>
-        </Style>
-    </Window.Resources>
     <Grid Background="#FFFFFF">
         <Rectangle Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="1" Fill="#F1F6F5" Stroke="White">
             <Rectangle.Effect>

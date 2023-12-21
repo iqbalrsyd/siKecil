@@ -10,5 +10,6 @@
 
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("asset/boy.png")]
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("asset/girl.png")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("view/main/profile/pencil.png")]
 
 

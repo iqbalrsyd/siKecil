@@ -46,6 +46,7 @@
             <PasswordBox x:Name="txtConfirmPassword" Style="{StaticResource CustomPasswordBoxStyle}" local:WatermarkService.Watermark="Confirm Password" Width="269"/>
         </StackPanel>
         <Button Content="SIGN UP" Style="{StaticResource CustomButtonStyle}" Margin="153,420,153,21" Width="194" FontSize="25" Click="ToLoginPage_Click"/>
+        <Border x:Name="Overlay" Grid.ColumnSpan="2" Background="Gray" Opacity="0.5" Visibility="Collapsed"/>
         <Frame x:Name="OtpFrame" Grid.ColumnSpan="2" Width="400" Height="250" Margin="300,105,300,95" NavigationUIVisibility="Hidden" Navigated="OtpFrame_Navigated"/>
     </Grid>
 </Page>
