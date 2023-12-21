@@ -59,6 +59,7 @@
             <ComboBoxItem Content="Laki-Laki" />
             <ComboBoxItem Content="Perempuan" />
         </ComboBox>
+        
         <Button x:Name="EditButton" Content="Simpan Perubahan" HorizontalAlignment="Left" Margin="809,592,0,0" VerticalAlignment="Top" Width="188" Height="30" Click="EditProfileButton"/>
         <Button x:Name="NoEditProfile" Content="Jangan Simpan Dulu" HorizontalAlignment="Left" Margin="809,627,0,0" VerticalAlignment="Top" Width="188" Height="30" Click="NoEditProfielButton"/>
         <Label Content="Provinsi" HorizontalAlignment="Left" Margin="196,519,0,0" VerticalAlignment="Top"/>

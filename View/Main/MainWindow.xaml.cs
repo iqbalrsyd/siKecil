@@ -7,6 +7,7 @@ using System.Windows.Controls;
 using System.Windows.Media;
 using System.Windows.Navigation;
 using siKecil.Infrastructure;
+using siKecil.View.Main.Profile;
 
 namespace siKecil.View.Main
 {
@@ -29,6 +30,7 @@ namespace siKecil.View.Main
         private void mainFrame_Navigated(object sender, NavigationEventArgs e)
         {
         }
+
         private void HomePage_Click(object sender, RoutedEventArgs e)
         {
             HomePage homePage = new HomePage(User_ID);
@@ -45,6 +47,12 @@ namespace siKecil.View.Main
         {
             ProfilePage profilePage = new ProfilePage(User_ID);
             mainFrame.NavigationService.Navigate(profilePage);
+        }
+
+        private void ChatPage_Click(object sender, RoutedEventArgs e)
+        {
+            ChatPage chatPage = new ChatPage(User_ID);
+            mainFrame.NavigationService.Navigate(chatPage);
         }
     }
 }

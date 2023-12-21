@@ -14,12 +14,11 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using siKecil.Model;
 using siKecil.Infrastructure;
+using siKecil.View.UserEnter;
+using System.Runtime.CompilerServices;
 
-namespace siKecil.View.Main
+namespace siKecil.View.Main.Profile
 {
-    /// <summary>
-    /// Interaction logic for ProfilePage.xaml
-    /// </summary>
     public partial class ProfilePage : Page
     {
         private string User_ID;
@@ -29,13 +28,23 @@ namespace siKecil.View.Main
             this.User_ID = User_ID;
         }
 
+
         private void PengaturanAkun_Click(object sender, RoutedEventArgs e)
-        { }
+        {
+            PengaturanAkunPage pengaturanAkun = new PengaturanAkunPage(User_ID);
+            profileFrame.NavigationService.Navigate(pengaturanAkun);
+        }
 
         private void ProfilOrangTua_Click(object sender, RoutedEventArgs e)
-        { }
+        {
+            ProfileOrangTuaPage profileOrangTua = new ProfileOrangTuaPage(User_ID);
+            profileFrame.NavigationService.Navigate(profileOrangTua);
+        }
 
         private void ProfilAnak_Click(object sender, RoutedEventArgs e)
-        { }
+        {
+            ProfileAnakPage profileAnak = new ProfileAnakPage(User_ID);
+            profileFrame.NavigationService.Navigate(profileAnak);
+        }
     }
 }
