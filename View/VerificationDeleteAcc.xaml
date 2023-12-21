@@ -1,0 +1,27 @@
+﻿<Page
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:siKecil.View"
+      xmlns:Infrastructure="clr-namespace:siKecil.Infrastructure" x:Class="siKecil.View.VerificationDeleteAcc"
+      mc:Ignorable="d" 
+      d:DesignHeight="350" d:DesignWidth="600"
+      Title="VerificationDeleteAcc">
+
+    <Grid Background="#FFFFFF">
+        <TextBlock Margin="0,24,0,0" FontSize="25" FontWeight="Medium" Style="{StaticResource TextHeader}" TextWrapping="Wrap" VerticalAlignment="Top" Text="Konfirmasi Penghapusan Akun siKecil"/>
+
+        <StackPanel Style="{StaticResource CustomStackPanelStyle}" Margin="140,89,156,218">
+            <Image Style="{StaticResource CustomImageStyle}" Width="40" Height="40" Source="/Asset/email.png"/>
+            <TextBox x:Name="txtEmailAddress" Style="{StaticResource CustomTextBoxStyle}" TextChanged="TextBox_TextChanged" Infrastructure:WatermarkService.Watermark="Email Address" Width="252"/>
+        </StackPanel>
+        <StackPanel Style="{StaticResource CustomStackPanelStyle}" Margin="140,161,156,146">
+            <Image Style="{StaticResource CustomImageStyle}" Width="40" Height="40" Source="/Asset/key.png"/>
+            <PasswordBox x:Name="txtPassword" Style="{StaticResource CustomPasswordBoxStyle}" Infrastructure:WatermarkService.Watermark="Password"  Width="269"/>
+        </StackPanel>
+        <Button x:Name="ConfirmDeleteAcc" Content="Hapus Akun" Click="ConfirmDeleteAcc_Click" Style="{StaticResource CustomButtonStyleDelete}" Infrastructure:WatermarkService.Watermark="Password" Margin="195,249,211,29" Height="72" Width="194" FontSize="25"/>
+        <CheckBox x:Name="DeleteConfirmationCheckBox" Content="Anda yakin ingin hapus akun siKecil?" FontWeight="Medium" HorizontalAlignment="Left" Margin="137,221,0,0" VerticalAlignment="Top" Checked="CheckBox_Checked"/>
+        <Button x:Name="CloseButton" Style="{StaticResource CustomButtonStyle}" Padding="5" FontWeight="Bold" Content="X" HorizontalAlignment="Right" VerticalAlignment="Top" Click="CloseButton_Click" Margin="0,0,0,0"/>
+    </Grid>
+</Page>

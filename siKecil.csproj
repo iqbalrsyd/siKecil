@@ -243,6 +243,9 @@
       <DependentUpon>UserEnterView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Infrastructure\Watermark.cs" />
+    <Compile Include="View\VerificationDeleteAcc.xaml.cs">
+      <DependentUpon>VerificationDeleteAcc.xaml</DependentUpon>
+    </Compile>
     <Page Include="ChatView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -309,6 +312,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\UserEnter\UserEnterView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\VerificationDeleteAcc.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -105,3 +105,5 @@ C:\College Project\PBO siKecil\siKecil\obj\Debug\siKecil.csproj.CoreCompileInput
 C:\College Project\PBO siKecil\siKecil\obj\Debug\siKecil.csproj.CopyComplete
 C:\College Project\PBO siKecil\siKecil\obj\Debug\siKecil.exe
 C:\College Project\PBO siKecil\siKecil\obj\Debug\siKecil.pdb
+C:\College Project\PBO siKecil\siKecil\obj\Debug\View\VerificationDeleteAcc.g.cs
+C:\College Project\PBO siKecil\siKecil\obj\Debug\View\VerificationDeleteAcc.baml

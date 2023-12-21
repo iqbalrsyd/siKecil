@@ -24,16 +24,19 @@ namespace siKecil.View.UserEnter
         {
 
         }
+
         private void ToLoginPage_Click(object sender, RoutedEventArgs e)
         {
             try
             {
                 if (IsValidUserInput())
                 {
+                    Overlay.Visibility = Visibility.Visible;
+
                     GenerateOtpPage generateOtpPage = new GenerateOtpPage(txtEmailAddress.Text);
                     OtpFrame.NavigationService.Navigate(generateOtpPage);
-                    generateOtpPage.SuccessfulOtpVerification += OnSuccessfulOtpVerificationForSignup;
 
+                    generateOtpPage.SuccessfulOtpVerification += OnSuccessfulOtpVerificationForSignup;
                 }
             }
             catch (Exception ex)

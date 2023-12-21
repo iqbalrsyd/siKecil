@@ -6,35 +6,6 @@
       xmlns:local="clr-namespace:siKecil.View.Main.Profile"
       mc:Ignorable="d" 
       Title="PengaturanAkunPage">
-    <Page.Resources>
-        <Style x:Key="CustomButtonStyleDelete" TargetType="Button">
-            <Setter Property="Background" Value="IndianRed"/>
-            <Setter Property="Foreground" Value="White"/>
-            <Setter Property="Padding" Value="10"/>
-            <Setter Property="FontSize" Value="20"/>
-            <Setter Property="FontWeight" Value="Bold"/>
-            <Setter Property="BorderThickness" Value="0"/>
-            <Setter Property="Margin" Value="5"/>
-            <Setter Property="FontFamily" Value="Inter"/>
-            <Setter Property="Template">
-                <Setter.Value>
-                    <ControlTemplate TargetType="Button">
-                        <Border Background="{TemplateBinding Background}"
-                                BorderBrush="{TemplateBinding BorderBrush}"
-                                BorderThickness="{TemplateBinding BorderThickness}"
-                                Padding="{TemplateBinding Padding}">
-                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                        </Border>
-                    </ControlTemplate>
-                </Setter.Value>
-            </Setter>
-            <Style.Triggers>
-                <Trigger Property="IsMouseOver" Value="True">
-                    <Setter Property="Background" Value="Red"/>
-                </Trigger>
-            </Style.Triggers>
-        </Style>
-    </Page.Resources>
 
     <Grid>
         <Grid.ColumnDefinitions>
@@ -59,10 +30,12 @@
             <TextBlock Text="Username" FontSize="18" FontWeight="Medium" Foreground="Black" HorizontalAlignment="Left" Width="84" Margin="389,45,0,260"></TextBlock>
             <TextBlock Text="Alamat Email" FontSize="18" FontWeight="Medium" Foreground="Black" HorizontalAlignment="Left" Width="111" Margin="389,131,0,174"/>
             <TextBlock Text="Password" FontSize="18" FontWeight="Medium" Foreground="Black" HorizontalAlignment="Left" Width="81" Margin="389,218,0,87"/>
-            <Button Content="Sign Out" Style="{StaticResource CustomButtonStyle}" HorizontalAlignment="Left" FontSize="21"  Margin="94,232,0,0" VerticalAlignment="Top" Height="50" Width="131"/>
-            <Button Content="Delete Account" Style="{StaticResource CustomButtonStyleDelete}" HorizontalAlignment="Left" Margin="74,290,0,0" VerticalAlignment="Top" Width="175" Height="55"/>
+            <Button Content="Sign Out" Click="SignOut_Click" Style="{StaticResource CustomButtonStyle}" HorizontalAlignment="Left" FontSize="21"  Margin="94,232,0,0" VerticalAlignment="Top" Height="50" Width="131"/>
+            <Button Content="Delete Account" Click="DeleteAccount_Click" Style="{StaticResource CustomButtonStyleDelete}" HorizontalAlignment="Left" Margin="74,290,0,0" VerticalAlignment="Top" Width="175" Height="55"/>
             <Button Click="UpdateImage_Click" Style="{StaticResource ImageButtonStyle}" Margin="235,182,490,163" Height="25" Width="25"/>
             <Button Content="Simpan" Style="{StaticResource CustomButtonStyle}"  HorizontalAlignment="Left" FontSize="21"  Margin="471,340,0,0" VerticalAlignment="Top" Height="50" Width="131"/>
+            <Border x:Name="Overlay" Grid.ColumnSpan="2" Background="Gray" Opacity="0.5" Visibility="Collapsed"/>
+            <Frame x:Name="deleteAccFrame" NavigationUIVisibility="Hidden" Navigated="deleteAcc_Navigated" Height="350" Width="600"/>
         </Grid>
     </Grid>
 </Page>
