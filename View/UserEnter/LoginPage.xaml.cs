@@ -73,7 +73,6 @@ namespace siKecil.View.UserEnter
                         MessageBox.Show(ex.Message);
                     }
                 }
-
             }
         }
 

@@ -25,6 +25,8 @@ namespace siKecil.View.Main
         private void MainWindow_Loaded(object sender, RoutedEventArgs e)
         {
             WindowState = WindowState.Maximized;
+
+            mainFrame.NavigationService.Navigate(new HomePage(User_ID));
         }
 
         private void mainFrame_Navigated(object sender, NavigationEventArgs e)

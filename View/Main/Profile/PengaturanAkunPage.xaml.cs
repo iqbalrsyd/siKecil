@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Data;
 using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Windows;
@@ -15,6 +16,7 @@ using siKecil.View.Main;
 using System.Windows.Input;
 using siKecil.View.UserEnter;
 using siKecil.View;
+using System.Windows.Navigation;
 
 namespace siKecil.View.Main.Profile
 {
@@ -61,7 +63,7 @@ namespace siKecil.View.Main.Profile
                 }
                 catch (Exception ex)
                 {
-                    Console.WriteLine($"Error getting data from SQL: {ex.Message}");
+                    MessageBox.Show($"Error getting data from SQL: {ex.Message}");
                 }
             }
         }
@@ -107,6 +109,190 @@ namespace siKecil.View.Main.Profile
         }
 
         private void deleteAcc_Navigated(object sender, System.Windows.Navigation.NavigationEventArgs e)
+        {
+
+        }
+
+        private void SimpanAkun_Click(object sender, RoutedEventArgs e)
+        {
+            string emailLama = string.Empty;
+            string passwordLama = string.Empty;
+
+            Connection connectionHelper = new Connection();
+            using (SqlConnection sqlCon = connectionHelper.GetConn())
+            {
+                try
+                {
+                    if (sqlCon.State == ConnectionState.Closed)
+                        sqlCon.Open();
+
+                    string queryGetOldData = "SELECT EmailAddress, Password FROM Users WHERE User_ID = @User_ID";
+
+                    using (SqlCommand cmdGetOldData = new SqlCommand(queryGetOldData, sqlCon))
+                    {
+                        cmdGetOldData.Parameters.AddWithValue("@User_ID", User_ID);
+
+                        using (SqlDataReader reader = cmdGetOldData.ExecuteReader())
+                        {
+                            if (reader.Read())
+                            {
+                                emailLama = reader["EmailAddress"].ToString();
+                                passwordLama = reader["Password"].ToString();
+                            }
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine($"Error getting old data from database: {ex.Message}");
+                }
+            }
+
+            string emailBaru = txtEditEmailAddress.Text;
+            string passwordBaru = txtEditPassword.Password;
+
+            if (emailBaru == emailLama && passwordBaru == passwordLama)
+            {
+                using (SqlConnection sqlCon = connectionHelper.GetConn())
+                {
+                    try
+                    {
+                        if (sqlCon.State == ConnectionState.Closed)
+                            sqlCon.Open();
+
+                        string UpdateUsername = "UPDATE Users SET Username=@Username WHERE User_ID = @User_ID";
+                        using(SqlCommand cmdUpdateUsername = new SqlCommand(UpdateUsername, sqlCon))
+                        {
+                            cmdUpdateUsername.Parameters.AddWithValue("@User_ID", User_ID);
+                            cmdUpdateUsername.Parameters.AddWithValue("@Username", txtUsername.Text);
+                            cmdUpdateUsername.ExecuteNonQuery();
+
+                            MessageBox.Show("Penyimpanan Berhasil");
+
+                            GetDataFromSQL(User_ID);
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Error saving changes: " + ex.Message);
+                    }
+                }
+            }
+            else
+            {
+                try
+                {
+                    if (IsValidUserInput())
+                    {
+                        Overlay.Visibility = Visibility.Visible;
+
+                        GenerateOtpPage generateOtpPage = new GenerateOtpPage(txtEditEmailAddress.Text);
+                        OtpFrame.NavigationService.Navigate(generateOtpPage);
+
+                        generateOtpPage.SuccessfulOtpVerification += OnSuccessfulOtpVerificationForUpdateProfile;
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+            }
+        }
+
+        private void OnSuccessfulOtpVerificationForUpdateProfile(string emailAddress)
+        {
+            Connection connectionHelper = new Connection();
+            using (SqlConnection sqlCon = connectionHelper.GetConn())
+            {
+                try
+                {
+                    if (sqlCon.State == ConnectionState.Closed)
+                        sqlCon.Open();
+
+                    string UpdateUser = "UPDATE Users SET Username=@Username, EmailAddress=@EmailAddress, Password=@Password WHERE User_ID = @User_ID";
+                    using (SqlCommand cmdUpdateUser = new SqlCommand(UpdateUser, sqlCon))
+                    {
+                        cmdUpdateUser.Parameters.AddWithValue("@User_ID", User_ID);
+                        cmdUpdateUser.Parameters.AddWithValue("@Username", txtUsername.Text);
+                        cmdUpdateUser.Parameters.AddWithValue("EmailAddress", txtEditEmailAddress.Text);
+                        cmdUpdateUser.Parameters.AddWithValue("Password", txtEditPassword.Password);
+                        cmdUpdateUser.ExecuteNonQuery();
+
+                        MessageBox.Show("Penyimpanan Berhasil");
+
+                        GetDataFromSQL(User_ID);
+                        this.Visibility = Visibility.Collapsed;
+                        NavigationService?.Navigate(new ProfileOrangTuaPage(User_ID));
+
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error saving changes: " + ex.Message);
+                }
+            }
+        }
+
+        private bool IsValidUserInput()
+        {
+            if (string.IsNullOrWhiteSpace(txtUsername.Text) ||
+                string.IsNullOrWhiteSpace(txtEditEmailAddress.Text) ||
+                string.IsNullOrWhiteSpace(txtEditPassword.Password))
+            {
+                MessageBox.Show("Please fill in all required fields.");
+                return false;
+            }
+
+            if (!IsValidEmail(txtEditEmailAddress.Text))
+            {
+                MessageBox.Show("Invalid email address format.");
+                return false;
+            }
+
+            if (IsEmailRegistered(txtEditEmailAddress.Text))
+            {
+                MessageBox.Show("Email address is already registered.");
+                return false;
+            }
+
+            return true;
+        }
+
+        private bool IsValidEmail(string email)
+        {
+            try
+            {
+                var addr = new System.Net.Mail.MailAddress(email);
+                return addr.Address == email;
+            }
+            catch
+            {
+                return false;
+            }
+        }
+
+        private bool IsEmailRegistered(string email)
+        {
+            Connection connectionHelper = new Connection();
+
+            using (SqlConnection sqlCon = connectionHelper.GetConn())
+            {
+                if (sqlCon.State == ConnectionState.Closed)
+                    sqlCon.Open();
+
+                string query = "SELECT COUNT(*) FROM Users WHERE EmailAddress = @EmailAddress";
+                using (SqlCommand sqlCmd = new SqlCommand(query, sqlCon))
+                {
+                    sqlCmd.Parameters.AddWithValue("@EmailAddress", email);
+
+                    int count = Convert.ToInt32(sqlCmd.ExecuteScalar());
+
+                    return count > 0;
+                }
+            }
+        }
+
+        private void OtpFrame_Navigated(object sender, NavigationEventArgs e)
         {
 
         }

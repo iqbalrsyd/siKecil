@@ -33,9 +33,10 @@
             <Button Content="Sign Out" Click="SignOut_Click" Style="{StaticResource CustomButtonStyle}" HorizontalAlignment="Left" FontSize="21"  Margin="94,232,0,0" VerticalAlignment="Top" Height="50" Width="131"/>
             <Button Content="Delete Account" Click="DeleteAccount_Click" Style="{StaticResource CustomButtonStyleDelete}" HorizontalAlignment="Left" Margin="74,290,0,0" VerticalAlignment="Top" Width="175" Height="55"/>
             <Button Click="UpdateImage_Click" Style="{StaticResource ImageButtonStyle}" Margin="235,182,490,163" Height="25" Width="25"/>
-            <Button Content="Simpan" Style="{StaticResource CustomButtonStyle}"  HorizontalAlignment="Left" FontSize="21"  Margin="471,340,0,0" VerticalAlignment="Top" Height="50" Width="131"/>
+            <Button Content="Simpan" Click="SimpanAkun_Click" Style="{StaticResource CustomButtonStyle}"  HorizontalAlignment="Left" FontSize="21"  Margin="471,340,0,0" VerticalAlignment="Top" Height="50" Width="131"/>
             <Border x:Name="Overlay" Grid.ColumnSpan="2" Background="Gray" Opacity="0.5" Visibility="Collapsed"/>
             <Frame x:Name="deleteAccFrame" NavigationUIVisibility="Hidden" Navigated="deleteAcc_Navigated" Height="350" Width="600"/>
+            <Frame x:Name="OtpFrame" Width="400" Height="250" Margin="170,70,180,70" NavigationUIVisibility="Hidden" Navigated="OtpFrame_Navigated"/>
         </Grid>
     </Grid>
 </Page>
