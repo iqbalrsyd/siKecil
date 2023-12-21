@@ -15,6 +15,8 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using siKecil.Infrastructure;
+using System.Runtime.InteropServices;
+using siKecil.View.UserEnter;
 
 namespace siKecil.View.Main
 {
@@ -35,11 +37,14 @@ namespace siKecil.View.Main
             person = GetPersonFromDatabase();
             DataContext = person;
             UpdateAge();
+            NamaAnak();
+            ChangePhoto();
         }
 
         private void DiaryAnakPage_Loaded(object sender, RoutedEventArgs e)
         {
             LoadDataGrid(User_ID);
+            LoadRiwayatKesehatan(User_ID);
         }
 
         private void SaveCatatanTumbuhAnak(object sender, RoutedEventArgs e)
@@ -150,6 +155,8 @@ namespace siKecil.View.Main
 
         private void editButton_Click(object sender, RoutedEventArgs e)
         {
+            SimpanData.Visibility = Visibility.Collapsed;
+            UpdateData.Visibility = Visibility.Visible;
             if (dataGrid.SelectedItem != null)
             {
                 DataRowView selectedRow = (DataRowView)dataGrid.SelectedItem;
@@ -226,6 +233,8 @@ namespace siKecil.View.Main
                         updateCommand.Parameters.AddWithValue("@StatusLK", statusLK);
                         updateCommand.ExecuteNonQuery();
                         MessageBox.Show("Data berhasil di update!");
+                        SimpanData.Visibility = Visibility.Visible;
+                        UpdateData.Visibility = Visibility.Collapsed;
 
                         LoadDataGrid(User_ID);
                     }
@@ -243,30 +252,33 @@ namespace siKecil.View.Main
             if (dataGrid.SelectedItem != null)
             {
                 DataRowView selectedRow = (DataRowView)dataGrid.SelectedItem;
-
-                using (SqlConnection sqlCon = connectionHelper.GetConn())
+                MessageBoxResult result = MessageBox.Show("Anda yakin ingin menghapus data?", "Konfirmasi hapus data", MessageBoxButton.YesNo, MessageBoxImage.Question);
+                if (result == MessageBoxResult.Yes)
                 {
-                    sqlCon.Open();
-
-                    string selectedNo = selectedRow["No"].ToString();
-
-                    string deleteQuery = "DELETE FROM CatatTumbuhAnak WHERE No = @No AND User_Id = @User_ID";
-                    using (SqlCommand deleteCommand = new SqlCommand(deleteQuery, sqlCon))
+                    using (SqlConnection sqlCon = connectionHelper.GetConn())
                     {
-                        deleteCommand.Parameters.AddWithValue("@No", int.Parse(selectedNo));
-                        deleteCommand.Parameters.AddWithValue("@User_ID", User_ID);
-                        deleteCommand.ExecuteNonQuery();
-                        MessageBox.Show("Data berhasil dihapus!");
-                    }
+                        sqlCon.Open();
 
-                    string updateQuery = "UPDATE CatatTumbuhAnak SET No = No - 1 WHERE User_ID = @User_ID AND No > @No";
-                    using (SqlCommand updateCommand = new SqlCommand(updateQuery, sqlCon))
-                    {
-                        updateCommand.Parameters.AddWithValue("@User_ID", User_ID);
-                        updateCommand.Parameters.AddWithValue("@No", int.Parse(selectedNo));
-                        updateCommand.ExecuteNonQuery();
+                        string selectedNo = selectedRow["No"].ToString();
+
+                        string deleteQuery = "DELETE FROM CatatTumbuhAnak WHERE No = @No AND User_Id = @User_ID";
+                        using (SqlCommand deleteCommand = new SqlCommand(deleteQuery, sqlCon))
+                        {
+                            deleteCommand.Parameters.AddWithValue("@No", int.Parse(selectedNo));
+                            deleteCommand.Parameters.AddWithValue("@User_ID", User_ID);
+                            deleteCommand.ExecuteNonQuery();
+                            MessageBox.Show("Data berhasil dihapus!");
+                        }
+
+                        string updateQuery = "UPDATE CatatTumbuhAnak SET No = No - 1 WHERE User_ID = @User_ID AND No > @No";
+                        using (SqlCommand updateCommand = new SqlCommand(updateQuery, sqlCon))
+                        {
+                            updateCommand.Parameters.AddWithValue("@User_ID", User_ID);
+                            updateCommand.Parameters.AddWithValue("@No", int.Parse(selectedNo));
+                            updateCommand.ExecuteNonQuery();
+                        }
+                        LoadDataGrid(User_ID);
                     }
-                    LoadDataGrid(User_ID);
                 }
             }
         }
@@ -280,7 +292,7 @@ namespace siKecil.View.Main
                 sqlCon.Open();
 
                 string user_id = this.User_ID;
-                string getPerson = "SELECT NamaAnak, TanggalLahirAnak, JenisKelaminAnak FROM ProfileAnak WHERE User_ID = @User_ID";
+                string getPerson = "SELECT NamaPanggilanAnak, TanggalLahirAnak, JenisKelaminAnak FROM ProfileAnak WHERE User_ID = @User_ID";
 
                 using (SqlCommand command = new SqlCommand(getPerson, sqlCon))
                 {
@@ -302,11 +314,17 @@ namespace siKecil.View.Main
         {
             int age = CalculateAge(person.TanggalLahirAnak, DateTime.Today);
             string ageChild = age.ToString();
-            AgeTextBox.Text = $"{ageChild}";
+            AgeTextBox.Text = ageChild;
         }
         private void BirthDatePicker_SelectedDateChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
         {
             UpdateAge();
+        }
+
+        private void NamaAnak()
+        {
+            string panggilanAnak = person.NamaAnak;
+            NamaAnakText.Text = panggilanAnak != null ? panggilanAnak : "[nama anak]";
         }
 
         private int CalculateAge(DateTime birthDate, DateTime currentDate)
@@ -353,6 +371,157 @@ namespace siKecil.View.Main
         {
             checkStatusGizi();
         }
+
+        private void simpanKesehatanAnak_Click(object sender, RoutedEventArgs e)
+        {
+            using (SqlConnection sqlCon = connectionHelper.GetConn())
+            {
+                sqlCon.Open();
+
+                using (SqlTransaction transaction = sqlCon.BeginTransaction())
+                {
+                    try
+                    {
+                        string checkQuery = "SELECT COUNT(*) FROM KesehatanAnak WHERE User_Id = @User_ID";
+                        using (SqlCommand checkCmd = new SqlCommand(checkQuery, sqlCon, transaction))
+                        {
+                            checkCmd.Parameters.AddWithValue("@User_ID", User_ID);
+                            int count2 = (int)checkCmd.ExecuteScalar();
+
+                            if (count2 > 0)
+                            {
+                                string updateQuery = "UPDATE KesehatanAnak SET RiwayatAlergi=@RiwayatAlergi, RiwayatPenyakit=@RiwayatPenyakit, GolonganDarah=@GolonganDarah WHERE User_Id = @User_ID";
+                                using (SqlCommand cmd = new SqlCommand(updateQuery, sqlCon, transaction))
+                                {
+                                    cmd.Parameters.AddWithValue("@RiwayatAlergi", txtRiwayatAlergi.Text);
+                                    cmd.Parameters.AddWithValue("@RiwayatPenyakit", txtRiwayatPenyakit.Text);
+                                    cmd.Parameters.AddWithValue("@GolonganDarah", GolonganDarahComboBox.Text);
+                                    cmd.Parameters.AddWithValue("@User_ID", User_ID);
+                                    cmd.ExecuteNonQuery();
+                                }
+                            }
+                            else
+                            {
+                                string insertQuery = "INSERT INTO KesehatanAnak (User_Id, RiwayatAlergi, RiwayatPenyakit, GolonganDarah) " +
+                                                      "VALUES (@User_ID, @RiwayatAlergi, @RiwayatPenyakit, @GolonganDarah)";
+                                using (SqlCommand cmd = new SqlCommand(insertQuery, sqlCon, transaction))
+                                {
+                                    cmd.Parameters.AddWithValue("@User_ID", User_ID);
+                                    cmd.Parameters.AddWithValue("@RiwayatAlergi", txtRiwayatAlergi.Text);
+                                    cmd.Parameters.AddWithValue("@RiwayatPenyakit", txtRiwayatPenyakit.Text);
+                                    cmd.Parameters.AddWithValue("@GolonganDarah", GolonganDarahComboBox.Text);
+                                    cmd.ExecuteNonQuery();
+                                }
+                            }
+                        }
+                        transaction.Commit();
+                        MessageBox.Show("Riwayat kesehatan anak berhasil disimpan!");
+                        SimpanKesehatanAnak.Visibility = Visibility.Collapsed;
+                        EditKesehatanAnak.Visibility = Visibility.Visible;
+                        LoadRiwayatKesehatan(User_ID);
+                    }
+                    catch (Exception ex)
+                    {
+                        transaction.Rollback();
+                        MessageBox.Show("Error saving changes: " + ex.Message);
+                    }
+                }
+            }
+        }
+
+        private void editKesehatanAnak_Click(object sender, RoutedEventArgs e)
+        {
+            SimpanKesehatanAnak.Visibility = Visibility.Visible;
+            EditKesehatanAnak.Visibility = Visibility.Collapsed;
+
+            txtRiwayatAlergi.IsEnabled = true;
+            txtRiwayatPenyakit.IsEnabled = true;
+        }
+
+        private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (GolonganDarahComboBox.SelectedItem != null)
+            {
+                string selectedOption = ((ComboBoxItem)GolonganDarahComboBox.SelectedItem).Content.ToString();
+            }
+        }
+
+        private void SetComboBoxSelectedItem(ComboBox comboBox, string value)
+        {
+            foreach (object item in comboBox.Items)
+            {
+                if (item is ComboBoxItem comboBoxItem && comboBoxItem.Content.ToString() == value)
+                {
+                    comboBox.SelectedItem = item;
+                    break;
+                }
+            }
+        }
+        private void LoadRiwayatKesehatan(string User_ID)
+        {
+            try
+            {
+                using (SqlConnection sqlCon = connectionHelper.GetConn())
+                {
+                    sqlCon.Open();
+
+                    string showQuery = $"SELECT RiwayatAlergi, RiwayatPenyakit, GolonganDarah FROM KesehatanAnak WHERE User_Id = {User_ID}";
+                    using (SqlCommand cmd = new SqlCommand(showQuery, sqlCon))
+                    {
+                        using (SqlDataReader reader = cmd.ExecuteReader())
+                        {
+                            if (reader.Read())
+                            {
+                                string riwayatAlergi = reader["RiwayatAlergi"].ToString();
+                                txtRiwayatAlergi.Text = riwayatAlergi;
+                                string riwayatPenyakit = reader["RiwayatPenyakit"].ToString();
+                                txtRiwayatPenyakit.Text = riwayatPenyakit;
+                                string selectedGoldar = reader["GolonganDarah"].ToString();
+                                SetComboBoxSelectedItem(GolonganDarahComboBox, selectedGoldar);
+                            }
+                        }
+                    }
+                }
+                txtRiwayatAlergi.IsEnabled = false;
+                txtRiwayatPenyakit.IsEnabled = false;   
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message);
+            }
+        }
+
+        private bool IsMale()
+        {
+            string jenisKelamin = person.JenisKelaminAnak;
+
+            if (jenisKelamin == null || jenisKelamin.ToLower() == "Perempuan")
+            {
+                return false;
+            }
+            else if (jenisKelamin.ToLower() == "Laki-Laki")
+            {
+                return true;
+            }
+            return false;
+        }
+
+        private void ChangePhoto()
+        {
+            bool isMale = IsMale();
+            if (isMale)
+            {
+                GirlIcon.Visibility = Visibility.Collapsed;
+                BoyIcon.Visibility = Visibility.Visible;
+            }
+            else
+            {
+                GirlIcon.Visibility = Visibility.Visible;
+                BoyIcon.Visibility = Visibility.Collapsed;
+            }
+        }
+
+        
     }
 
     public class Person

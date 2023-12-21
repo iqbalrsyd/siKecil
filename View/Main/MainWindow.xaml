@@ -24,7 +24,7 @@
                 <RowDefinition Height="80"/>
                 <RowDefinition Height="80"/>
                 <RowDefinition Height="80"/>
-                <RowDefinition Height="50**"/>
+                <RowDefinition Height="50*"/>
             </Grid.RowDefinitions>
             <Rectangle Grid.Column="1" Grid.Row="0" Grid.ColumnSpan="4" Fill="#FFFFFF">
                 <Rectangle.Effect>
@@ -126,7 +126,7 @@
                     </Image>
                 </Border>
             </Button>
-            <Button Grid.Column="0" Grid.Row="6" Style="{StaticResource ButtonMenuStyle}">
+            <Button Grid.Column="0" Grid.Row="6" Style="{StaticResource ButtonMenuStyle}" Click="InformationPage_Click">
                 <Border Grid.Column="0" Grid.Row="6" Background="Transparent" Margin="0,10,0,10">
                     <Image x:Name="InfoIcon" Tag="Info" Source="/Asset/info.png" Width="84" Height="40"
                         HorizontalAlignment="Center" VerticalAlignment="Center"

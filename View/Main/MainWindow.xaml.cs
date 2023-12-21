@@ -46,5 +46,11 @@ namespace siKecil.View.Main
             ProfilePage profilePage = new ProfilePage(User_ID);
             mainFrame.NavigationService.Navigate(profilePage);
         }
+
+        private void InformationPage_Click(object sender, RoutedEventArgs e)
+        {
+            InformationPage informationPage = new InformationPage();
+            mainFrame.NavigationService.Navigate(informationPage);
+        }
     }
 }

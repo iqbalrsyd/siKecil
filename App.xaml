@@ -132,22 +132,21 @@
                 <Setter Property="BorderThickness" Value="1"/>
                 <Setter Property="Width" Value="1020"/>
                 <Setter Property="Height" Value="220"/>
+                <Setter Property="FontSize" Value="20"/>
+                <Setter Property="FontFamily" Value="Inter"/>
             </Style>
-            
+
             <Style x:Key="DataGridHeaderStyle" TargetType="DataGridColumnHeader">
-                <Setter Property="Background" Value="#1450A3"/>
+                <Setter Property="Background" Value="#FFC436"/>
                 <Setter Property="Foreground" Value="#FFFFFF"/>
-                <Setter Property="FontWeight" Value="Bold"/>
+                <Setter Property="FontWeight" Value="SemiBold"/>
                 <Setter Property="FontSize" Value="25"/>
                 <Setter Property="Height" Value="30"/>
                 <Setter Property="FontFamily" Value="Inter"/>
+                <Setter Property="Visibility" Value="Visible"/>
+                <Setter Property="Height" Value="30"/>
             </Style>
-            
-            <Style x:Key="DataGridRowStyle" TargetType="DataGridRow">
-                <Setter Property="Background" Value="#ffffff"/>
-                <Setter Property="Foreground" Value="#000000"/>
-            </Style>
-            
+
             <Style x:Key="ButtonMenuStyle" TargetType="Button">
                 <Setter Property="Background" Value="#FFC436"/>
                 <Setter Property="Opacity" Value="0.4"/>
@@ -214,6 +213,75 @@
                     </Trigger>
                 </Style.Triggers>
             </Style>
+            <Style x:Key="DataGridStyle" TargetType="{x:Type DataGrid}">
+                <Setter Property="Background" Value="Transparent"/>
+                <Setter Property="Foreground" Value="Black"/>
+                <Setter Property="BorderThickness" Value="2"/>
+                <Setter Property="BorderBrush" Value="#1450A3"/>
+                <Setter Property="AutoGenerateColumns" Value="False" />
+                <Setter Property="HeadersVisibility" Value="Column" />
+                <Setter Property="SelectionMode" Value="Single" />
+                <Setter Property="SelectionUnit" Value="FullRow" />
+                <Setter Property="FontSize" Value="18" />
+                <Setter Property="Width" Value="1020"/>
+                <Setter Property="Height" Value="220"/>
+            </Style>
+            <Style x:Key="DataGridRowStyle" TargetType="{x:Type DataGridRow}">
+                <Style.Triggers>
+                    <Trigger Property="IsMouseOver" Value="True">
+                        <Setter Property="Background" Value="#1450A3"/>
+                        <Setter Property="Foreground" Value="#FFC436"/>
+                    </Trigger>
+                    <Trigger Property="IsSelected" Value="True">
+                        <Setter Property="Background" Value="#1450A3"/>
+                        <Setter Property="Foreground" Value="#FFC436"/>
+                    </Trigger>
+                </Style.Triggers>
+            </Style>
+            <Style x:Key="DataGridCellStyle" TargetType="{x:Type DataGridCell}">
+                <Setter Property="Background" Value="Transparent"/>
+                <Setter Property="VerticalAlignment" Value="Center" />
+                <Setter Property="FocusVisualStyle" Value="{x:Null}" />
+            </Style>
+            
+            <Style x:Key="DataGridColumnHeaderStyle" TargetType="{x:Type DataGridColumnHeader}">
+                <Setter Property="VerticalContentAlignment" Value="Center"/>
+                <Setter Property="Background" Value="#FFC436" />
+                <Setter Property="Foreground" Value="#1450A3" />
+                <Setter Property="FontFamily" Value="Inter"/>
+                <Setter Property="FontSize" Value="20" />
+                <Setter Property="FontWeight" Value="SemiBold" />
+                <Setter Property="HorizontalContentAlignment" Value="Center"/>
+                <Setter Property="Height" Value="45"/>
+            </Style>
+            <Style x:Key="gridEditButton" TargetType="Button">
+                <Setter Property="Background" Value="#FFC436" />
+                <Setter Property="BorderBrush" Value="#FFC436" />
+                <Setter Property="VerticalAlignment" Value="Center" />
+                <Style.Triggers>
+                    <Trigger Property="IsMouseOver" Value="True">
+                        <Setter Property="Background" Value="#FFC436" />
+                        <Setter Property="Opacity" Value="0.5"/>
+                    </Trigger>
+                </Style.Triggers>
+            </Style>
+
+            <Style x:Key="gridRemoveButton" TargetType="Button" BasedOn="{StaticResource gridEditButton}">
+                <Setter Property="Background" Value="#D32F2F" />
+                <Setter Property="BorderBrush" Value="#B71C1C" />
+                <Style.Triggers>
+                    <Trigger Property="IsMouseOver" Value="True">
+                        <Setter Property="Background" Value="#F44336" />
+                        <Setter Property="Opacity" Value="0.5"/>
+                    </Trigger>
+                </Style.Triggers>
+            </Style>
+
+            <Style x:Key="ChildIconStyle" TargetType="Image">
+                <Setter Property="Width" Value="35" />
+                <Setter Property="Height" Value="35" />
+            </Style>
+
         </ResourceDictionary>
     </Application.Resources>
 </Application>

@@ -7,50 +7,57 @@
       mc:Ignorable="d" 
       d:DesignHeight="700" d:DesignWidth="1200"
       Title="DiaryAnakPage">
-    <Viewbox>
+    
         <Grid>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="150"/>
                 <ColumnDefinition Width="525"/>
-                <ColumnDefinition Width="525"/>
+                <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
                 <RowDefinition Height="120"/>
                 <RowDefinition Height="330"/>
-                <RowDefinition Height="250"/>
+                <RowDefinition Height="250*"/>
             </Grid.RowDefinitions>
             <TextBlock Grid.Column="1" Grid.Row="0" Text="Catatan Perkembangan dan Kesehatan Anak" Style="{StaticResource TextHeader}" TextWrapping="Wrap" Margin="10" ></TextBlock>
             <Rectangle Grid.Column="1" Grid.Row="1" Style="{StaticResource RectangleButtonStyle}" VerticalAlignment="Top" Margin="10"/>
             <Rectangle Grid.Column="2" Grid.Row="1" Style="{StaticResource RectangleButtonStyle}" VerticalAlignment="Top" Margin="10"/>
-            <StackPanel Grid.Column="1" Grid.Row="1" Margin="40 20 35 240" Orientation="Horizontal">
-                <Rectangle Grid.Column="1" Grid.Row="1" Width="50" Height ="50" RadiusX="5" RadiusY="5" Fill="#82C3EC" Opacity="0.7" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-                <TextBlock Margin="15 0 0 0" FontSize="20" TextAlignment="Left" FontWeight="SemiBold" TextWrapping="Wrap" Width="386">
-                <Run Text="Yuk, catat dan cek perkembangan"/>
-                <InlineUIContainer>
-                    <TextBlock x:Name="NamaAnak" FontWeight="Bold" Foreground="#FFC436" TextWrapping="Wrap"/>
-                </InlineUIContainer>
-                <Run Text=" di umur "/>
-                <InlineUIContainer>
-                    <TextBlock x:Name="AgeTextBox" FontWeight="Bold" Foreground="#FFC436" TextWrapping="Wrap"/>
-                </InlineUIContainer>
-                <Run Text=" bulan!"/>
-            </TextBlock>
-            </StackPanel>
+            <Canvas Grid.Column="1" Grid.Row="1" Margin="40 20 35 240">
+                <Rectangle Canvas.ZIndex="1" Width="50" Height="50" RadiusX="5" RadiusY="5" Fill="#82C3EC" Opacity="0.7" HorizontalAlignment="Left" VerticalAlignment="Top"></Rectangle>
+                    <TextBlock Canvas.ZIndex="2" Margin="60 0 0 0" FontSize="20" TextAlignment="Left" FontWeight="SemiBold" TextWrapping="Wrap" Width="386">
+                        <Run Text="Yuk, catat dan cek perkembangan"/>
+                        <InlineUIContainer>
+                        <TextBlock x:Name="NamaAnakText" FontWeight="Bold" Foreground="#FFC436" TextWrapping="Wrap"/>
+                        </InlineUIContainer>
+                        <Run Text=" di umur "/>
+                        <InlineUIContainer>
+                        <TextBlock x:Name="AgeTextBox" FontWeight="Bold" Foreground="#FFC436" TextWrapping="Wrap"/>
+                        </InlineUIContainer>
+                        <Run Text=" bulan!"/>
+                    </TextBlock>
+            <Border Canvas.ZIndex="3" x:Name="BoyIcon" Canvas.Left="7" Canvas.Top="7">
+                <Image Source="/Asset/boy.png" Style="{StaticResource ChildIconStyle}"></Image>
+            </Border>
+            <Border Canvas.ZIndex="3" x:Name="GirlIcon" Canvas.Left="7" Canvas.Top="7">
+                <Image Source="/Asset/girl.png" Style="{StaticResource ChildIconStyle}"></Image>
+            </Border>
+        </Canvas>
+
             <StackPanel Grid.Column="1" Grid.Row="1" Margin="40 80 35 110" Orientation="Vertical" HorizontalAlignment="Left">
                 <TextBlock Text="Tanggal" FontSize="18" FontWeight="Medium" Foreground="Black" HorizontalAlignment="Left"></TextBlock>
                 <DatePicker x:Name="datePicker" Style="{StaticResource DatePickerStyle}" Margin="0 5 0 0" ></DatePicker>
                 <TextBlock Text="Tinggi badan (cm)" FontSize="18" FontWeight="Medium" Foreground="Black" HorizontalAlignment="Left" Margin="0 15 0 0"></TextBlock>
-                <TextBox x:Name="txtBerat" Style="{StaticResource TextBoxVer2}" Margin="0 5 0 0"></TextBox>
+                <TextBox x:Name="txtTinggi" Style="{StaticResource TextBoxVer2}" Margin="0 5 0 0"></TextBox>
             </StackPanel>
             <StackPanel Grid.Column="1" Grid.Row="1" Margin="285 80 35 110" Orientation="Vertical" HorizontalAlignment="Left">
                 <TextBlock Text="Berat badan (kg)" FontSize="18" FontWeight="Medium" Foreground="Black" HorizontalAlignment="Left"></TextBlock>
-                <TextBox x:Name="txtTinggi" Style="{StaticResource TextBoxVer2}" Margin="0 5 0 0"></TextBox>
+                <TextBox x:Name="txtBerat" Style="{StaticResource TextBoxVer2}" Margin="0 5 0 0"></TextBox>
                 <TextBlock Text="Lingkar kepala (cm)" FontSize="18" FontWeight="Medium" Foreground="Black" HorizontalAlignment="Left" Margin="0 15 0 0"></TextBlock>
                 <TextBox x:Name="txtLingkarKepala" Style="{StaticResource TextBoxVer2}" Margin="0 5 0 0"></TextBox>
             </StackPanel>
             <StackPanel Grid.Column="1" Grid.Row="1" Margin="200 230 35 35" Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Top">
-                <Button Content="Simpan" Style="{StaticResource CustomButtonStyle}" Width="90" Height="35" Click="SaveCatatanTumbuhAnak"></Button>
-                <Button Content="Update" Style="{StaticResource CustomButtonStyle}" Width="90" Height="35" Click="updateData"></Button>
+                <Button x:Name="SimpanData" Content="Simpan" Style="{StaticResource CustomButtonStyle}" Width="90" Height="35" Click="SaveCatatanTumbuhAnak"></Button>
+                <Button x:Name="UpdateData" Visibility="Collapsed" Content="Update" Style="{StaticResource CustomButtonStyle}" Width="90" Height="35" Click="updateData"></Button>
                 <Button Content="Cek Status" Style="{StaticResource CustomButtonStyle}" Width="90" Height="35" Click="cekStatusButton"></Button>
             </StackPanel>
             <StackPanel Grid.Column="2" Grid.Row="1" Margin="30 20 30 270" Orientation="Horizontal">
@@ -58,36 +65,66 @@
             </StackPanel>
             <StackPanel Grid.Column="2" Grid.Row="1" Margin="40 55 35 20" Orientation="Vertical" HorizontalAlignment="Left">
                 <TextBlock Text="Riwayat alergi" FontSize="18" FontWeight="Medium" Foreground="Black" HorizontalAlignment="Left"></TextBlock>
-                <TextBox Style="{StaticResource TextBoxVer2}" Margin="0 5 0 0" Width="430" Height="40"></TextBox>
+                <TextBox x:Name="txtRiwayatAlergi" Style="{StaticResource TextBoxVer2}" Margin="0 5 0 0" Width="430" Height="40"></TextBox>
                 <TextBlock Text="Riwayat penyakit" FontSize="18" FontWeight="Medium" Foreground="Black" HorizontalAlignment="Left" Margin="0 5 0 0"></TextBlock>
-                <TextBox Style="{StaticResource TextBoxVer2}" Margin="0 5 0 0" Width="430" Height="40"></TextBox>
+                <TextBox x:Name="txtRiwayatPenyakit" Style="{StaticResource TextBoxVer2}" Margin="0 5 0 0" Width="430" Height="40"></TextBox>
                 <TextBlock Text="Golongan darah" FontSize="18" FontWeight="Medium" Foreground="Black" HorizontalAlignment="Left" Margin="0 5 0 0"></TextBlock>
-                <ComboBox Style="{StaticResource ComboBoxTextStyle}" Margin="0 5 0 0"></ComboBox>
-                <Button Content="Simpan" Style="{StaticResource CustomButtonStyle}" Width="90" Height="35" HorizontalAlignment="Right" Margin="0 15 0 0"></Button>
+            <ComboBox x:Name="GolonganDarahComboBox" Style="{StaticResource ComboBoxTextStyle}" Margin="0 5 0 0" SelectionChanged="ComboBox_SelectionChanged">
+                <ComboBoxItem Content="A" />
+                <ComboBoxItem Content="B" />
+                <ComboBoxItem Content="O" />
+                <ComboBoxItem Content="AB" />
+            </ComboBox>
+            <Button x:Name="SimpanKesehatanAnak" Content="Simpan" Visibility="Collapsed" Style="{StaticResource CustomButtonStyle}" Width="90" Height="35" HorizontalAlignment="Right" Margin="0 15 0 0" Click="simpanKesehatanAnak_Click"></Button>
+            <Button x:Name="EditKesehatanAnak" Content="Edit" Style="{StaticResource CustomButtonStyle}" Width="90" Height="35" HorizontalAlignment="Right" Margin="0 15 0 0" Click="editKesehatanAnak_Click"></Button>    
             </StackPanel>
-            <DataGrid Name="dataGrid" Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="2" Style="{StaticResource BasicDataGridStyle}" VerticalAlignment="Top" Margin="5" RowStyle="{StaticResource DataGridRowStyle}" AutoGenerateColumns="False">
-                <DataGrid.ColumnHeaderStyle>
-                    <Style TargetType="DataGridColumnHeader" BasedOn="{StaticResource DataGridHeaderStyle}"/>
-                </DataGrid.ColumnHeaderStyle>
-                <DataGrid.Columns>
-                    <DataGridTextColumn Header="No" Binding="{Binding No}" />
-                    <DataGridTextColumn Header="Tanggal" Binding="{Binding Tanggal, StringFormat=d MMMM yyyy}" />
-                    <DataGridTextColumn Header="Berat" Binding="{Binding Berat}" />
-                    <DataGridTextColumn Header="Tinggi" Binding="{Binding Tinggi}" />
-                    <DataGridTextColumn Header="Lingkar Kepala" Binding="{Binding LingkarKepala}" />
-                    <DataGridTextColumn Header="Status Gizi" Binding="{Binding [Status Gizi]}" />
-                    <DataGridTextColumn Header="Status LK" Binding="{Binding [Status LK]}" />
+         
+        <DataGrid Name="dataGrid" Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="2" RowStyle="{StaticResource DataGridRowStyle}" ColumnHeaderStyle="{StaticResource DataGridColumnHeaderStyle}" CellStyle="{StaticResource DataGridCellStyle}" Style="{StaticResource DataGridStyle}" VerticalAlignment="Top" Margin="5" AutoGenerateColumns="False">
+            <DataGrid.Columns>
+                    <DataGridTextColumn Header="No" Binding="{Binding No}" Width="45"/>
+                    <DataGridTextColumn Header="Tanggal" Binding="{Binding Tanggal, StringFormat=d MMMM yyyy}" Width="180"/>
+                    <DataGridTextColumn Header="Berat" Binding="{Binding Berat}" Width="90" />
+                    <DataGridTextColumn Header="Tinggi" Binding="{Binding Tinggi}" Width="90"/>
+                <DataGridTextColumn Header="Lingkar Kepala" Binding="{Binding LingkarKepala}" Width="160"/>
+                <DataGridTextColumn Header="Status Gizi" Binding="{Binding [Status Gizi]}" Width="200"/>
+                    <DataGridTextColumn Header="Status LK" Binding="{Binding [Status LK]}" Width="190" />
                     <DataGridTemplateColumn>
                         <DataGridTemplateColumn.HeaderTemplate>
                             <DataTemplate>
-                                <TextBlock Text="Action" />
+                                <TextBlock Text=""/>
                             </DataTemplate>
                         </DataGridTemplateColumn.HeaderTemplate>
                         <DataGridTemplateColumn.CellTemplate>
                             <DataTemplate>
                                 <StackPanel Orientation="Horizontal">
-                                    <Button x:Name="editButton" Content="edit" Click="editButton_Click"/>
-                                    <Button x:Name="deleteButton" Content="hps" Click="deleteButton_Click"/>
+                                <Button x:Name="editButton" Click="editButton_Click" Style="{StaticResource gridEditButton}">
+                                    <Image x:Name="EditIcon" Source="/Asset/edit.png" Width="18" Height="18" HorizontalAlignment="Center" VerticalAlignment="Center" >
+                                        <Image.Style>
+                                            <Style TargetType="{x:Type Image}">
+                                                <Setter Property="Opacity" Value="1"/>
+                                                <Style.Triggers>
+                                                    <Trigger Property="IsMouseOver" Value="True">
+                                                        <Setter Property="Opacity" Value="1"/>
+                                                    </Trigger>
+                                                </Style.Triggers>
+                                            </Style>
+                                        </Image.Style>
+                                    </Image>
+                                </Button>
+                                <Button x:Name="deleteButton" Click="deleteButton_Click" Style="{StaticResource gridRemoveButton}">
+                                    <Image x:Name="RemoveIcon" Source="/Asset/remove.png" Width="18" Height="18" HorizontalAlignment="Center" VerticalAlignment="Center" >
+                                        <Image.Style>
+                                            <Style TargetType="{x:Type Image}">
+                                                <Setter Property="Opacity" Value="1"/>
+                                                <Style.Triggers>
+                                                    <Trigger Property="IsMouseOver" Value="True">
+                                                        <Setter Property="Opacity" Value="1"/>
+                                                    </Trigger>
+                                                </Style.Triggers>
+                                            </Style>
+                                        </Image.Style>
+                                    </Image>
+                                </Button>
                                 </StackPanel>
                             </DataTemplate>
                         </DataGridTemplateColumn.CellTemplate>
@@ -95,5 +132,5 @@
                 </DataGrid.Columns>
             </DataGrid>
         </Grid>
-    </Viewbox>
+   
 </Page>
