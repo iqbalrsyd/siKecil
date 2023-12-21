@@ -4,26 +4,17 @@
 winexe
 C#
 .cs
-C:\Users\Ekadukasi\source\repos\siKecil\obj\Debug\
+C:\College Project\siKecil_clone1\obj\Debug\
 siKecil
 none
 false
 DEBUG;TRACE
-<<<<<<< HEAD
-C:\Users\Ekadukasi\source\repos\siKecil\App.xaml
-13-955563607
+C:\College Project\siKecil_clone1\App.xaml
+181530238571
 
-23-628336330
-150-2029783223
-ChatView.xaml;View\Main\InformationPage.xaml;View\Main\DiaryAnakPage.xaml;View\Main\HomePage.xaml;View\GenerateOtpPage.xaml;View\Main\KontenPage.xaml;View\UserEnter\LoginPage.xaml;View\Main\MainWindow.xaml;View\Main\ProfilePage.xaml;ProfileView.xaml;RiwayatMedisView.xaml;View\UserEnter\SignupPage.xaml;View\UserEnter\UserEnterView.xaml;
-=======
-C:\College Project\PBO siKecil\siKecil\App.xaml
-162024622536
+29-1151752234
+151-1534848322
+ChatView.xaml;View\Main\InformationPage.xaml;View\Main\ChatPage.xaml;View\Main\DiaryAnakPage.xaml;View\Main\HomePage.xaml;View\GenerateOtpPage.xaml;View\Main\KontenPage.xaml;View\Main\Profile\PengaturanAkunPage.xaml;View\Main\Profile\ProfileAnakPage.xaml;View\Main\Profile\ProfileOrangTuaPage.xaml;View\UserEnter\LoginPage.xaml;View\Main\MainWindow.xaml;View\Main\Profile\ProfilePage.xaml;ProfileView.xaml;RiwayatMedisView.xaml;View\UserEnter\SignupPage.xaml;View\UserEnter\UserEnterView.xaml;View\VerificationDeleteAcc.xaml;
 
-27191274785
-151-1584240962
-ChatView.xaml;View\Main\ChatPage.xaml;View\Main\DiaryAnakPage.xaml;View\Main\HomePage.xaml;View\GenerateOtpPage.xaml;View\Main\Profile\PengaturanAkunPage.xaml;View\Main\Profile\ProfileAnakPage.xaml;View\Main\Profile\ProfileOrangTuaPage.xaml;View\UserEnter\LoginPage.xaml;View\Main\MainWindow.xaml;View\Main\Profile\ProfilePage.xaml;ProfileView.xaml;RiwayatMedisView.xaml;View\UserEnter\SignupPage.xaml;View\UserEnter\UserEnterView.xaml;View\VerificationDeleteAcc.xaml;
->>>>>>> 99aeac0709a4bced3bda6d2042364bc73c6b2918
-
-False
+True
 

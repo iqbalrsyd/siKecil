@@ -205,13 +205,10 @@
     <Compile Include="ChatView.xaml.cs">
       <DependentUpon>ChatView.xaml</DependentUpon>
     </Compile>
-<<<<<<< HEAD
     <Compile Include="View\Main\InformationPage.xaml.cs">
       <DependentUpon>InformationPage.xaml</DependentUpon>
     </Compile>
-=======
     <Compile Include="Infrastructure\ImageDisplay.cs" />
->>>>>>> 99aeac0709a4bced3bda6d2042364bc73c6b2918
     <Compile Include="View\GenerateOtpPage.xaml.cs">
       <DependentUpon>GenerateOtpPage.xaml</DependentUpon>
     </Compile>
@@ -225,10 +222,10 @@
     <Compile Include="View\Main\HomePage.xaml.cs">
       <DependentUpon>HomePage.xaml</DependentUpon>
     </Compile>
-<<<<<<< HEAD
     <Compile Include="View\Main\KontenPage.xaml.cs">
       <DependentUpon>KontenPage.xaml</DependentUpon>
-=======
+		    </Compile>
+
     <Compile Include="View\Main\Profile\PengaturanAkunPage.xaml.cs">
       <DependentUpon>PengaturanAkunPage.xaml</DependentUpon>
     </Compile>
@@ -237,7 +234,6 @@
     </Compile>
     <Compile Include="View\Main\Profile\ProfileOrangTuaPage.xaml.cs">
       <DependentUpon>ProfileOrangTuaPage.xaml</DependentUpon>
->>>>>>> 99aeac0709a4bced3bda6d2042364bc73c6b2918
     </Compile>
     <Compile Include="View\UserEnter\LoginPage.xaml.cs">
       <DependentUpon>LoginPage.xaml</DependentUpon>
@@ -267,11 +263,8 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-<<<<<<< HEAD
-    <Page Include="View\Main\InformationPage.xaml">
-=======
+    <Page Include="View\Main\InformationPage.xaml"/>
     <Page Include="View\Main\ChatPage.xaml">
->>>>>>> 99aeac0709a4bced3bda6d2042364bc73c6b2918
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -287,9 +280,8 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-<<<<<<< HEAD
-    <Page Include="View\Main\KontenPage.xaml">
-=======
+    <Page Include="View\Main\KontenPage.xaml"/>
+
     <Page Include="View\Main\Profile\PengaturanAkunPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -299,7 +291,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\Main\Profile\ProfileOrangTuaPage.xaml">
->>>>>>> 99aeac0709a4bced3bda6d2042364bc73c6b2918
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -393,14 +384,12 @@
     <Resource Include="Asset\user.png" />
   </ItemGroup>
   <ItemGroup>
-<<<<<<< HEAD
     <Resource Include="Asset\edit.png" />
     <Resource Include="Asset\remove.png" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Asset\boy.png" />
     <Resource Include="Asset\girl.png" />
-=======
     <Resource Include="Asset\pencil.png" />
   </ItemGroup>
   <ItemGroup>
@@ -408,7 +397,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\logosiKecil.ico" />
->>>>>>> 99aeac0709a4bced3bda6d2042364bc73c6b2918
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
