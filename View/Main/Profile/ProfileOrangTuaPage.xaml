@@ -23,7 +23,7 @@
             <TextBox x:Name="txtEditFirstName" Style="{StaticResource TextBoxVer2}" HorizontalAlignment="Left" Margin="140,4,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="385" Height="30"/>
             <TextBox x:Name="txtEditLastName" Style="{StaticResource TextBoxVer2}" HorizontalAlignment="Left" Margin="555,4,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="385" Height="30"/>
             <DatePicker x:Name="DateTanggalLahirOrangTua" Style="{StaticResource DatePickerStyle}" HorizontalAlignment="Left" Margin="140,64,0,0" VerticalAlignment="Top" Width="800"/>
-            <ComboBox x:Name="JenisKelaminOrangTuaComboBox" HorizontalAlignment="Left" Margin="140,118,0,0" VerticalAlignment="Top" Width="800" SelectionChanged="JenisKelaminOrangTuaComboBox_SelectionChanged" Height="30">
+            <ComboBox x:Name="JenisKelaminOrangTuaComboBox" HorizontalAlignment="Left" Margin="140,118,0,0" VerticalAlignment="Top" Width="800" Height="30">
                 <ComboBoxItem Content="Laki-Laki" />
                 <ComboBoxItem Content="Perempuan" />
             </ComboBox>
@@ -33,7 +33,7 @@
             <ComboBox x:Name="KabKotaComboBox" HorizontalAlignment="Left" Margin="155,311,0,0" VerticalAlignment="Top" Width="335" Height="30" SelectionChanged="KabKotaComboBox_SelectionChanged"/>
             <ComboBox x:Name="KecamatanComboBox" HorizontalAlignment="Left" Margin="640,274,0,0" VerticalAlignment="Top" Width="300" Height="30" SelectionChanged="KecamatanComboBox_SelectionChanged"/>
             <ComboBox x:Name="KelurahanComboBox" HorizontalAlignment="Left" Margin="640,310,0,0" VerticalAlignment="Top" Width="300" Height="30" SelectionChanged="KelurahanComboBox_SelectionChanged"/>
-            <ComboBox x:Name="HubunganDenganAnakComboBox" HorizontalAlignment="Left" Margin="217,358,0,0" VerticalAlignment="Top" Width="200" Height="30" SelectionChanged="HubunganDenganAnakComboBox_SelectionChanged">
+            <ComboBox x:Name="HubunganDenganAnakComboBox" HorizontalAlignment="Left" Margin="217,358,0,0" VerticalAlignment="Top" Width="200" Height="30">
                 <ComboBoxItem Content="Orang Tua" />
                 <ComboBoxItem Content="Wali" />
                 <ComboBoxItem Content="Pengasuh" />
@@ -47,7 +47,7 @@
             <TextBlock Text="Kecamatan" FontSize="18" FontWeight="Medium" Foreground="Black" HorizontalAlignment="Left" Margin="528,277,0,131"/>
             <TextBlock Text="Kelurahan" FontSize="18" FontWeight="Medium" Foreground="Black" HorizontalAlignment="Left" Margin="528,317,0,91"/>
             <TextBlock Text="Hubungan dengan Anak" FontSize="18" FontWeight="Medium" Foreground="Black" HorizontalAlignment="Left" Margin="1,364,0,44"/>
-            <Button Content="Simpan" Style="{StaticResource CustomButtonStyle}"  HorizontalAlignment="Left" FontSize="21"  Margin="413,398,0,0" VerticalAlignment="Top" Height="50" Width="131"/>
+            <Button Content="Simpan" Style="{StaticResource CustomButtonStyle}" Click="SimpanProfileOrangTua_Click" HorizontalAlignment="Left" FontSize="21"  Margin="413,398,0,0" VerticalAlignment="Top" Height="50" Width="131"/>
 
         </Grid>
     </Grid>

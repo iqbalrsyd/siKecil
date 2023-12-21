@@ -26,11 +26,11 @@
             <TextBox x:Name="txtEditNamaAnak" HorizontalAlignment="Left" Margin="199,40,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="641" Height="30"/>
             <TextBox x:Name="txtEditNamaPanggilanAnak" HorizontalAlignment="Left" Margin="199,102,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="641" Height="30"/>
             <DatePicker x:Name="DateTanggalLahirAnak" HorizontalAlignment="Left" VerticalAlignment="Center" Height="30" Width="640" Margin="200,0,0,0"/>
-            <ComboBox x:Name="JenisKelaminAnakComboBox" HorizontalAlignment="Left" Margin="200,228,0,0" VerticalAlignment="Top" Width="640" SelectionChanged="JenisKelaminAnakComboBox_SelectionChanged" Height="30">
+            <ComboBox x:Name="JenisKelaminAnakComboBox" HorizontalAlignment="Left" Margin="200,228,0,0" VerticalAlignment="Top" Width="640" Height="30">
                 <ComboBoxItem Content="Laki-Laki" />
                 <ComboBoxItem Content="Perempuan" />
             </ComboBox>
-            <Button Content="Simpan" Style="{StaticResource CustomButtonStyle}"  HorizontalAlignment="Left" FontSize="21"  Margin="377,292,0,0" VerticalAlignment="Top" Height="50" Width="131"/>
+            <Button Content="Simpan" Click="SimpanProfileAnak_Click" Style="{StaticResource CustomButtonStyle}"  HorizontalAlignment="Left" FontSize="21"  Margin="377,292,0,0" VerticalAlignment="Top" Height="50" Width="131"/>
         </Grid>
     </Grid>
 

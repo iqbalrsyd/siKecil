@@ -1,21 +1,12 @@
 ﻿using System;
 using System.Data;
-using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Windows;
 using System.Windows.Controls;
-using Newtonsoft.Json;
-using System.Net.Http;
 using Microsoft.Win32;
 using System.Windows.Media.Imaging;
-using System.IO;
-using siKecil.Model;
-using System.ComponentModel;
 using siKecil.Infrastructure;
-using siKecil.View.Main;
-using System.Windows.Input;
 using siKecil.View.UserEnter;
-using siKecil.View;
 using System.Windows.Navigation;
 
 namespace siKecil.View.Main.Profile
