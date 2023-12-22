@@ -30,6 +30,7 @@ namespace siKecil.View.Main
         public KontenPage(int ID_Artikel)
         {
             InitializeComponent();
+            Title = "Tips dan Informasi";
             this.ID_Artikel = ID_Artikel;
             artikel = GetArtikelFromDatabase();
             DisplayKonten();

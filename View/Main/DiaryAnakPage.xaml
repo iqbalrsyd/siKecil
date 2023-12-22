@@ -5,23 +5,20 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:siKecil"
       mc:Ignorable="d" 
-      d:DesignHeight="700" d:DesignWidth="1200"
       Title="DiaryAnakPage">
     
         <Grid>
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="150"/>
                 <ColumnDefinition Width="525"/>
-                <ColumnDefinition Width="*"/>
-            </Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" MinWidth="525"/>
+        </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition Height="120"/>
             <RowDefinition Height="330"/>
-            <RowDefinition Height="250*"/>
+            <RowDefinition Height="*" MinHeight="250"/>
         </Grid.RowDefinitions>
-        <Rectangle Grid.Column="1" Grid.Row="1" Style="{StaticResource RectangleButtonStyle}" VerticalAlignment="Top" Margin="10"/>
-            <Rectangle Grid.Column="2" Grid.Row="1" Style="{StaticResource RectangleButtonStyle}" VerticalAlignment="Top" Margin="10"/>
-            <Canvas Grid.Column="1" Grid.Row="1" Margin="40 20 35 240">
+        <Rectangle Grid.Column="0" Grid.Row="0" Style="{StaticResource RectangleButtonStyle}" VerticalAlignment="Top" Margin="10"/>
+            <Rectangle Grid.Column="1" Grid.Row="0" Style="{StaticResource RectangleButtonStyle}" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="10"/>
+            <Canvas Grid.Column="0" Grid.Row="0" Margin="40 20 35 240">
                 <Rectangle Canvas.ZIndex="1" Width="50" Height="50" RadiusX="5" RadiusY="5" Fill="#82C3EC" Opacity="0.7" HorizontalAlignment="Left" VerticalAlignment="Top"></Rectangle>
                     <TextBlock Canvas.ZIndex="2" Margin="60 0 0 0" FontSize="20" TextAlignment="Left" FontWeight="SemiBold" TextWrapping="Wrap" Width="386">
                         <Run Text="Yuk, catat dan cek perkembangan"/>
@@ -39,33 +36,33 @@
             </Border>
         </Canvas>
 
-            <StackPanel Grid.Column="1" Grid.Row="1" Margin="40 80 35 110" Orientation="Vertical" HorizontalAlignment="Left">
+            <StackPanel Grid.Column="0" Grid.Row="0" Margin="40 80 35 110" Orientation="Vertical" HorizontalAlignment="Left">
                 <TextBlock Text="Tanggal" FontSize="18" FontWeight="Medium" Foreground="Black" HorizontalAlignment="Left"></TextBlock>
                 <DatePicker x:Name="datePicker" Style="{StaticResource DatePickerStyle}" Margin="0 5 0 0" ></DatePicker>
                 <TextBlock Text="Tinggi badan (cm)" FontSize="18" FontWeight="Medium" Foreground="Black" HorizontalAlignment="Left" Margin="0 15 0 0"></TextBlock>
                 <TextBox x:Name="txtTinggi" Style="{StaticResource TextBoxVer2}" Margin="0 5 0 0"></TextBox>
             </StackPanel>
-            <StackPanel Grid.Column="1" Grid.Row="1" Margin="285 80 35 110" Orientation="Vertical" HorizontalAlignment="Left">
+            <StackPanel Grid.Column="0" Grid.Row="0" Margin="285 80 35 110" Orientation="Vertical" HorizontalAlignment="Left">
                 <TextBlock Text="Berat badan (kg)" FontSize="18" FontWeight="Medium" Foreground="Black" HorizontalAlignment="Left"></TextBlock>
                 <TextBox x:Name="txtBerat" Style="{StaticResource TextBoxVer2}" Margin="0 5 0 0"></TextBox>
                 <TextBlock Text="Lingkar kepala (cm)" FontSize="18" FontWeight="Medium" Foreground="Black" HorizontalAlignment="Left" Margin="0 15 0 0"></TextBlock>
                 <TextBox x:Name="txtLingkarKepala" Style="{StaticResource TextBoxVer2}" Margin="0 5 0 0"></TextBox>
             </StackPanel>
-            <StackPanel Grid.Column="1" Grid.Row="1" Margin="200 230 35 35" Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Top">
+            <StackPanel Grid.Column="0" Grid.Row="0" Margin="200 230 35 35" Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Top">
                 <Button x:Name="SimpanData" Content="Simpan" Style="{StaticResource CustomButtonStyle}" Width="90" Height="35" Click="SaveCatatanTumbuhAnak"></Button>
                 <Button x:Name="UpdateData" Visibility="Collapsed" Content="Update" Style="{StaticResource CustomButtonStyle}" Width="90" Height="35" Click="updateData"></Button>
                 <Button Content="Cek Status" Style="{StaticResource CustomButtonStyle}" Width="90" Height="35" Click="cekStatusButton"></Button>
             </StackPanel>
-            <StackPanel Grid.Column="2" Grid.Row="1" Margin="30 20 30 270" Orientation="Horizontal">
+            <StackPanel Grid.Column="1" Grid.Row="0" Margin="30 20 30 270" Orientation="Horizontal">
                 <TextBlock Text="Jangan lupa catat riwayat kesehatannya juga yaa!" Margin="0 0 0 0" FontSize="20" TextAlignment="Center" FontWeight="SemiBold"></TextBlock>
             </StackPanel>
-            <StackPanel Grid.Column="2" Grid.Row="1" Margin="40 55 35 20" Orientation="Vertical" HorizontalAlignment="Left">
+            <StackPanel Grid.Column="1" Grid.Row="0" Margin="40 55 35 20" Orientation="Vertical" HorizontalAlignment="Left">
                 <TextBlock Text="Riwayat alergi" FontSize="18" FontWeight="Medium" Foreground="Black" HorizontalAlignment="Left"></TextBlock>
                 <TextBox x:Name="txtRiwayatAlergi" Style="{StaticResource TextBoxVer2}" Margin="0 5 0 0" Width="430" Height="40"></TextBox>
                 <TextBlock Text="Riwayat penyakit" FontSize="18" FontWeight="Medium" Foreground="Black" HorizontalAlignment="Left" Margin="0 5 0 0"></TextBlock>
                 <TextBox x:Name="txtRiwayatPenyakit" Style="{StaticResource TextBoxVer2}" Margin="0 5 0 0" Width="430" Height="40"></TextBox>
                 <TextBlock Text="Golongan darah" FontSize="18" FontWeight="Medium" Foreground="Black" HorizontalAlignment="Left" Margin="0 5 0 0"></TextBlock>
-            <ComboBox x:Name="GolonganDarahComboBox" Style="{StaticResource ComboBoxTextStyle}" Margin="0 5 0 0" SelectionChanged="ComboBox_SelectionChanged">
+            <ComboBox x:Name="GolonganDarahComboBox" Style="{StaticResource ComboBoxTextStyle}" Margin="0 5 0 0">
                 <ComboBoxItem Content="A" />
                 <ComboBoxItem Content="B" />
                 <ComboBoxItem Content="O" />
@@ -75,7 +72,7 @@
             <Button x:Name="EditKesehatanAnak" Content="Edit" Style="{StaticResource CustomButtonStyle}" Width="90" Height="35" HorizontalAlignment="Right" Margin="0 15 0 0" Click="editKesehatanAnak_Click"></Button>    
             </StackPanel>
          
-        <DataGrid Name="dataGrid" Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="2" RowStyle="{StaticResource DataGridRowStyle}" ColumnHeaderStyle="{StaticResource DataGridColumnHeaderStyle}" CellStyle="{StaticResource DataGridCellStyle}" Style="{StaticResource DataGridStyle}" VerticalAlignment="Top" Margin="5" AutoGenerateColumns="False">
+        <DataGrid Name="dataGrid" Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="1" HorizontalAlignment="Left" RowStyle="{StaticResource DataGridRowStyle}" ColumnHeaderStyle="{StaticResource DataGridColumnHeaderStyle}" CellStyle="{StaticResource DataGridCellStyle}" Style="{StaticResource DataGridStyle}" VerticalAlignment="Top" Margin="5" AutoGenerateColumns="False">
             <DataGrid.Columns>
                     <DataGridTextColumn Header="No" Binding="{Binding No}" Width="45"/>
                     <DataGridTextColumn Header="Tanggal" Binding="{Binding Tanggal, StringFormat=d MMMM yyyy}" Width="180"/>

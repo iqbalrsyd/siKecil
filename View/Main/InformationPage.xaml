@@ -11,18 +11,14 @@
     <Grid>
 
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="150"/>
-            <ColumnDefinition Width="525"/>
-            <ColumnDefinition Width="525"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition Height="120"/>
             <RowDefinition Height="80"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
-        <TextBlock Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="25" FontWeight="Bold" Text="Tips dan Informasi untuk Balita"></TextBlock>
-        <Grid Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="2" Margin="10" Width="965">
+        <TextBlock Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="25" FontWeight="Bold" Text="Temukan Tips dan Informasi Balita di Bawah Ini"></TextBlock>
+        <Grid Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="2" Margin="10" Width="965" HorizontalAlignment="center">
             <ListBox x:Name="ListBoxArtikel" ItemsSource="{Binding Artikels}" SelectionChanged="ArtikelList_SelectionChanged"
              BorderBrush="Transparent" BorderThickness="0">
                 <ListBox.ItemsPanel>

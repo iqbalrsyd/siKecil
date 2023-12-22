@@ -446,14 +446,6 @@ namespace siKecil.View.Main
             txtRiwayatPenyakit.IsEnabled = true;
         }
 
-        private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            if (GolonganDarahComboBox.SelectedItem != null)
-            {
-                string selectedOption = ((ComboBoxItem)GolonganDarahComboBox.SelectedItem).Content.ToString();
-            }
-        }
-
         private void SetComboBoxSelectedItem(ComboBox comboBox, string value)
         {
             foreach (object item in comboBox.Items)

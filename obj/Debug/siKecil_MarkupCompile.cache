@@ -4,16 +4,16 @@
 winexe
 C#
 .cs
-C:\College Project\siKecil_clone1\obj\Debug\
+C:\Users\Ekadukasi\Source\Repos\siKecil\obj\Debug\
 siKecil
 none
 false
 DEBUG;TRACE
-C:\College Project\siKecil_clone1\App.xaml
+C:\Users\Ekadukasi\Source\Repos\siKecil\App.xaml
 171305553727
 
 27-1377274448
-151-1534848322
+151-842503528
 ChatView.xaml;View\Main\InformationPage.xaml;View\Main\ChatPage.xaml;View\Main\DiaryAnakPage.xaml;View\GenerateOtpPage.xaml;View\Main\KontenPage.xaml;View\Main\Profile\PengaturanAkunPage.xaml;View\Main\Profile\ProfileAnakPage.xaml;View\Main\Profile\ProfileOrangTuaPage.xaml;View\UserEnter\LoginPage.xaml;View\Main\MainWindow.xaml;View\Main\Profile\ProfilePage.xaml;ProfileView.xaml;RiwayatMedisView.xaml;View\UserEnter\SignupPage.xaml;View\UserEnter\UserEnterView.xaml;View\VerificationDeleteAcc.xaml;
 
 False

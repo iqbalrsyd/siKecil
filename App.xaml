@@ -79,7 +79,7 @@
             </Style>
             
             <Style x:Key="RectangleButtonStyle" TargetType="Rectangle">
-                <Setter Property="Width" Value="500"/>
+                <Setter Property="MinWidth" Value="500"/>
                 <Setter Property="Height" Value="310"/>
                 <Setter Property="Fill" Value="#FFFFFF"/>
                 <Setter Property="RadiusX" Value="10"/>
@@ -134,8 +134,8 @@
                 <Setter Property="Foreground" Value="Black"/>
                 <Setter Property="BorderBrush" Value="#1450A3"/>
                 <Setter Property="BorderThickness" Value="1"/>
-                <Setter Property="Width" Value="1020"/>
-                <Setter Property="Height" Value="220"/>
+                <Setter Property="MinWidth" Value="1020"/>
+                <Setter Property="MinHeight" Value="220"/>
                 <Setter Property="FontSize" Value="20"/>
                 <Setter Property="FontFamily" Value="Inter"/>
             </Style>
