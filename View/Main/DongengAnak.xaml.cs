@@ -1,26 +1,46 @@
-﻿using siKecil.Infrastructure;
 using System;
-using System.Collections.ObjectModel;
-using System.Data.SqlClient;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Data;
+using System.Windows.Documents;
+using System.Windows.Input;
+using System.Windows.Media;
+using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
+using System.Windows.Shapes;
+using siKecil.Infrastructure;
+using System.Data.SqlClient;
+using System.Data;
+using System.Data.Entity;
+using siKecil.Model;
+using System.Collections.ObjectModel;
+using System.ComponentModel;
 
 namespace siKecil.View.Main
 {
-    public partial class DongengAnakPage : Page
+    /// <summary>
+    /// Interaction logic for DongengAnak.xaml
+    /// </summary>
+    public partial class DongengAnak : Page
     {
-        private ObservableCollection<Dongeng> dongengList;
-        private Connection connectionHelper = new Connection();
+        private ObservableCollection<Cerita> Ceritas;
+        Connection connectionHelper = new Connection();
 
-        public DongengAnakPage()
+        public DongengAnak()
         {
             InitializeComponent();
-            dongengList = LoadDongeng();
+            Title = "Dongeng Anak-Anak";
+            Ceritas = LoadCerita();
+            ListBoxCerita.ItemsSource = Ceritas;
         }
 
-        private ObservableCollection<Dongeng> LoadDongeng()
+        private ObservableCollection<Cerita> LoadCerita()
         {
-            ObservableCollection<Dongeng> dongengs = new ObservableCollection<Dongeng>();
+            List<Cerita> cerita = new List<Cerita>();
 
             using (SqlConnection sqlCon = connectionHelper.GetConn())
             {
@@ -28,99 +48,84 @@ namespace siKecil.View.Main
                 {
                     sqlCon.Open();
 
-                    string query = "SELECT DongengID, Judul, IsiDongeng, Pengarang, TanggalDibuat FROM DongengAnak";
+                    // Mengganti query SQL
+                    string query = $"SELECT ID_Cerita, Judul, Isi FROM Dongeng";
                     using (SqlCommand cmd = new SqlCommand(query, sqlCon))
                     {
                         using (SqlDataReader reader = cmd.ExecuteReader())
                         {
                             while (reader.Read())
                             {
-                                Dongeng dongeng = new Dongeng
+                                Cerita cerita1 = new Cerita
                                 {
-                                    DongengID = Convert.ToInt32(reader["DongengID"]),
+                                    ID_Cerita = Convert.ToInt32(reader["ID_Cerita"]),
                                     Judul = reader.IsDBNull(reader.GetOrdinal("Judul")) ? string.Empty : reader["Judul"].ToString(),
-                                    IsiDongeng = reader.IsDBNull(reader.GetOrdinal("IsiDongeng")) ? string.Empty : reader["IsiDongeng"].ToString(),
-                                    Pengarang = reader.IsDBNull(reader.GetOrdinal("Pengarang")) ? string.Empty : reader["Pengarang"].ToString(),
-                                    TanggalDibuat = reader.IsDBNull(reader.GetOrdinal("TanggalDibuat")) ? DateTime.MinValue : Convert.ToDateTime(reader["TanggalDibuat"])
+                                    Isi = reader.IsDBNull(reader.GetOrdinal("Isi")) ? string.Empty : reader["Isi"].ToString()
                                 };
 
-                                dongengs.Add(dongeng);
+                                cerita.Add(cerita1);
                             }
                         }
                     }
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("Error: " + ex.Message, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                    Console.WriteLine("Error: " + ex.Message);
                 }
             }
-            return dongengs;
+            return new ObservableCollection<Cerita>(cerita);
         }
 
-        private void AddDongengToDatabase(string judul, string isiDongeng, string pengarang, DateTime tanggalDibuat)
+        private void CeritaList_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            try
+            if (ListBoxCerita.SelectedItem != null)
             {
-                using (SqlConnection connection = connectionHelper.GetConn())
-                {
-                    connection.Open();
-
-                    string query = "INSERT INTO DongengAnak (Judul, IsiDongeng, Pengarang, TanggalDibuat) VALUES (@Judul, @IsiDongeng, @Pengarang, @TanggalDibuat)";
-                    using (SqlCommand command = new SqlCommand(query, connection))
-                    {
-                        command.Parameters.AddWithValue("@Judul", judul);
-                        command.Parameters.AddWithValue("@IsiDongeng", isiDongeng);
-                        command.Parameters.AddWithValue("@Pengarang", pengarang);
-                        command.Parameters.AddWithValue("@TanggalDibuat", tanggalDibuat);
-                        command.ExecuteNonQuery();
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"An error occurred: {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
-            }
-        }
-
-        private void SubmitButton_Click(object sender, RoutedEventArgs e)
-        {
-            // Mendapatkan nilai dari input
-            string judul = JudulTextBox.Text;
-            string isiDongeng = IsiDongengTextBox.Text;
-            string pengarang = PengarangTextBox.Text;
-            DateTime tanggalDibuat = DateTime.Now; // Menggunakan tanggal saat ini
-
-            // Memastikan input tidak kosong sebelum menambahkan ke database
-            if (!string.IsNullOrEmpty(judul) && !string.IsNullOrEmpty(isiDongeng) )
-            {
-                // Menambahkan dongeng ke database
-                AddDongengToDatabase(judul, isiDongeng, pengarang, tanggalDibuat);
-
-                // Memuat ulang dongeng dari database
-                dongengList.Clear();
-                foreach (var dongeng in LoadDongeng())
-                {
-                    dongengList.Add(dongeng);
-                }
-
-                // Membersihkan nilai input setelah ditambahkan ke database
-                JudulTextBox.Clear();
-                IsiDongengTextBox.Clear();
-                PengarangTextBox.Clear();
-            }
-            else
-            {
-                MessageBox.Show("Mohon isi semua input.", "Peringatan", MessageBoxButton.OK, MessageBoxImage.Warning);
+                Cerita selectedCerita = (Cerita)ListBoxCerita.SelectedItem;
+                int selectedCeritaID = selectedCerita.ID_Cerita;
+                NavigationService?.Navigate(new Dongeng(selectedCeritaID));
             }
         }
     }
 
-    public class Dongeng
+    public class DongengRepository
     {
-        public int DongengID { get; set; }
+        private Connection connectionHelper;
+
+
+        public DongengRepository()
+        {
+            connectionHelper = new Connection();
+        }
+
+        public void InsertDongeng(string judul, string isi, string gambarPath)
+        {
+            using (SqlConnection sqlCon = connectionHelper.GetConn())
+            {
+                sqlCon.Open();
+                DongengRepository dongengRepo = new DongengRepository();
+                dongengRepo.InsertDongeng("Judul Dongeng Baru", "Isi Dongeng Baru", "/Asset/gambar_baru.jpg");
+
+
+                string insertQuery = "INSERT INTO Dongeng (Judul, Isi, GambarPath) VALUES (@Judul, @Isi, @GambarPath)";
+
+                using (SqlCommand command = new SqlCommand(insertQuery, sqlCon))
+                {
+                    command.Parameters.AddWithValue("@Judul", "Judul Dongeng Baru");
+                    command.Parameters.AddWithValue("@Isi", "Isi Dongeng Baru");
+                    command.Parameters.AddWithValue("@GambarPath", "/Asset/gambar_baru.jpg");
+
+                    command.ExecuteNonQuery();
+                }
+            }
+        }
+    }
+
+
+
+    public class Cerita
+    {
+        public int ID_Cerita { get; set; }
         public string Judul { get; set; }
-        public string IsiDongeng { get; set; }
-        public string Pengarang { get; set; }
-        public DateTime TanggalDibuat { get; set; }
+        public string Isi { get; set; }
     }
 }
