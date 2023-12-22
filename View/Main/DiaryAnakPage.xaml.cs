@@ -31,6 +31,7 @@ namespace siKecil.View.Main
         public DiaryAnakPage(string User_ID)
         {
             InitializeComponent();
+            Title = "Catatan Perkembangan dan Kesehatan Anak";
             this.User_ID = User_ID;
             Loaded += DiaryAnakPage_Loaded;
 
