@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -29,12 +29,11 @@ namespace siKecil.View.Main
     {
         private ObservableCollection<Artikel> Artikels;
         Connection connectionHelper = new Connection();
-
         public InformationPage()
         {
             InitializeComponent();
-            Title = "Tips dan Informasi";
             Artikels = LoadArtikel();
+            Title = "Tips dan Informasi";
             ListBoxArtikel.ItemsSource = Artikels;
         }
 
