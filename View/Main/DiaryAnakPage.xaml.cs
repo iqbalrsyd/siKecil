@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Data;
@@ -28,11 +28,9 @@ namespace siKecil.View.Main
         private readonly string User_ID;
         Connection connectionHelper = new Connection();
         private Person person;
-
         public DiaryAnakPage(string User_ID)
         {
             InitializeComponent();
-            Title = "Catatan Perkembangan Anak";
             this.User_ID = User_ID;
             Loaded += DiaryAnakPage_Loaded;
 
@@ -40,7 +38,6 @@ namespace siKecil.View.Main
             DataContext = person;
             UpdateAge();
             NamaAnak();
-            ChangePhoto();
         }
 
         private void DiaryAnakPage_Loaded(object sender, RoutedEventArgs e)
@@ -316,7 +313,15 @@ namespace siKecil.View.Main
         {
             int age = CalculateAge(person.TanggalLahirAnak, DateTime.Today);
             string ageChild = age.ToString();
-            AgeTextBox.Text = ageChild;
+            DateTime tanggal = person.TanggalLahirAnak;
+            if(tanggal == null)
+            {
+                AgeTextBox.Text = "[Nama Anak]";
+            }
+            else
+            {
+                AgeTextBox.Text = ageChild;
+            }
         }
         private void BirthDatePicker_SelectedDateChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
         {
@@ -492,37 +497,6 @@ namespace siKecil.View.Main
                 MessageBox.Show("Error: " + ex.Message);
             }
         }
-
-        private bool IsMale()
-        {
-            string jenisKelamin = person.JenisKelaminAnak;
-
-            if (jenisKelamin == null || jenisKelamin.ToLower() == "Perempuan")
-            {
-                return false;
-            }
-            else if (jenisKelamin.ToLower() == "Laki-Laki")
-            {
-                return true;
-            }
-            return false;
-        }
-
-        private void ChangePhoto()
-        {
-            bool isMale = IsMale();
-            if (isMale)
-            {
-                GirlIcon.Visibility = Visibility.Collapsed;
-                BoyIcon.Visibility = Visibility.Visible;
-            }
-            else
-            {
-                GirlIcon.Visibility = Visibility.Visible;
-                BoyIcon.Visibility = Visibility.Collapsed;
-            }
-        }
-
         
     }
 
