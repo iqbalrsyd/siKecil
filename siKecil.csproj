@@ -205,6 +205,10 @@
     <Compile Include="ChatView.xaml.cs">
       <DependentUpon>ChatView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Infrastructure\AgeHelper.cs" />
+    <Compile Include="View\Main\HomePage.xaml.cs">
+      <DependentUpon>HomePage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\Main\InformationPage.xaml.cs">
       <DependentUpon>InformationPage.xaml</DependentUpon>
     </Compile>
@@ -258,6 +262,10 @@
     <Page Include="ChatView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Main\HomePage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="View\Main\InformationPage.xaml" />
     <Page Include="View\Main\ChatPage.xaml">
@@ -344,6 +352,7 @@
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -382,9 +391,6 @@
     <Resource Include="Asset\boy.png" />
     <Resource Include="Asset\girl.png" />
     <Resource Include="Asset\pencil.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\logo.ico" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\logosiKecil.ico" />
