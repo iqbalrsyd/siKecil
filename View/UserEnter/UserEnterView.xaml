@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:siKecil"
         mc:Ignorable="d"
-        Title="UserEnterView" Height="700" Width="1200"
+        Title="siKecil" Height="700" Width="1200"
         Loaded="UserEnterView_Loaded">
     <Grid Background="#FFFFFF">
         <Rectangle Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="1" Fill="#F1F6F5" Stroke="White">

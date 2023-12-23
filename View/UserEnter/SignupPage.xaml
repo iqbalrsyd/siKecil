@@ -6,7 +6,7 @@
       xmlns:local="clr-namespace:siKecil.Infrastructure"
       mc:Ignorable="d" 
       d:DesignHeight="500" d:DesignWidth="1000"
-      Title="SignupPage">
+      Title="siKecil">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="500"/>

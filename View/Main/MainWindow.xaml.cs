@@ -76,7 +76,7 @@ namespace siKecil.View.Main
 
         private void DongengAnak_Click(object sender, RoutedEventArgs e)
         {
-            DongengAnak dongengAnak = new DongengAnak();
+            DongengAnakPage dongengAnak = new DongengAnakPage();
             mainFrame.NavigationService.Navigate(dongengAnak);
         }
     }

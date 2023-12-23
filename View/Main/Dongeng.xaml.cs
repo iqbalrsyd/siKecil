@@ -17,9 +17,6 @@ using siKecil.Infrastructure;
 
 namespace siKecil.View.Main
 {
-    /// <summary>
-    /// Interaction logic for Dongeng.xaml
-    /// </summary>
     public partial class Dongeng : Page
     {
         private int ID_Dongeng;
@@ -67,7 +64,7 @@ namespace siKecil.View.Main
             string isi = dongeng.Isi;
 
             JudulDongeng.Text = $"{judul}";
-            IsiDongeng.Text = $"{isi}";
+            IsiDongengView.Text = $"{isi}";
         }
 
         private void DongengPicker_SelectedChanged(object sender, SelectionChangedEventArgs e)
@@ -77,7 +74,7 @@ namespace siKecil.View.Main
 
         private void NavigateToDongengAnak()
         {
-            NavigationService?.Navigate(new DongengAnak());
+            NavigateToDongengAnak();
         }
 
         private void DongengAnak_Back(object sender, RoutedEventArgs e)

@@ -15,6 +15,7 @@ namespace siKecil.View.Main
         public DongengAnakPage()
         {
             InitializeComponent();
+            Title = "Dongeng Anak";
             dongengList = LoadDongeng();
         }
 
@@ -28,7 +29,7 @@ namespace siKecil.View.Main
                 {
                     sqlCon.Open();
 
-                    string query = "SELECT DongengID, Judul, IsiDongeng, Pengarang, TanggalDibuat FROM DongengAnak";
+                    string query = "SELECT ID_Dongeng, Judul, Isi, Pengarang, TanggalDibuat FROM Dongeng";
                     using (SqlCommand cmd = new SqlCommand(query, sqlCon))
                     {
                         using (SqlDataReader reader = cmd.ExecuteReader())
@@ -37,9 +38,9 @@ namespace siKecil.View.Main
                             {
                                 Dongeng dongeng = new Dongeng
                                 {
-                                    DongengID = Convert.ToInt32(reader["DongengID"]),
+                                    DongengID = Convert.ToInt32(reader["ID_Dongeng"]),
                                     Judul = reader.IsDBNull(reader.GetOrdinal("Judul")) ? string.Empty : reader["Judul"].ToString(),
-                                    IsiDongeng = reader.IsDBNull(reader.GetOrdinal("IsiDongeng")) ? string.Empty : reader["IsiDongeng"].ToString(),
+                                    IsiDongeng = reader.IsDBNull(reader.GetOrdinal("Isi")) ? string.Empty : reader["Isi"].ToString(),
                                     Pengarang = reader.IsDBNull(reader.GetOrdinal("Pengarang")) ? string.Empty : reader["Pengarang"].ToString(),
                                     TanggalDibuat = reader.IsDBNull(reader.GetOrdinal("TanggalDibuat")) ? DateTime.MinValue : Convert.ToDateTime(reader["TanggalDibuat"])
                                 };
@@ -65,11 +66,11 @@ namespace siKecil.View.Main
                 {
                     connection.Open();
 
-                    string query = "INSERT INTO DongengAnak (Judul, IsiDongeng, Pengarang, TanggalDibuat) VALUES (@Judul, @IsiDongeng, @Pengarang, @TanggalDibuat)";
+                    string query = "INSERT INTO Dongeng (Judul, Isi, Pengarang, TanggalDibuat) VALUES (@Judul, @Isi, @Pengarang, @TanggalDibuat)";
                     using (SqlCommand command = new SqlCommand(query, connection))
                     {
                         command.Parameters.AddWithValue("@Judul", judul);
-                        command.Parameters.AddWithValue("@IsiDongeng", isiDongeng);
+                        command.Parameters.AddWithValue("@Isi", isiDongeng);
                         command.Parameters.AddWithValue("@Pengarang", pengarang);
                         command.Parameters.AddWithValue("@TanggalDibuat", tanggalDibuat);
                         command.ExecuteNonQuery();
@@ -91,7 +92,7 @@ namespace siKecil.View.Main
             DateTime tanggalDibuat = DateTime.Now; // Menggunakan tanggal saat ini
 
             // Memastikan input tidak kosong sebelum menambahkan ke database
-            if (!string.IsNullOrEmpty(judul) && !string.IsNullOrEmpty(isiDongeng) )
+            if (!string.IsNullOrEmpty(judul) && !string.IsNullOrEmpty(isiDongeng))
             {
                 // Menambahkan dongeng ke database
                 AddDongengToDatabase(judul, isiDongeng, pengarang, tanggalDibuat);
@@ -107,20 +108,21 @@ namespace siKecil.View.Main
                 JudulTextBox.Clear();
                 IsiDongengTextBox.Clear();
                 PengarangTextBox.Clear();
+
+                NavigationService?.Navigate(new Dongeng());
             }
             else
             {
                 MessageBox.Show("Mohon isi semua input.", "Peringatan", MessageBoxButton.OK, MessageBoxImage.Warning);
             }
         }
-    }
-
-    public class Dongeng
-    {
-        public int DongengID { get; set; }
-        public string Judul { get; set; }
-        public string IsiDongeng { get; set; }
-        public string Pengarang { get; set; }
-        public DateTime TanggalDibuat { get; set; }
+        public class Dongeng
+        {
+            public int DongengID { get; set; }
+            public string Judul { get; set; }
+            public string IsiDongeng { get; set; }
+            public string Pengarang { get; set; }
+            public DateTime TanggalDibuat { get; set; }
+        }
     }
 }

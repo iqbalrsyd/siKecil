@@ -1,335 +1,111 @@
-C:\College Project\siKecil_clone1\obj\Debug\siKecil.csproj.AssemblyReference.cache
-C:\College Project\siKecil_clone1\obj\Debug\RiwayatMedisView.baml
-C:\College Project\siKecil_clone1\obj\Debug\ChatView.g.cs
-C:\College Project\siKecil_clone1\obj\Debug\View\Main\InformationPage.g.cs
-C:\College Project\siKecil_clone1\obj\Debug\View\Main\ChatPage.g.cs
-C:\College Project\siKecil_clone1\obj\Debug\View\Main\DiaryAnakPage.g.cs
-C:\College Project\siKecil_clone1\obj\Debug\View\GenerateOtpPage.g.cs
-C:\College Project\siKecil_clone1\obj\Debug\View\Main\KontenPage.g.cs
-C:\College Project\siKecil_clone1\obj\Debug\View\Main\Profile\PengaturanAkunPage.g.cs
-C:\College Project\siKecil_clone1\obj\Debug\View\Main\Profile\ProfileAnakPage.g.cs
-C:\College Project\siKecil_clone1\obj\Debug\View\Main\Profile\ProfileOrangTuaPage.g.cs
-C:\College Project\siKecil_clone1\obj\Debug\View\UserEnter\LoginPage.g.cs
-C:\College Project\siKecil_clone1\obj\Debug\View\Main\MainWindow.g.cs
-C:\College Project\siKecil_clone1\obj\Debug\View\Main\Profile\ProfilePage.g.cs
-C:\College Project\siKecil_clone1\obj\Debug\ProfileView.g.cs
-C:\College Project\siKecil_clone1\obj\Debug\RiwayatMedisView.g.cs
-C:\College Project\siKecil_clone1\obj\Debug\View\UserEnter\SignupPage.g.cs
-C:\College Project\siKecil_clone1\obj\Debug\View\UserEnter\UserEnterView.g.cs
-C:\College Project\siKecil_clone1\obj\Debug\View\VerificationDeleteAcc.g.cs
-C:\College Project\siKecil_clone1\obj\Debug\App.g.cs
-C:\College Project\siKecil_clone1\obj\Debug\GeneratedInternalTypeHelper.g.cs
-C:\College Project\siKecil_clone1\obj\Debug\siKecil_MarkupCompile.cache
-C:\College Project\siKecil_clone1\obj\Debug\siKecil_MarkupCompile.lref
-C:\College Project\siKecil_clone1\bin\Debug\siKecil.exe.config
-C:\College Project\siKecil_clone1\bin\Debug\siKecil.exe
-C:\College Project\siKecil_clone1\bin\Debug\siKecil.pdb
-C:\College Project\siKecil_clone1\bin\Debug\EntityFramework.dll
-C:\College Project\siKecil_clone1\bin\Debug\EntityFramework.SqlServer.dll
-C:\College Project\siKecil_clone1\bin\Debug\Microsoft.AspNet.SignalR.Client.dll
-C:\College Project\siKecil_clone1\bin\Debug\Microsoft.AspNetCore.Connections.Abstractions.dll
-C:\College Project\siKecil_clone1\bin\Debug\Microsoft.AspNetCore.Http.Connections.Client.dll
-C:\College Project\siKecil_clone1\bin\Debug\Microsoft.AspNetCore.Http.Connections.Common.dll
-C:\College Project\siKecil_clone1\bin\Debug\Microsoft.AspNetCore.Http.Features.dll
-C:\College Project\siKecil_clone1\bin\Debug\Microsoft.AspNetCore.SignalR.Client.Core.dll
-C:\College Project\siKecil_clone1\bin\Debug\Microsoft.AspNetCore.SignalR.Client.dll
-C:\College Project\siKecil_clone1\bin\Debug\Microsoft.AspNetCore.SignalR.Common.dll
-C:\College Project\siKecil_clone1\bin\Debug\Microsoft.AspNetCore.SignalR.Protocols.Json.dll
-C:\College Project\siKecil_clone1\bin\Debug\Microsoft.Bcl.AsyncInterfaces.dll
-C:\College Project\siKecil_clone1\bin\Debug\Microsoft.Extensions.DependencyInjection.Abstractions.dll
-C:\College Project\siKecil_clone1\bin\Debug\Microsoft.Extensions.DependencyInjection.dll
-C:\College Project\siKecil_clone1\bin\Debug\Microsoft.Extensions.Logging.Abstractions.dll
-C:\College Project\siKecil_clone1\bin\Debug\Microsoft.Extensions.Logging.dll
-C:\College Project\siKecil_clone1\bin\Debug\Microsoft.Extensions.Options.dll
-C:\College Project\siKecil_clone1\bin\Debug\Microsoft.Extensions.Primitives.dll
-C:\College Project\siKecil_clone1\bin\Debug\Newtonsoft.Json.dll
-C:\College Project\siKecil_clone1\bin\Debug\System.Buffers.dll
-C:\College Project\siKecil_clone1\bin\Debug\System.Diagnostics.DiagnosticSource.dll
-C:\College Project\siKecil_clone1\bin\Debug\System.IO.Pipelines.dll
-C:\College Project\siKecil_clone1\bin\Debug\System.Memory.dll
-C:\College Project\siKecil_clone1\bin\Debug\System.Numerics.Vectors.dll
-C:\College Project\siKecil_clone1\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
-C:\College Project\siKecil_clone1\bin\Debug\System.Text.Encodings.Web.dll
-C:\College Project\siKecil_clone1\bin\Debug\System.Text.Json.dll
-C:\College Project\siKecil_clone1\bin\Debug\System.Threading.Channels.dll
-C:\College Project\siKecil_clone1\bin\Debug\System.Threading.Tasks.Extensions.dll
-C:\College Project\siKecil_clone1\bin\Debug\System.ValueTuple.dll
-C:\College Project\siKecil_clone1\bin\Debug\EntityFramework.xml
-C:\College Project\siKecil_clone1\bin\Debug\EntityFramework.SqlServer.xml
-C:\College Project\siKecil_clone1\bin\Debug\Microsoft.AspNet.SignalR.Client.pdb
-C:\College Project\siKecil_clone1\bin\Debug\Microsoft.AspNet.SignalR.Client.xml
-C:\College Project\siKecil_clone1\bin\Debug\Microsoft.AspNetCore.Connections.Abstractions.xml
-C:\College Project\siKecil_clone1\bin\Debug\Microsoft.AspNetCore.Http.Connections.Client.xml
-C:\College Project\siKecil_clone1\bin\Debug\Microsoft.AspNetCore.Http.Connections.Common.xml
-C:\College Project\siKecil_clone1\bin\Debug\Microsoft.AspNetCore.Http.Features.xml
-C:\College Project\siKecil_clone1\bin\Debug\Microsoft.AspNetCore.SignalR.Client.xml
-C:\College Project\siKecil_clone1\bin\Debug\Microsoft.AspNetCore.SignalR.Client.Core.xml
-C:\College Project\siKecil_clone1\bin\Debug\Microsoft.AspNetCore.SignalR.Common.xml
-C:\College Project\siKecil_clone1\bin\Debug\Microsoft.AspNetCore.SignalR.Protocols.Json.xml
-C:\College Project\siKecil_clone1\bin\Debug\Microsoft.Bcl.AsyncInterfaces.xml
-C:\College Project\siKecil_clone1\bin\Debug\Microsoft.Extensions.DependencyInjection.xml
-C:\College Project\siKecil_clone1\bin\Debug\Microsoft.Extensions.DependencyInjection.Abstractions.xml
-C:\College Project\siKecil_clone1\bin\Debug\Microsoft.Extensions.Logging.xml
-C:\College Project\siKecil_clone1\bin\Debug\Microsoft.Extensions.Logging.Abstractions.xml
-C:\College Project\siKecil_clone1\bin\Debug\Microsoft.Extensions.Options.xml
-C:\College Project\siKecil_clone1\bin\Debug\Microsoft.Extensions.Primitives.xml
-C:\College Project\siKecil_clone1\bin\Debug\Newtonsoft.Json.xml
-C:\College Project\siKecil_clone1\bin\Debug\System.Buffers.xml
-C:\College Project\siKecil_clone1\bin\Debug\System.Diagnostics.DiagnosticSource.xml
-C:\College Project\siKecil_clone1\bin\Debug\System.IO.Pipelines.xml
-C:\College Project\siKecil_clone1\bin\Debug\System.Memory.xml
-C:\College Project\siKecil_clone1\bin\Debug\System.Numerics.Vectors.xml
-C:\College Project\siKecil_clone1\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
-C:\College Project\siKecil_clone1\bin\Debug\System.Text.Encodings.Web.xml
-C:\College Project\siKecil_clone1\bin\Debug\System.Text.Json.xml
-C:\College Project\siKecil_clone1\bin\Debug\System.Threading.Channels.xml
-C:\College Project\siKecil_clone1\bin\Debug\System.Threading.Tasks.Extensions.xml
-C:\College Project\siKecil_clone1\bin\Debug\System.ValueTuple.xml
-C:\College Project\siKecil_clone1\obj\Debug\App.baml
-C:\College Project\siKecil_clone1\obj\Debug\ChatView.baml
-C:\College Project\siKecil_clone1\obj\Debug\View\Main\InformationPage.baml
-C:\College Project\siKecil_clone1\obj\Debug\View\Main\ChatPage.baml
-C:\College Project\siKecil_clone1\obj\Debug\View\Main\DiaryAnakPage.baml
-C:\College Project\siKecil_clone1\obj\Debug\View\GenerateOtpPage.baml
-C:\College Project\siKecil_clone1\obj\Debug\View\Main\KontenPage.baml
-C:\College Project\siKecil_clone1\obj\Debug\View\Main\Profile\PengaturanAkunPage.baml
-C:\College Project\siKecil_clone1\obj\Debug\View\Main\Profile\ProfileAnakPage.baml
-C:\College Project\siKecil_clone1\obj\Debug\View\Main\Profile\ProfileOrangTuaPage.baml
-C:\College Project\siKecil_clone1\obj\Debug\View\UserEnter\LoginPage.baml
-C:\College Project\siKecil_clone1\obj\Debug\View\Main\MainWindow.baml
-C:\College Project\siKecil_clone1\obj\Debug\View\Main\Profile\ProfilePage.baml
-C:\College Project\siKecil_clone1\obj\Debug\ProfileView.baml
-C:\College Project\siKecil_clone1\obj\Debug\View\UserEnter\SignupPage.baml
-C:\College Project\siKecil_clone1\obj\Debug\View\UserEnter\UserEnterView.baml
-C:\College Project\siKecil_clone1\obj\Debug\View\VerificationDeleteAcc.baml
-C:\College Project\siKecil_clone1\obj\Debug\siKecil.g.resources
-C:\College Project\siKecil_clone1\obj\Debug\siKecil.Properties.Resources.resources
-C:\College Project\siKecil_clone1\obj\Debug\siKecil.csproj.GenerateResource.cache
-C:\College Project\siKecil_clone1\obj\Debug\siKecil.csproj.CoreCompileInputs.cache
-C:\College Project\siKecil_clone1\obj\Debug\siKecil.csproj.CopyComplete
-C:\College Project\siKecil_clone1\obj\Debug\siKecil.exe
-C:\College Project\siKecil_clone1\obj\Debug\siKecil.pdb
-C:\Users\Ekadukasi\Source\Repos\siKecil\bin\Debug\siKecil.exe.config
-C:\Users\Ekadukasi\Source\Repos\siKecil\bin\Debug\siKecil.exe
-C:\Users\Ekadukasi\Source\Repos\siKecil\bin\Debug\siKecil.pdb
-C:\Users\Ekadukasi\Source\Repos\siKecil\bin\Debug\EntityFramework.dll
-C:\Users\Ekadukasi\Source\Repos\siKecil\bin\Debug\EntityFramework.SqlServer.dll
-C:\Users\Ekadukasi\Source\Repos\siKecil\bin\Debug\Microsoft.AspNet.SignalR.Client.dll
-C:\Users\Ekadukasi\Source\Repos\siKecil\bin\Debug\Microsoft.AspNetCore.Connections.Abstractions.dll
-C:\Users\Ekadukasi\Source\Repos\siKecil\bin\Debug\Microsoft.AspNetCore.Http.Connections.Client.dll
-C:\Users\Ekadukasi\Source\Repos\siKecil\bin\Debug\Microsoft.AspNetCore.Http.Connections.Common.dll
-C:\Users\Ekadukasi\Source\Repos\siKecil\bin\Debug\Microsoft.AspNetCore.Http.Features.dll
-C:\Users\Ekadukasi\Source\Repos\siKecil\bin\Debug\Microsoft.AspNetCore.SignalR.Client.Core.dll
-C:\Users\Ekadukasi\Source\Repos\siKecil\bin\Debug\Microsoft.AspNetCore.SignalR.Client.dll
-C:\Users\Ekadukasi\Source\Repos\siKecil\bin\Debug\Microsoft.AspNetCore.SignalR.Common.dll
-C:\Users\Ekadukasi\Source\Repos\siKecil\bin\Debug\Microsoft.AspNetCore.SignalR.Protocols.Json.dll
-C:\Users\Ekadukasi\Source\Repos\siKecil\bin\Debug\Microsoft.Bcl.AsyncInterfaces.dll
-C:\Users\Ekadukasi\Source\Repos\siKecil\bin\Debug\Microsoft.Extensions.DependencyInjection.Abstractions.dll
-C:\Users\Ekadukasi\Source\Repos\siKecil\bin\Debug\Microsoft.Extensions.DependencyInjection.dll
-C:\Users\Ekadukasi\Source\Repos\siKecil\bin\Debug\Microsoft.Extensions.Logging.Abstractions.dll
-C:\Users\Ekadukasi\Source\Repos\siKecil\bin\Debug\Microsoft.Extensions.Logging.dll
-C:\Users\Ekadukasi\Source\Repos\siKecil\bin\Debug\Microsoft.Extensions.Options.dll
-C:\Users\Ekadukasi\Source\Repos\siKecil\bin\Debug\Microsoft.Extensions.Primitives.dll
-C:\Users\Ekadukasi\Source\Repos\siKecil\bin\Debug\Newtonsoft.Json.dll
-C:\Users\Ekadukasi\Source\Repos\siKecil\bin\Debug\System.Buffers.dll
-C:\Users\Ekadukasi\Source\Repos\siKecil\bin\Debug\System.Diagnostics.DiagnosticSource.dll
-C:\Users\Ekadukasi\Source\Repos\siKecil\bin\Debug\System.IO.Pipelines.dll
-C:\Users\Ekadukasi\Source\Repos\siKecil\bin\Debug\System.Memory.dll
-C:\Users\Ekadukasi\Source\Repos\siKecil\bin\Debug\System.Numerics.Vectors.dll
-C:\Users\Ekadukasi\Source\Repos\siKecil\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
-C:\Users\Ekadukasi\Source\Repos\siKecil\bin\Debug\System.Text.Encodings.Web.dll
-C:\Users\Ekadukasi\Source\Repos\siKecil\bin\Debug\System.Text.Json.dll
-C:\Users\Ekadukasi\Source\Repos\siKecil\bin\Debug\System.Threading.Channels.dll
-C:\Users\Ekadukasi\Source\Repos\siKecil\bin\Debug\System.Threading.Tasks.Extensions.dll
-C:\Users\Ekadukasi\Source\Repos\siKecil\bin\Debug\System.ValueTuple.dll
-C:\Users\Ekadukasi\Source\Repos\siKecil\bin\Debug\EntityFramework.xml
-C:\Users\Ekadukasi\Source\Repos\siKecil\bin\Debug\EntityFramework.SqlServer.xml
-C:\Users\Ekadukasi\Source\Repos\siKecil\bin\Debug\Microsoft.AspNet.SignalR.Client.pdb
-C:\Users\Ekadukasi\Source\Repos\siKecil\bin\Debug\Microsoft.AspNet.SignalR.Client.xml
-C:\Users\Ekadukasi\Source\Repos\siKecil\bin\Debug\Microsoft.AspNetCore.Connections.Abstractions.xml
-C:\Users\Ekadukasi\Source\Repos\siKecil\bin\Debug\Microsoft.AspNetCore.Http.Connections.Client.xml
-C:\Users\Ekadukasi\Source\Repos\siKecil\bin\Debug\Microsoft.AspNetCore.Http.Connections.Common.xml
-C:\Users\Ekadukasi\Source\Repos\siKecil\bin\Debug\Microsoft.AspNetCore.Http.Features.xml
-C:\Users\Ekadukasi\Source\Repos\siKecil\bin\Debug\Microsoft.AspNetCore.SignalR.Client.xml
-C:\Users\Ekadukasi\Source\Repos\siKecil\bin\Debug\Microsoft.AspNetCore.SignalR.Client.Core.xml
-C:\Users\Ekadukasi\Source\Repos\siKecil\bin\Debug\Microsoft.AspNetCore.SignalR.Common.xml
-C:\Users\Ekadukasi\Source\Repos\siKecil\bin\Debug\Microsoft.AspNetCore.SignalR.Protocols.Json.xml
-C:\Users\Ekadukasi\Source\Repos\siKecil\bin\Debug\Microsoft.Bcl.AsyncInterfaces.xml
-C:\Users\Ekadukasi\Source\Repos\siKecil\bin\Debug\Microsoft.Extensions.DependencyInjection.xml
-C:\Users\Ekadukasi\Source\Repos\siKecil\bin\Debug\Microsoft.Extensions.DependencyInjection.Abstractions.xml
-C:\Users\Ekadukasi\Source\Repos\siKecil\bin\Debug\Microsoft.Extensions.Logging.xml
-C:\Users\Ekadukasi\Source\Repos\siKecil\bin\Debug\Microsoft.Extensions.Logging.Abstractions.xml
-C:\Users\Ekadukasi\Source\Repos\siKecil\bin\Debug\Microsoft.Extensions.Options.xml
-C:\Users\Ekadukasi\Source\Repos\siKecil\bin\Debug\Microsoft.Extensions.Primitives.xml
-C:\Users\Ekadukasi\Source\Repos\siKecil\bin\Debug\Newtonsoft.Json.xml
-C:\Users\Ekadukasi\Source\Repos\siKecil\bin\Debug\System.Buffers.xml
-C:\Users\Ekadukasi\Source\Repos\siKecil\bin\Debug\System.Diagnostics.DiagnosticSource.xml
-C:\Users\Ekadukasi\Source\Repos\siKecil\bin\Debug\System.IO.Pipelines.xml
-C:\Users\Ekadukasi\Source\Repos\siKecil\bin\Debug\System.Memory.xml
-C:\Users\Ekadukasi\Source\Repos\siKecil\bin\Debug\System.Numerics.Vectors.xml
-C:\Users\Ekadukasi\Source\Repos\siKecil\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
-C:\Users\Ekadukasi\Source\Repos\siKecil\bin\Debug\System.Text.Encodings.Web.xml
-C:\Users\Ekadukasi\Source\Repos\siKecil\bin\Debug\System.Text.Json.xml
-C:\Users\Ekadukasi\Source\Repos\siKecil\bin\Debug\System.Threading.Channels.xml
-C:\Users\Ekadukasi\Source\Repos\siKecil\bin\Debug\System.Threading.Tasks.Extensions.xml
-C:\Users\Ekadukasi\Source\Repos\siKecil\bin\Debug\System.ValueTuple.xml
-C:\Users\Ekadukasi\Source\Repos\siKecil\obj\Debug\siKecil.csproj.AssemblyReference.cache
-C:\Users\Ekadukasi\Source\Repos\siKecil\obj\Debug\RiwayatMedisView.baml
-C:\Users\Ekadukasi\Source\Repos\siKecil\obj\Debug\ChatView.g.cs
-C:\Users\Ekadukasi\Source\Repos\siKecil\obj\Debug\View\Main\InformationPage.g.cs
-C:\Users\Ekadukasi\Source\Repos\siKecil\obj\Debug\View\Main\ChatPage.g.cs
-C:\Users\Ekadukasi\Source\Repos\siKecil\obj\Debug\View\Main\DiaryAnakPage.g.cs
-C:\Users\Ekadukasi\Source\Repos\siKecil\obj\Debug\View\GenerateOtpPage.g.cs
-C:\Users\Ekadukasi\Source\Repos\siKecil\obj\Debug\View\Main\KontenPage.g.cs
-C:\Users\Ekadukasi\Source\Repos\siKecil\obj\Debug\View\Main\Profile\PengaturanAkunPage.g.cs
-C:\Users\Ekadukasi\Source\Repos\siKecil\obj\Debug\View\Main\Profile\ProfileAnakPage.g.cs
-C:\Users\Ekadukasi\Source\Repos\siKecil\obj\Debug\View\Main\Profile\ProfileOrangTuaPage.g.cs
-C:\Users\Ekadukasi\Source\Repos\siKecil\obj\Debug\View\UserEnter\LoginPage.g.cs
-C:\Users\Ekadukasi\Source\Repos\siKecil\obj\Debug\View\Main\MainWindow.g.cs
-C:\Users\Ekadukasi\Source\Repos\siKecil\obj\Debug\View\Main\Profile\ProfilePage.g.cs
-C:\Users\Ekadukasi\Source\Repos\siKecil\obj\Debug\ProfileView.g.cs
-C:\Users\Ekadukasi\Source\Repos\siKecil\obj\Debug\RiwayatMedisView.g.cs
-C:\Users\Ekadukasi\Source\Repos\siKecil\obj\Debug\View\UserEnter\SignupPage.g.cs
-C:\Users\Ekadukasi\Source\Repos\siKecil\obj\Debug\View\UserEnter\UserEnterView.g.cs
-C:\Users\Ekadukasi\Source\Repos\siKecil\obj\Debug\View\VerificationDeleteAcc.g.cs
-C:\Users\Ekadukasi\Source\Repos\siKecil\obj\Debug\App.g.cs
-C:\Users\Ekadukasi\Source\Repos\siKecil\obj\Debug\GeneratedInternalTypeHelper.g.cs
-C:\Users\Ekadukasi\Source\Repos\siKecil\obj\Debug\siKecil_MarkupCompile.cache
-C:\Users\Ekadukasi\Source\Repos\siKecil\obj\Debug\siKecil_MarkupCompile.lref
-C:\Users\Ekadukasi\Source\Repos\siKecil\obj\Debug\App.baml
-C:\Users\Ekadukasi\Source\Repos\siKecil\obj\Debug\ChatView.baml
-C:\Users\Ekadukasi\Source\Repos\siKecil\obj\Debug\View\Main\InformationPage.baml
-C:\Users\Ekadukasi\Source\Repos\siKecil\obj\Debug\View\Main\ChatPage.baml
-C:\Users\Ekadukasi\Source\Repos\siKecil\obj\Debug\View\Main\DiaryAnakPage.baml
-C:\Users\Ekadukasi\Source\Repos\siKecil\obj\Debug\View\GenerateOtpPage.baml
-C:\Users\Ekadukasi\Source\Repos\siKecil\obj\Debug\View\Main\KontenPage.baml
-C:\Users\Ekadukasi\Source\Repos\siKecil\obj\Debug\View\Main\Profile\PengaturanAkunPage.baml
-C:\Users\Ekadukasi\Source\Repos\siKecil\obj\Debug\View\Main\Profile\ProfileAnakPage.baml
-C:\Users\Ekadukasi\Source\Repos\siKecil\obj\Debug\View\Main\Profile\ProfileOrangTuaPage.baml
-C:\Users\Ekadukasi\Source\Repos\siKecil\obj\Debug\View\UserEnter\LoginPage.baml
-C:\Users\Ekadukasi\Source\Repos\siKecil\obj\Debug\View\Main\MainWindow.baml
-C:\Users\Ekadukasi\Source\Repos\siKecil\obj\Debug\View\Main\Profile\ProfilePage.baml
-C:\Users\Ekadukasi\Source\Repos\siKecil\obj\Debug\ProfileView.baml
-C:\Users\Ekadukasi\Source\Repos\siKecil\obj\Debug\View\UserEnter\SignupPage.baml
-C:\Users\Ekadukasi\Source\Repos\siKecil\obj\Debug\View\UserEnter\UserEnterView.baml
-C:\Users\Ekadukasi\Source\Repos\siKecil\obj\Debug\View\VerificationDeleteAcc.baml
-C:\Users\Ekadukasi\Source\Repos\siKecil\obj\Debug\siKecil.g.resources
-C:\Users\Ekadukasi\Source\Repos\siKecil\obj\Debug\siKecil.Properties.Resources.resources
-C:\Users\Ekadukasi\Source\Repos\siKecil\obj\Debug\siKecil.csproj.GenerateResource.cache
-C:\Users\Ekadukasi\Source\Repos\siKecil\obj\Debug\siKecil.csproj.CoreCompileInputs.cache
-C:\Users\Ekadukasi\Source\Repos\siKecil\obj\Debug\siKecil.csproj.CopyComplete
-C:\Users\Ekadukasi\Source\Repos\siKecil\obj\Debug\siKecil.exe
-C:\Users\Ekadukasi\Source\Repos\siKecil\obj\Debug\siKecil.pdb
-C:\College Project\siKecil_clone2\obj\Debug\siKecil.csproj.AssemblyReference.cache
-C:\College Project\siKecil_clone2\obj\Debug\RiwayatMedisView.baml
-C:\College Project\siKecil_clone2\obj\Debug\ChatView.g.cs
-C:\College Project\siKecil_clone2\obj\Debug\View\Main\HomePage.g.cs
-C:\College Project\siKecil_clone2\obj\Debug\View\Main\InformationPage.g.cs
-C:\College Project\siKecil_clone2\obj\Debug\View\Main\ChatPage.g.cs
-C:\College Project\siKecil_clone2\obj\Debug\View\Main\DiaryAnakPage.g.cs
-C:\College Project\siKecil_clone2\obj\Debug\View\GenerateOtpPage.g.cs
-C:\College Project\siKecil_clone2\obj\Debug\View\Main\KontenPage.g.cs
-C:\College Project\siKecil_clone2\obj\Debug\View\Main\Profile\PengaturanAkunPage.g.cs
-C:\College Project\siKecil_clone2\obj\Debug\View\Main\Profile\ProfileAnakPage.g.cs
-C:\College Project\siKecil_clone2\obj\Debug\View\Main\Profile\ProfileOrangTuaPage.g.cs
-C:\College Project\siKecil_clone2\obj\Debug\View\UserEnter\LoginPage.g.cs
-C:\College Project\siKecil_clone2\obj\Debug\View\Main\MainWindow.g.cs
-C:\College Project\siKecil_clone2\obj\Debug\View\Main\Profile\ProfilePage.g.cs
-C:\College Project\siKecil_clone2\obj\Debug\ProfileView.g.cs
-C:\College Project\siKecil_clone2\obj\Debug\RiwayatMedisView.g.cs
-C:\College Project\siKecil_clone2\obj\Debug\View\UserEnter\SignupPage.g.cs
-C:\College Project\siKecil_clone2\obj\Debug\View\UserEnter\UserEnterView.g.cs
-C:\College Project\siKecil_clone2\obj\Debug\View\VerificationDeleteAcc.g.cs
-C:\College Project\siKecil_clone2\obj\Debug\App.g.cs
-C:\College Project\siKecil_clone2\obj\Debug\GeneratedInternalTypeHelper.g.cs
-C:\College Project\siKecil_clone2\obj\Debug\siKecil_MarkupCompile.cache
-C:\College Project\siKecil_clone2\obj\Debug\siKecil_MarkupCompile.lref
-C:\College Project\siKecil_clone2\obj\Debug\App.baml
-C:\College Project\siKecil_clone2\obj\Debug\ChatView.baml
-C:\College Project\siKecil_clone2\obj\Debug\View\Main\InformationPage.baml
-C:\College Project\siKecil_clone2\obj\Debug\View\Main\ChatPage.baml
-C:\College Project\siKecil_clone2\obj\Debug\View\Main\DiaryAnakPage.baml
-C:\College Project\siKecil_clone2\obj\Debug\View\GenerateOtpPage.baml
-C:\College Project\siKecil_clone2\obj\Debug\View\Main\KontenPage.baml
-C:\College Project\siKecil_clone2\obj\Debug\View\Main\Profile\PengaturanAkunPage.baml
-C:\College Project\siKecil_clone2\obj\Debug\View\Main\Profile\ProfileAnakPage.baml
-C:\College Project\siKecil_clone2\obj\Debug\View\Main\Profile\ProfileOrangTuaPage.baml
-C:\College Project\siKecil_clone2\obj\Debug\View\UserEnter\LoginPage.baml
-C:\College Project\siKecil_clone2\obj\Debug\View\Main\MainWindow.baml
-C:\College Project\siKecil_clone2\obj\Debug\View\Main\Profile\ProfilePage.baml
-C:\College Project\siKecil_clone2\obj\Debug\ProfileView.baml
-C:\College Project\siKecil_clone2\obj\Debug\View\UserEnter\SignupPage.baml
-C:\College Project\siKecil_clone2\obj\Debug\View\UserEnter\UserEnterView.baml
-C:\College Project\siKecil_clone2\obj\Debug\View\VerificationDeleteAcc.baml
-C:\College Project\siKecil_clone2\obj\Debug\View\Main\HomePage.baml
-C:\College Project\siKecil_clone2\obj\Debug\siKecil.g.resources
-C:\College Project\siKecil_clone2\obj\Debug\siKecil.csproj.GenerateResource.cache
-C:\College Project\siKecil_clone2\obj\Debug\siKecil.pdb
-C:\College Project\siKecil_clone2\bin\Debug\siKecil.exe.config
-C:\College Project\siKecil_clone2\bin\Debug\siKecil.exe
-C:\College Project\siKecil_clone2\bin\Debug\siKecil.pdb
-C:\College Project\siKecil_clone2\bin\Debug\EntityFramework.dll
-C:\College Project\siKecil_clone2\bin\Debug\EntityFramework.SqlServer.dll
-C:\College Project\siKecil_clone2\bin\Debug\Microsoft.AspNet.SignalR.Client.dll
-C:\College Project\siKecil_clone2\bin\Debug\Microsoft.AspNetCore.Connections.Abstractions.dll
-C:\College Project\siKecil_clone2\bin\Debug\Microsoft.AspNetCore.Http.Connections.Client.dll
-C:\College Project\siKecil_clone2\bin\Debug\Microsoft.AspNetCore.Http.Connections.Common.dll
-C:\College Project\siKecil_clone2\bin\Debug\Microsoft.AspNetCore.Http.Features.dll
-C:\College Project\siKecil_clone2\bin\Debug\Microsoft.AspNetCore.SignalR.Client.Core.dll
-C:\College Project\siKecil_clone2\bin\Debug\Microsoft.AspNetCore.SignalR.Client.dll
-C:\College Project\siKecil_clone2\bin\Debug\Microsoft.AspNetCore.SignalR.Common.dll
-C:\College Project\siKecil_clone2\bin\Debug\Microsoft.AspNetCore.SignalR.Protocols.Json.dll
-C:\College Project\siKecil_clone2\bin\Debug\Microsoft.Bcl.AsyncInterfaces.dll
-C:\College Project\siKecil_clone2\bin\Debug\Microsoft.Extensions.DependencyInjection.Abstractions.dll
-C:\College Project\siKecil_clone2\bin\Debug\Microsoft.Extensions.DependencyInjection.dll
-C:\College Project\siKecil_clone2\bin\Debug\Microsoft.Extensions.Logging.Abstractions.dll
-C:\College Project\siKecil_clone2\bin\Debug\Microsoft.Extensions.Logging.dll
-C:\College Project\siKecil_clone2\bin\Debug\Microsoft.Extensions.Options.dll
-C:\College Project\siKecil_clone2\bin\Debug\Microsoft.Extensions.Primitives.dll
-C:\College Project\siKecil_clone2\bin\Debug\Newtonsoft.Json.dll
-C:\College Project\siKecil_clone2\bin\Debug\System.Buffers.dll
-C:\College Project\siKecil_clone2\bin\Debug\System.Diagnostics.DiagnosticSource.dll
-C:\College Project\siKecil_clone2\bin\Debug\System.IO.Pipelines.dll
-C:\College Project\siKecil_clone2\bin\Debug\System.Memory.dll
-C:\College Project\siKecil_clone2\bin\Debug\System.Numerics.Vectors.dll
-C:\College Project\siKecil_clone2\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
-C:\College Project\siKecil_clone2\bin\Debug\System.Text.Encodings.Web.dll
-C:\College Project\siKecil_clone2\bin\Debug\System.Text.Json.dll
-C:\College Project\siKecil_clone2\bin\Debug\System.Threading.Channels.dll
-C:\College Project\siKecil_clone2\bin\Debug\System.Threading.Tasks.Extensions.dll
-C:\College Project\siKecil_clone2\bin\Debug\System.ValueTuple.dll
-C:\College Project\siKecil_clone2\bin\Debug\EntityFramework.xml
-C:\College Project\siKecil_clone2\bin\Debug\EntityFramework.SqlServer.xml
-C:\College Project\siKecil_clone2\bin\Debug\Microsoft.AspNet.SignalR.Client.pdb
-C:\College Project\siKecil_clone2\bin\Debug\Microsoft.AspNet.SignalR.Client.xml
-C:\College Project\siKecil_clone2\bin\Debug\Microsoft.AspNetCore.Connections.Abstractions.xml
-C:\College Project\siKecil_clone2\bin\Debug\Microsoft.AspNetCore.Http.Connections.Client.xml
-C:\College Project\siKecil_clone2\bin\Debug\Microsoft.AspNetCore.Http.Connections.Common.xml
-C:\College Project\siKecil_clone2\bin\Debug\Microsoft.AspNetCore.Http.Features.xml
-C:\College Project\siKecil_clone2\bin\Debug\Microsoft.AspNetCore.SignalR.Client.xml
-C:\College Project\siKecil_clone2\bin\Debug\Microsoft.AspNetCore.SignalR.Client.Core.xml
-C:\College Project\siKecil_clone2\bin\Debug\Microsoft.AspNetCore.SignalR.Common.xml
-C:\College Project\siKecil_clone2\bin\Debug\Microsoft.AspNetCore.SignalR.Protocols.Json.xml
-C:\College Project\siKecil_clone2\bin\Debug\Microsoft.Bcl.AsyncInterfaces.xml
-C:\College Project\siKecil_clone2\bin\Debug\Microsoft.Extensions.DependencyInjection.xml
-C:\College Project\siKecil_clone2\bin\Debug\Microsoft.Extensions.DependencyInjection.Abstractions.xml
-C:\College Project\siKecil_clone2\bin\Debug\Microsoft.Extensions.Logging.xml
-C:\College Project\siKecil_clone2\bin\Debug\Microsoft.Extensions.Logging.Abstractions.xml
-C:\College Project\siKecil_clone2\bin\Debug\Microsoft.Extensions.Options.xml
-C:\College Project\siKecil_clone2\bin\Debug\Microsoft.Extensions.Primitives.xml
-C:\College Project\siKecil_clone2\bin\Debug\Newtonsoft.Json.xml
-C:\College Project\siKecil_clone2\bin\Debug\System.Buffers.xml
-C:\College Project\siKecil_clone2\bin\Debug\System.Diagnostics.DiagnosticSource.xml
-C:\College Project\siKecil_clone2\bin\Debug\System.IO.Pipelines.xml
-C:\College Project\siKecil_clone2\bin\Debug\System.Memory.xml
-C:\College Project\siKecil_clone2\bin\Debug\System.Numerics.Vectors.xml
-C:\College Project\siKecil_clone2\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
-C:\College Project\siKecil_clone2\bin\Debug\System.Text.Encodings.Web.xml
-C:\College Project\siKecil_clone2\bin\Debug\System.Text.Json.xml
-C:\College Project\siKecil_clone2\bin\Debug\System.Threading.Channels.xml
-C:\College Project\siKecil_clone2\bin\Debug\System.Threading.Tasks.Extensions.xml
-C:\College Project\siKecil_clone2\bin\Debug\System.ValueTuple.xml
-C:\College Project\siKecil_clone2\obj\Debug\siKecil.Properties.Resources.resources
-C:\College Project\siKecil_clone2\obj\Debug\siKecil.csproj.CoreCompileInputs.cache
-C:\College Project\siKecil_clone2\obj\Debug\siKecil.csproj.CopyComplete
-C:\College Project\siKecil_clone2\obj\Debug\siKecil.exe
+C:\College Project\siKecil_clone3\bin\Debug\siKecil.exe.config
+C:\College Project\siKecil_clone3\bin\Debug\siKecil.exe
+C:\College Project\siKecil_clone3\bin\Debug\siKecil.pdb
+C:\College Project\siKecil_clone3\bin\Debug\EntityFramework.dll
+C:\College Project\siKecil_clone3\bin\Debug\EntityFramework.SqlServer.dll
+C:\College Project\siKecil_clone3\bin\Debug\Microsoft.AspNet.SignalR.Client.dll
+C:\College Project\siKecil_clone3\bin\Debug\Microsoft.AspNetCore.Connections.Abstractions.dll
+C:\College Project\siKecil_clone3\bin\Debug\Microsoft.AspNetCore.Http.Connections.Client.dll
+C:\College Project\siKecil_clone3\bin\Debug\Microsoft.AspNetCore.Http.Connections.Common.dll
+C:\College Project\siKecil_clone3\bin\Debug\Microsoft.AspNetCore.Http.Features.dll
+C:\College Project\siKecil_clone3\bin\Debug\Microsoft.AspNetCore.SignalR.Client.Core.dll
+C:\College Project\siKecil_clone3\bin\Debug\Microsoft.AspNetCore.SignalR.Client.dll
+C:\College Project\siKecil_clone3\bin\Debug\Microsoft.AspNetCore.SignalR.Common.dll
+C:\College Project\siKecil_clone3\bin\Debug\Microsoft.AspNetCore.SignalR.Protocols.Json.dll
+C:\College Project\siKecil_clone3\bin\Debug\Microsoft.Bcl.AsyncInterfaces.dll
+C:\College Project\siKecil_clone3\bin\Debug\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+C:\College Project\siKecil_clone3\bin\Debug\Microsoft.Extensions.DependencyInjection.dll
+C:\College Project\siKecil_clone3\bin\Debug\Microsoft.Extensions.Logging.Abstractions.dll
+C:\College Project\siKecil_clone3\bin\Debug\Microsoft.Extensions.Logging.dll
+C:\College Project\siKecil_clone3\bin\Debug\Microsoft.Extensions.Options.dll
+C:\College Project\siKecil_clone3\bin\Debug\Microsoft.Extensions.Primitives.dll
+C:\College Project\siKecil_clone3\bin\Debug\Newtonsoft.Json.dll
+C:\College Project\siKecil_clone3\bin\Debug\System.Buffers.dll
+C:\College Project\siKecil_clone3\bin\Debug\System.Diagnostics.DiagnosticSource.dll
+C:\College Project\siKecil_clone3\bin\Debug\System.IO.Pipelines.dll
+C:\College Project\siKecil_clone3\bin\Debug\System.Memory.dll
+C:\College Project\siKecil_clone3\bin\Debug\System.Numerics.Vectors.dll
+C:\College Project\siKecil_clone3\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
+C:\College Project\siKecil_clone3\bin\Debug\System.Text.Encodings.Web.dll
+C:\College Project\siKecil_clone3\bin\Debug\System.Text.Json.dll
+C:\College Project\siKecil_clone3\bin\Debug\System.Threading.Channels.dll
+C:\College Project\siKecil_clone3\bin\Debug\System.Threading.Tasks.Extensions.dll
+C:\College Project\siKecil_clone3\bin\Debug\System.ValueTuple.dll
+C:\College Project\siKecil_clone3\bin\Debug\EntityFramework.xml
+C:\College Project\siKecil_clone3\bin\Debug\EntityFramework.SqlServer.xml
+C:\College Project\siKecil_clone3\bin\Debug\Microsoft.AspNet.SignalR.Client.pdb
+C:\College Project\siKecil_clone3\bin\Debug\Microsoft.AspNet.SignalR.Client.xml
+C:\College Project\siKecil_clone3\bin\Debug\Microsoft.AspNetCore.Connections.Abstractions.xml
+C:\College Project\siKecil_clone3\bin\Debug\Microsoft.AspNetCore.Http.Connections.Client.xml
+C:\College Project\siKecil_clone3\bin\Debug\Microsoft.AspNetCore.Http.Connections.Common.xml
+C:\College Project\siKecil_clone3\bin\Debug\Microsoft.AspNetCore.Http.Features.xml
+C:\College Project\siKecil_clone3\bin\Debug\Microsoft.AspNetCore.SignalR.Client.xml
+C:\College Project\siKecil_clone3\bin\Debug\Microsoft.AspNetCore.SignalR.Client.Core.xml
+C:\College Project\siKecil_clone3\bin\Debug\Microsoft.AspNetCore.SignalR.Common.xml
+C:\College Project\siKecil_clone3\bin\Debug\Microsoft.AspNetCore.SignalR.Protocols.Json.xml
+C:\College Project\siKecil_clone3\bin\Debug\Microsoft.Bcl.AsyncInterfaces.xml
+C:\College Project\siKecil_clone3\bin\Debug\Microsoft.Extensions.DependencyInjection.xml
+C:\College Project\siKecil_clone3\bin\Debug\Microsoft.Extensions.DependencyInjection.Abstractions.xml
+C:\College Project\siKecil_clone3\bin\Debug\Microsoft.Extensions.Logging.xml
+C:\College Project\siKecil_clone3\bin\Debug\Microsoft.Extensions.Logging.Abstractions.xml
+C:\College Project\siKecil_clone3\bin\Debug\Microsoft.Extensions.Options.xml
+C:\College Project\siKecil_clone3\bin\Debug\Microsoft.Extensions.Primitives.xml
+C:\College Project\siKecil_clone3\bin\Debug\Newtonsoft.Json.xml
+C:\College Project\siKecil_clone3\bin\Debug\System.Buffers.xml
+C:\College Project\siKecil_clone3\bin\Debug\System.Diagnostics.DiagnosticSource.xml
+C:\College Project\siKecil_clone3\bin\Debug\System.IO.Pipelines.xml
+C:\College Project\siKecil_clone3\bin\Debug\System.Memory.xml
+C:\College Project\siKecil_clone3\bin\Debug\System.Numerics.Vectors.xml
+C:\College Project\siKecil_clone3\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
+C:\College Project\siKecil_clone3\bin\Debug\System.Text.Encodings.Web.xml
+C:\College Project\siKecil_clone3\bin\Debug\System.Text.Json.xml
+C:\College Project\siKecil_clone3\bin\Debug\System.Threading.Channels.xml
+C:\College Project\siKecil_clone3\bin\Debug\System.Threading.Tasks.Extensions.xml
+C:\College Project\siKecil_clone3\bin\Debug\System.ValueTuple.xml
+C:\College Project\siKecil_clone3\obj\Debug\siKecil.csproj.AssemblyReference.cache
+C:\College Project\siKecil_clone3\obj\Debug\View\Main\DongengAnak.baml
+C:\College Project\siKecil_clone3\obj\Debug\View\Main\Dongeng.g.cs
+C:\College Project\siKecil_clone3\obj\Debug\View\Main\DongengAnak.g.cs
+C:\College Project\siKecil_clone3\obj\Debug\View\Main\HomePage.g.cs
+C:\College Project\siKecil_clone3\obj\Debug\View\Main\InformationPage.g.cs
+C:\College Project\siKecil_clone3\obj\Debug\View\Main\ChatPage.g.cs
+C:\College Project\siKecil_clone3\obj\Debug\View\Main\DiaryAnakPage.g.cs
+C:\College Project\siKecil_clone3\obj\Debug\View\GenerateOtpPage.g.cs
+C:\College Project\siKecil_clone3\obj\Debug\View\Main\KontenPage.g.cs
+C:\College Project\siKecil_clone3\obj\Debug\View\Main\Profile\PengaturanAkunPage.g.cs
+C:\College Project\siKecil_clone3\obj\Debug\View\Main\Profile\ProfileAnakPage.g.cs
+C:\College Project\siKecil_clone3\obj\Debug\View\Main\Profile\ProfileOrangTuaPage.g.cs
+C:\College Project\siKecil_clone3\obj\Debug\View\UserEnter\LoginPage.g.cs
+C:\College Project\siKecil_clone3\obj\Debug\View\Main\MainWindow.g.cs
+C:\College Project\siKecil_clone3\obj\Debug\View\Main\Profile\ProfilePage.g.cs
+C:\College Project\siKecil_clone3\obj\Debug\View\UserEnter\SignupPage.g.cs
+C:\College Project\siKecil_clone3\obj\Debug\View\UserEnter\UserEnterView.g.cs
+C:\College Project\siKecil_clone3\obj\Debug\View\VerificationDeleteAcc.g.cs
+C:\College Project\siKecil_clone3\obj\Debug\App.g.cs
+C:\College Project\siKecil_clone3\obj\Debug\GeneratedInternalTypeHelper.g.cs
+C:\College Project\siKecil_clone3\obj\Debug\siKecil_MarkupCompile.cache
+C:\College Project\siKecil_clone3\obj\Debug\siKecil_MarkupCompile.lref
+C:\College Project\siKecil_clone3\obj\Debug\App.baml
+C:\College Project\siKecil_clone3\obj\Debug\View\Main\Dongeng.baml
+C:\College Project\siKecil_clone3\obj\Debug\View\Main\HomePage.baml
+C:\College Project\siKecil_clone3\obj\Debug\View\Main\InformationPage.baml
+C:\College Project\siKecil_clone3\obj\Debug\View\Main\ChatPage.baml
+C:\College Project\siKecil_clone3\obj\Debug\View\Main\DiaryAnakPage.baml
+C:\College Project\siKecil_clone3\obj\Debug\View\GenerateOtpPage.baml
+C:\College Project\siKecil_clone3\obj\Debug\View\Main\KontenPage.baml
+C:\College Project\siKecil_clone3\obj\Debug\View\Main\Profile\PengaturanAkunPage.baml
+C:\College Project\siKecil_clone3\obj\Debug\View\Main\Profile\ProfileAnakPage.baml
+C:\College Project\siKecil_clone3\obj\Debug\View\Main\Profile\ProfileOrangTuaPage.baml
+C:\College Project\siKecil_clone3\obj\Debug\View\UserEnter\LoginPage.baml
+C:\College Project\siKecil_clone3\obj\Debug\View\Main\MainWindow.baml
+C:\College Project\siKecil_clone3\obj\Debug\View\Main\Profile\ProfilePage.baml
+C:\College Project\siKecil_clone3\obj\Debug\View\UserEnter\SignupPage.baml
+C:\College Project\siKecil_clone3\obj\Debug\View\UserEnter\UserEnterView.baml
+C:\College Project\siKecil_clone3\obj\Debug\View\VerificationDeleteAcc.baml
+C:\College Project\siKecil_clone3\obj\Debug\siKecil.g.resources
+C:\College Project\siKecil_clone3\obj\Debug\siKecil.Properties.Resources.resources
+C:\College Project\siKecil_clone3\obj\Debug\siKecil.csproj.GenerateResource.cache
+C:\College Project\siKecil_clone3\obj\Debug\siKecil.csproj.CoreCompileInputs.cache
+C:\College Project\siKecil_clone3\obj\Debug\siKecil.csproj.CopyComplete
+C:\College Project\siKecil_clone3\obj\Debug\siKecil.exe
+C:\College Project\siKecil_clone3\obj\Debug\siKecil.pdb

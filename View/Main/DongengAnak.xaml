@@ -5,7 +5,7 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
       mc:Ignorable="d"
       d:DesignHeight="450" d:DesignWidth="800"
-      Title="DongengAnakPage">
+      Title="siKecil">
 
     <Grid>
         <Grid.RowDefinitions>
@@ -26,6 +26,7 @@
         <Label Content="Pengarang:" Grid.Row="4" Margin="5"/>
         <TextBox x:Name="PengarangTextBox" Grid.Row="5" Margin="5"/>
 
-        <Button Content="Submit" Grid.Row="8" Margin="5" Click="SubmitButton_Click"/>
+        
+        <Button Content="Submit" Grid.Row="5" Margin="5,32,5,-22" Click="SubmitButton_Click"/>
     </Grid>
 </Page>

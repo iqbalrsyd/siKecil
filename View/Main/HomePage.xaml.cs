@@ -27,6 +27,7 @@ namespace siKecil.View.Main
         {
             InitializeComponent();
             this.User_ID = User_ID;
+            Title = "Beranda";
             connectionHelper = new Connection();
 
             InitializeGreetingText();

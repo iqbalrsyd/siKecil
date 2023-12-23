@@ -202,10 +202,13 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="ChatView.xaml.cs">
-      <DependentUpon>ChatView.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Infrastructure\AgeHelper.cs" />
+    <Compile Include="View\Main\Dongeng.xaml.cs">
+      <DependentUpon>Dongeng.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Main\DongengAnak.xaml.cs">
+      <DependentUpon>DongengAnak.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\Main\HomePage.xaml.cs">
       <DependentUpon>HomePage.xaml</DependentUpon>
     </Compile>
@@ -243,12 +246,6 @@
     <Compile Include="View\Main\Profile\ProfilePage.xaml.cs">
       <DependentUpon>ProfilePage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="ProfileView.xaml.cs">
-      <DependentUpon>ProfileView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="RiwayatMedisView.xaml.cs">
-      <DependentUpon>RiwayatMedisView.xaml</DependentUpon>
-    </Compile>
     <Compile Include="View\UserEnter\SignupPage.xaml.cs">
       <DependentUpon>SignupPage.xaml</DependentUpon>
     </Compile>
@@ -259,9 +256,13 @@
     <Compile Include="View\VerificationDeleteAcc.xaml.cs">
       <DependentUpon>VerificationDeleteAcc.xaml</DependentUpon>
     </Compile>
-    <Page Include="ChatView.xaml">
+    <Page Include="View\Main\Dongeng.xaml">
       <SubType>Designer</SubType>
+      <Generator>XamlIntelliSenseFileGenerator</Generator>
+    </Page>
+    <Page Include="View\Main\DongengAnak.xaml">
       <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="View\Main\HomePage.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -311,14 +312,6 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="View\Main\Profile\ProfilePage.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="ProfileView.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="RiwayatMedisView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
