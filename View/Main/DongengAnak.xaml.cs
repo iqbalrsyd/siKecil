@@ -1,27 +1,45 @@
-﻿using siKecil.Infrastructure;
 using System;
-using System.Collections.ObjectModel;
-using System.Data.SqlClient;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Data;
+using System.Windows.Documents;
+using System.Windows.Input;
+using System.Windows.Media;
+using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
+using System.Windows.Shapes;
+using siKecil.Infrastructure;
+using System.Data.SqlClient;
+using System.Data;
+using System.Data.Entity;
+using siKecil.Model;
+using System.Collections.ObjectModel;
+using System.ComponentModel;
 
 namespace siKecil.View.Main
 {
-    public partial class DongengAnakPage : Page
+    /// <summary>
+    /// Interaction logic for DongengAnak.xaml
+    /// </summary>
+    public partial class DongengAnak : Page
     {
-        private ObservableCollection<Dongeng> dongengList;
-        private Connection connectionHelper = new Connection();
+        private ObservableCollection<Cerita> Ceritas;
+        Connection connectionHelper = new Connection();
 
-        public DongengAnakPage()
+        public DongengAnak()
         {
             InitializeComponent();
             Title = "Dongeng Anak";
             dongengList = LoadDongeng();
         }
 
-        private ObservableCollection<Dongeng> LoadDongeng()
+        private ObservableCollection<Cerita> LoadCerita()
         {
-            ObservableCollection<Dongeng> dongengs = new ObservableCollection<Dongeng>();
+            List<Cerita> cerita = new List<Cerita>();
 
             using (SqlConnection sqlCon = connectionHelper.GetConn())
             {
@@ -36,7 +54,7 @@ namespace siKecil.View.Main
                         {
                             while (reader.Read())
                             {
-                                Dongeng dongeng = new Dongeng
+                                Cerita cerita1 = new Cerita
                                 {
                                     DongengID = Convert.ToInt32(reader["ID_Dongeng"]),
                                     Judul = reader.IsDBNull(reader.GetOrdinal("Judul")) ? string.Empty : reader["Judul"].ToString(),
@@ -45,22 +63,22 @@ namespace siKecil.View.Main
                                     TanggalDibuat = reader.IsDBNull(reader.GetOrdinal("TanggalDibuat")) ? DateTime.MinValue : Convert.ToDateTime(reader["TanggalDibuat"])
                                 };
 
-                                dongengs.Add(dongeng);
+                                cerita.Add(cerita1);
                             }
                         }
                     }
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("Error: " + ex.Message, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                    Console.WriteLine("Error: " + ex.Message);
                 }
             }
-            return dongengs;
+            return new ObservableCollection<Cerita>(cerita);
         }
 
-        private void AddDongengToDatabase(string judul, string isiDongeng, string pengarang, DateTime tanggalDibuat)
+        private void CeritaList_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            try
+            if (ListBoxCerita.SelectedItem != null)
             {
                 using (SqlConnection connection = connectionHelper.GetConn())
                 {
@@ -83,13 +101,14 @@ namespace siKecil.View.Main
             }
         }
 
-        private void SubmitButton_Click(object sender, RoutedEventArgs e)
+        public void InsertDongeng(string judul, string isi, string gambarPath)
         {
-            // Mendapatkan nilai dari input
-            string judul = JudulTextBox.Text;
-            string isiDongeng = IsiDongengTextBox.Text;
-            string pengarang = PengarangTextBox.Text;
-            DateTime tanggalDibuat = DateTime.Now; // Menggunakan tanggal saat ini
+            using (SqlConnection sqlCon = connectionHelper.GetConn())
+            {
+                sqlCon.Open();
+                DongengRepository dongengRepo = new DongengRepository();
+                dongengRepo.InsertDongeng("Judul Dongeng Baru", "Isi Dongeng Baru", "/Asset/gambar_baru.jpg");
+
 
             // Memastikan input tidak kosong sebelum menambahkan ke database
             if (!string.IsNullOrEmpty(judul) && !string.IsNullOrEmpty(isiDongeng))
@@ -97,12 +116,11 @@ namespace siKecil.View.Main
                 // Menambahkan dongeng ke database
                 AddDongengToDatabase(judul, isiDongeng, pengarang, tanggalDibuat);
 
-                // Memuat ulang dongeng dari database
-                dongengList.Clear();
-                foreach (var dongeng in LoadDongeng())
+                using (SqlCommand command = new SqlCommand(insertQuery, sqlCon))
                 {
-                    dongengList.Add(dongeng);
-                }
+                    command.Parameters.AddWithValue("@Judul", "Judul Dongeng Baru");
+                    command.Parameters.AddWithValue("@Isi", "Isi Dongeng Baru");
+                    command.Parameters.AddWithValue("@GambarPath", "/Asset/gambar_baru.jpg");
 
                 // Membersihkan nilai input setelah ditambahkan ke database
                 JudulTextBox.Clear();
